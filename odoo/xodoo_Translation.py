@@ -1,80 +1,72 @@
 import os
-import xlwt
+import re
+from pathlib import Path
 
 
-def read_manifest(file_path):
-    """读取并解析 __manifest__.py 文件"""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        manifest_content = f.read()
-    return eval(manifest_content)
+def process_translation_file(file_path):
+    """处理单个翻译文件"""
+    with open(file_path, 'r+', encoding='utf-8') as f:
+        lines = f.readlines()
+
+        # 检查首行有效性
+        if not lines or not lines[0].startswith("# Translation of Odoo Server."):
+            return False
+
+        # 定位Plural-Forms行
+        plural_idx = None
+        for idx, line in enumerate(lines):
+            if line.strip().startswith("Plural-Forms:"):
+                plural_idx = idx
+                break
+
+        if plural_idx is None:
+            return False  # 没有Plural-Forms行则跳过
+
+        # 跳过后续空行
+        start_idx = plural_idx + 1
+        while start_idx < len(lines) and lines[start_idx].strip() == '':
+            start_idx += 1
+
+        # 构建新内容：首行 + 有效内容
+        new_content = [lines[0]] + lines[start_idx:]
+
+        # 原子化写入
+        f.seek(0)
+        f.truncate()
+        f.writelines(new_content)
+        return True
 
 
-def extract_manifest_info(manifest_dict):
-    """提取 manifest 信息（包含所有字段）"""
-    return {
-        'name': manifest_dict.get('name', ''),
-        'version': manifest_dict.get('version', ''),
-        'category': manifest_dict.get('category', ''),
-        'summary': manifest_dict.get('summary', ''),
-        'sequence': manifest_dict.get('sequence', 0),
-        'author': manifest_dict.get('author', ''),
-        'website': manifest_dict.get('website', ''),
-        'license': manifest_dict.get('license', ''),
-        'depends': ', '.join(manifest_dict.get('depends', [])),  # 转换为字符串
-        'description': manifest_dict.get('description', 'N/A').replace('\n', ' ')  # 处理换行符
-    }
+def batch_process_translations(root_path):
+    """批量处理翻译文件"""
+    processed_count = 0
+    for root, _, files in os.walk(root_path):
+        if not root.endswith('i18n'):
+            continue
 
+        for file in files:
+            if not file.lower().endswith(('.po', '.pot')):
+                continue
 
-def export_to_xls(data, output_path):
-    """将数据导出到 Excel 文件"""
-    workbook = xlwt.Workbook()
-    sheet = workbook.add_sheet('Modules')
+            file_path = Path(root) / file
+            try:
+                if process_translation_file(file_path):
+                    print(f"处理成功：{file_path}")
+                    processed_count += 1
+            except Exception as e:
+                print(f"处理失败 {file_path}：{str(e)}")
 
-    # 定义表头
-    headers = [
-        '模块名称', '版本', '分类', '摘要',
-        '顺序', '作者', '网站', '许可证',
-        '依赖模块', '详细描述'
-    ]
-
-    # 写入表头
-    for col, header in enumerate(headers):
-        sheet.write(0, col, header)
-
-    # 写入数据
-    for row, item in enumerate(data, 1):
-        sheet.write(row, 0, item['name'])
-        sheet.write(row, 1, item['version'])
-        sheet.write(row, 2, item['category'])
-        sheet.write(row, 3, item['summary'])
-        sheet.write(row, 4, item['sequence'])
-        sheet.write(row, 5, item['author'])
-        sheet.write(row, 6, item['website'])
-        sheet.write(row, 7, item['license'])
-        sheet.write(row, 8, item['depends'])
-        sheet.write(row, 9, item['description'])
-
-    workbook.save(output_path)
-
-
-def process_manifests(folder_path, output_file):
-    """主处理函数"""
-    all_modules = []
-
-    for root, dirs, files in os.walk(folder_path):
-        if '__manifest__.py' in files:
-            manifest_path = os.path.join(root, '__manifest__.py')
-            manifest_data = read_manifest(manifest_path)
-            module_info = extract_manifest_info(manifest_data)
-            all_modules.append(module_info)
-
-    export_to_xls(all_modules, output_file)
-    print(f"成功导出 {len(all_modules)} 个模块信息到 {output_file}")
+    print(f"处理完成！共清理 {processed_count} 个文件")
 
 
 if __name__ == "__main__":
-    # 配置路径
-    ODOO_MODULES_PATH = "/Users/amos/Documents/Gitee/xodoo/xodoo_xodoo"  # 你的模块目录
-    OUTPUT_XLS = "odoo_modules.xls"  # 输出文件名
+    MODULES_PATH = "/Users/amos/Documents/github/xodoo/xodoo/odoo/addons"
+    batch_process_translations(MODULES_PATH)
 
-    process_manifests(ODOO_MODULES_PATH, OUTPUT_XLS)
+    #
+    # 从路径/Users/amos/Documents/github/xodoo/xodoo/odoo/addons 模块下,每一个模块下的i18n 找所有后缀是 *.po 与 *.pot
+    # 读取文件第一行是 # Translation of Odoo Server. 一直向下读取只到读取匹配到 "Plural-Forms: 执行删除他们之间的信息，但保留第一行 匹配的Plural-Forms 也要删除
+    # 如果一个文件中配置不到 Plural-Forms: 那么就忽略这个文件
+    # 按上面的条件用python帮我写一个批处理工具
+    #
+

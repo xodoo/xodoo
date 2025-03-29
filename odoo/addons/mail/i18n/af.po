@@ -1,24 +1,4 @@
 # Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# 	* mail
-#
-# Translators:
-# Martin Trigaux, 2022
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 13:48+0000\n"
-"PO-Revision-Date: 2022-09-22 05:53+0000\n"
-"Last-Translator: Martin Trigaux, 2022\n"
-"Language-Team: Afrikaans (https://www.transifex.com/odoo/teams/41243/af/)\n"
-"Language: af\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #. module: mail
 #. odoo-python
 #: code:addons/mail/models/mail_gateway_allowed.py:0
