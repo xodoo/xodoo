@@ -1,0 +1,344 @@
+@@include("partials/main.html")
+
+<head>
+
+    @@include("partials/title-meta.html", {"title": "Blog List"})
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    @@include("partials/head-css.html")
+
+</head>
+
+@@include("partials/body.html")
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+    @@include("partials/menu.html")
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                @@include("partials/page-title.html", {"pagetitle": "Blog", "title": "Blog List"})
+
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <h5 class="card-title">Blog List <span class="text-muted fw-normal ms-2">(535)</span></h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                            <div>
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="apps-blog-list.html" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="apps-blog-grid.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-light"><i class="bx bx-plus me-1"></i> Add New</a>
+                            </div>
+
+                            <div class="dropdown">
+                                <a class="btn btn-link text-muted py-1 font-size-16 shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <img src="assets/images/small/img-3.jpg" alt="" class="img-fluid">
+                            <div class="card-body">
+                                <p class="text-muted mb-2">16 June, 2022</p>
+                                <h5 class=""><a href="#" class="text-body">Coffee with friends</a></h5>
+                                <p class="mb-0 font-size-15">Contrary to popular belief, Lorem Ipsum is not simply random text,a Latin professor at Hampden-Sydney College in Virginia.</p>
+                                <div class="mt-3">
+                                    <a href="#" class="align-middle font-size-15">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+
+                        <div class="card">
+                            <img src="assets/images/small/img-5.jpg" alt="" class="img-fluid">
+                            <div class="card-body">
+                                <p class="text-muted mb-2">22 May, 2022</p>
+                                <h5 class=""><a href="#" class="text-body">Working day with our new ideas</a></h5>
+                                <p class="mb-0 font-size-15">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                                <div class="mt-3">
+                                    <a href="#" class="align-middle font-size-15">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+
+                        <div class="card">
+                            <img src="assets/images/small/img-1.jpg" alt="" class="img-fluid">
+                            <div class="card-body">
+                                <p class="text-muted mb-2">12 june, 2022</p>
+                                <h5 class=""><a href="#" class="text-body">Project discussion with team</a></h5>
+                                <p class="mb-0 font-size-15">Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words.</p>
+                                <div class="mt-3">
+                                    <a href="#" class="align-middle font-size-15">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                    <!--end col-->
+
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="search-box">
+                                    <h5 class="mb-3">Search</h5>
+                                    <div class="position-relative px-2">
+                                        <input type="text" class="form-control rounded bg-light border-light" placeholder="Search...">
+                                        <i class="mdi mdi-magnify search-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Categories</h5>
+                                    <ul class="list-unstyled fw-medium px-2">
+                                        <li><a href="javascript: void(0);" class="text-body pb-3 d-block border-bottom">Design<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">02</span></a></li>
+                                        <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Development <span class="badge bg-primary-subtle text-primary rounded-pill float-end ms-1 font-size-12">04</span></a></li>
+                                        <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Business<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">12</span></a></li>
+                                        <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Project<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">08</span></a></li>
+                                        <li><a href="javascript: void(0);" class="text-body pt-3 pb-0 d-block">Travel<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">10</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Upcoming Post</h5>
+                                    <div class="list-group list-group-flush">
+                                        <a href="javascript: void(0);" class="list-group-item text-muted pb-3 pt-0 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-7.jpg" alt="" class="avatar-lg h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Beautiful Day with Friends</h5>
+                                                    <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:00 AM</span></p>
+                                                </div>
+                                                <div class="fs-1">
+                                                    <i class="mdi mdi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-2.jpg" alt="" class="avatar-lg h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Drawing a sketch</h5>
+                                                    <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:05 AM</span></p>
+                                                </div>
+                                                <div class="fs-1">
+                                                    <i class="mdi mdi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-6.jpg" alt="" class="avatar-lg h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Project discussion with team</h5>
+                                                    <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:10 PM</span></p>
+                                                </div>
+                                                <div class="fs-1">
+                                                    <i class="mdi mdi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-1.jpg" alt="" class="avatar-lg h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Coffee with friends</h5>
+                                                    <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:30 PM</span></p>
+                                                </div>
+                                                <div class="fs-1">
+                                                    <i class="mdi mdi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Popular Post</h5>
+                                    <div class="list-group list-group-flush">
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted pb-3 pt-0 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-3.jpg" alt="" class="avatar-xl h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Beautiful Day with Friends</h5>
+                                                    <p class="mb-0 text-truncate">10 Apr, 2022</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-4.jpg" alt="" class="avatar-xl h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Drawing a sketch</h5>
+                                                    <p class="mb-0 text-truncate">24 May, 2022</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="assets/images/small/img-1.jpg" alt="" class="avatar-xl h-auto d-block rounded">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 text-truncate">Coffee with friends</h5>
+                                                    <p class="mb-0 text-truncate">15 June, 2022</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Tag Clouds</h5>
+                                    <div class="px-2">
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Design</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Development</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Wordpress</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">HTML</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Project</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Business</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Travel</span></a>
+                                        <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Photography</span></a>
+                                    </div>
+                                </div>
+
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Instagram Post</h5>
+                                    <div class="gap-2 hstack flex-wrap px-2">
+                                        <img src="assets/images/small/img-3.jpg" alt="" class="avatar-xl rounded">
+                                        <img src="assets/images/small/img-1.jpg" alt="" class="avatar-xl rounded">
+                                        <img src="assets/images/small/img-2.jpg" alt="" class="avatar-xl rounded">
+                                        <img src="assets/images/small/img-4.jpg" alt="" class="avatar-xl rounded">
+                                        <img src="assets/images/small/img-5.jpg" alt="" class="avatar-xl rounded">
+                                        <img src="assets/images/small/img-6.jpg" alt="" class="avatar-xl rounded">
+                                    </div>
+                                </div>
+
+                                <div class="mt-5">
+                                    <h5 class="mb-3">Email Newsletter</h5>
+                                    <div class="">
+                                        <div class="input-group mb-0 px-2">
+                                            <input type="text" class="form-control" placeholder="Enter Email">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="mdi mdi-send-outline"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+                <!--end row-->
+
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-3">
+                        <div class="">
+                            <ul class="pagination mb-sm-0">
+                                <li class="page-item disabled">
+                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">1</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a href="#" class="page-link">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+        @@include("partials/footer.html")
+    </div>
+    <!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+@@include("partials/right-sidebar.html")
+
+@@include("partials/vendor-scripts.html")
+
+<!-- Required datatable js -->
+<script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<!-- init js -->
+<script src="assets/js/pages/datatable-pages.init.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>帐户中心-{{ object.release.product_name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Mobile:13584935775,Email:35350428@qq.com" name="author"/>
+    <meta content="Themesbrand" name="author"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/web/static/minia/assets/images/logo-sm-login.svg"/>
+    <!-- Bootstrap Css -->
+    <link href="/web/static/minia/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
+          type="text/css"/>
+    <!-- Icons Css -->
+    <link href="/web/static/minia/assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- App Css-->
+    <link href="/web/static/minia/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+    <style>
+        h1:hover {
+            transform: translate3d(0, -10px, 22px);
+            color: #71639e;
+        }
+
+        /*移动端隐藏宣传口号*/
+        @media screen and (max-width: 768px) {
+            .hidden-xs {
+                display: none;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .hidden-sm {
+                display: none;
+            }
+        }
+        .btn-primary {
+            color: #fff;
+            background-color: #71639e;
+            border-color: #71639e;
+        }
+
+        .bg-primary {
+            background-color: #71639e !important;
+        }
+
+        .btn:hover {
+            background-color: #71639e;
+            border-color: #71639e;
+        }
+
+        .text-success {
+            color: #FFFFFF !important
+        }
+
+        .was-validated .form-check-input:valid ~ .form-check-label {
+            color: #71639e;
+        }
+
+        .was-validated .form-check-input:valid:checked {
+            background-color: #71639e;
+        }
+
+        .was-validated .form-check-input:valid {
+            border-color: #71639e;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 10vw;
+            margin: 0;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.4rem;
+            color: #71639e;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- <body data-layout="horizontal"> -->
+<div class="auth-page">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+
+            <!-- end col -->
+            <div class="col-xxl-9 col-lg-8 col-md-7 d-none d-md-block">
+                <div class="auth-bg pt-md-5 p-4 d-flex">
+                    <div class="bg-overlay bg-primary"></div>
+                    <ul class="bg-bubbles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- end bubble effect -->
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-xl-7">
+                            <div class="p-0 p-sm-4 px-xl-0">
+                                <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators carousel-indicators-rounded justify-content-start ms-0 mb-0">
+                                        <button type="button" data-bs-target="#reviewcarouselIndicators"
+                                                data-bs-slide-to="0" class="active" aria-current="true"
+                                                aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#reviewcarouselIndicators"
+                                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#reviewcarouselIndicators"
+                                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <!-- end carouselIndicators -->
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="testi-contain text-white">
+                                                <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                <h4 class="mt-4 fw-medium lh-base text-white">
+                                                    一站式智能账户管理平台，支持手机、邮件、第三方快捷登录，多重安全验证确保账户安全。集成CRM、ERP等模块，实现业务高效管理，让您的操作更简单、安全、便捷。
+                                                </h4>
+                                                <div class="mt-4 pt-3 pb-5">
+                                                    <div class="d-flex align-items-start">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <div class="testi-contain text-white">
+                                                <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                <h4 class="mt-4 fw-medium lh-base text-white">
+                                                    全平台覆盖的注册与登录方式，结合多设备共享和权限管理功能，确保数据安全透明。实时日志追踪与消息通知，打造专属于您的数字身份管家，安全又高效。</h4>
+                                                <div class="mt-4 pt-3 pb-5">
+                                                    <div class="d-flex align-items-start">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <div class="testi-contain text-white">
+                                                <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                <h4 class="mt-4 fw-medium lh-base text-white">
+                                                    多维账户管理系统，支持手机、邮件、第三方快速注册登录，满足各类用户需求。集成CRM、ERP、MES等业务模块，助力企业与个人实现全面的数字化转型，提升工作效率。</h4>
+                                                <div class="mt-4 pt-3 pb-5">
+                                                    <div class="d-flex align-items-start">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end carousel-inner -->
+                                </div>
+                                <!-- end review carousel -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+            <div class="col-xxl-3 col-lg-4 col-md-5">
+                <div class="auth-full-page-content d-flex p-sm-5 p-4">
+                    <div class="w-100">
+                        <div class="d-flex flex-column h-100">
+                            <div class="mb-4 mb-md-5 text-center">
+                                <a href="#" class="d-block auth-logo">
+                                    <img src="/web/static/minia/assets/images/logo-sm-login.svg" alt="" height="28">
+                                    <span
+                                            class="logo-txt">AI 智能业务系统</span>
+                                </a>
+                            </div>
+                            <h1 class="display-1 text-center">2025</h1>
+                            <div class="auth-content my-auto">
+                                <div class="text-center">
+                                    <h5 class="mb-0">欢迎回来 !</h5>
+                                    <p class="text-muted mt-2">登陆您的帐户中心，完成你的工作.</p>
+                                </div>
+                                <form class="custom-form mt-4 pt-2 needs-validation" action="/web/login" id="form_key"
+                                      data-module="smsFrom"
+                                      method="post" novalidate>
+
+                                    <div class="mb-3">
+                                        {% if object.databases and object.databases|length > 1 %}
+                                        <label for="db" class="form-label">选择帐套</label>
+                                        <select class="form-select" id="db" name="db">
+                                            {% for db in object.databases %}
+                                            {% if object.session_db == db %}
+                                            <option selected>{{ db }}</option>
+                                            {% else %}
+                                            <option value="{{ db }}">{{ db }}</option>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                        {% else %}
+
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">帐号</label>
+                                        <input type="text" class="form-control" id="login" name="login"
+                                               value="{{object.login}}"
+                                               placeholder="请输入帐号" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-grow-1">
+                                                <label class="form-label">密码</label>
+                                            </div>
+                                            {% if object.auth_signup == 'b2c' %}
+                                            <div class="flex-shrink-0">
+                                                <div class="">
+                                                    <a href="reset_password" class="text-muted">忘记密码?</a>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="input-group auth-pass-inputgroup">
+                                            <input type="password" class="form-control" id="password"
+                                                   placeholder="请输入密码"
+                                                   name="password" aria-describedby="inputGroupPrepend" required>
+
+                                            <button class="btn btn-light ms-0" type="button" id="password-addon"><i
+                                                    class="mdi mdi-eye-outline"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="remember-check"
+                                                       name="remember-check">
+                                                <label class="form-check-label" for="remember-check">
+                                                    记住密码
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    {% if object.error %}
+                                    <div class="mb-3 text-center">
+                                        <span class="badge bg-soft-danger text-danger">{{object.error}}</span>
+                                    </div>
+                                    {% endif %}
+
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">
+                                            登录
+                                        </button>
+                                        <input type="hidden" name="csrf_token" value="{{object.csrf_token}}"/>
+                                    </div>
+                                </form>
+
+                                {% if object.other_login %}
+                                <div class="mt-4 pt-2 text-center">
+                                    <div class="signin-other-title">
+                                        <h5 class="font-size-14 mb-3 text-muted fw-medium">- 其它方式登陆 -</h5>
+                                    </div>
+
+                                    <ul class="list-inline mb-0">
+                                        {% if object.xodoo_login_mobile %}
+                                        <li class="list-inline-item">
+                                            <a href="/web/login/mobile"
+                                               class="social-list-item bg-primary text-white border-primary">
+                                                <i class="mdi mdi-cellphone"></i>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                        {% if object.xodoo_login_weixin %}
+                                        <li class="list-inline-item">
+                                            <a href="/web/login/weixin"
+                                               class="social-list-item bg-info text-white border-info">
+                                                <i class=" fab fa-weixin"></i>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                        {% if object.xodoo_login_email %}
+                                        <li class="list-inline-item">
+                                            <a href="/web/login/email"
+                                               class="social-list-item bg-danger text-white border-danger">
+                                                <i class="mdi mdi-email"></i>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                        {% if object.xodoo_login_2fa %}
+                                        <li class="list-inline-item">
+                                            <a href="/web/login/2fa"
+                                               class="social-list-item bg-primary text-white border-primary">
+                                                <i class="fas fa-qrcode"></i>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+
+                                {% if object.auth_signup == 'b2c' %}
+                                <div class="mt-5 text-center">
+                                    <p class="text-muted mb-0">如果没有帐号 ? <a href="/web/signup"
+                                                                                 class="text-primary fw-semibold">
+                                        创建帐户 </a></p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="mt-4 mt-md-5 text-center">
+                                <p class="mb-0">©
+                                    <script>document.write(new Date().getFullYear())</script>
+                                    {{ object.release.company_name }} By {{ object.release.author }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end auth full page content -->
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container fluid -->
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="/web/static/minia/assets/libs/jquery/jquery.min.js"></script>
+<script src="/web/static/minia/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+{% if object.databases and object.databases|length > 1 %}
+<script type="text/javascript">
+    document.getElementById("db").onchange = function () {
+        var db = this.options[this.selectedIndex].innerHTML;
+        var url = window.location.protocol + "//" + window.location.host + "/web?db=" + db;
+        window.location.replace(url);
+    }
+</script>
+{% endif %}
+
+<script>
+    // 校验提交表单
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        // 进行循环并防止提交
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+</body>
+
+</html>
