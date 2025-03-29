@@ -41,6 +41,7 @@ def main():
     args = sys.argv[1:]
 
     options = odoo.tools.config.options
+
     xodoo.tools.option.update_from_dict(options)
 
     # The only shared option is '--addons-path=' needed to discover additional

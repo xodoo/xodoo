@@ -31,11 +31,11 @@ beforeEach(() => {
 test('display partner mention suggestions on typing "@"', async () => {
     const pyEnv = await startServer();
     const partnerId_1 = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     const partnerId_2 = pyEnv["res.partner"].create({
-        email: "testpartner2@odoo.com",
+        email: "testpartner2@xodoo.cn",
         name: "TestPartner2",
     });
     pyEnv["res.users"].create({ partner_id: partnerId_1 });
@@ -56,11 +56,11 @@ test('display partner mention suggestions on typing "@"', async () => {
 test('post a first message then display partner mention suggestions on typing "@"', async () => {
     const pyEnv = await startServer();
     const partnerId_1 = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     const partnerId_2 = pyEnv["res.partner"].create({
-        email: "testpartner2@odoo.com",
+        email: "testpartner2@xodoo.cn",
         name: "TestPartner2",
     });
     pyEnv["res.users"].create({ partner_id: partnerId_1 });
@@ -113,7 +113,7 @@ test("Do not fetch if search more specific and fetch had no result", async () =>
 test("show other channel member in @ mention", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({
@@ -132,7 +132,7 @@ test("show other channel member in @ mention", async () => {
 test("select @ mention insert mention text in composer", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({
@@ -152,7 +152,7 @@ test("select @ mention insert mention text in composer", async () => {
 test("select @ mention closes suggestions", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({

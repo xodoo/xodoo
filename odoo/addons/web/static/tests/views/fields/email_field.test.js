@@ -19,7 +19,7 @@ defineModels([Contact]);
 onRpc("has_group", () => true);
 
 test("in form view", async () => {
-    Contact._records = [{ id: 1, email: "john.doe@odoo.com" }];
+    Contact._records = [{ id: 1, email: "john.doe@xodoo.cn" }];
     await mountView({
         type: "form",
         resModel: "contact",
@@ -27,18 +27,18 @@ test("in form view", async () => {
         arch: `<form><field name="email" widget="email"/></form>`,
     });
     expect(`.o_field_email input[type="email"]`).toHaveCount(1);
-    expect(`.o_field_email input[type="email"]`).toHaveValue("john.doe@odoo.com");
+    expect(`.o_field_email input[type="email"]`).toHaveValue("john.doe@xodoo.cn");
     expect(`.o_field_email a`).toHaveCount(1);
-    expect(`.o_field_email a`).toHaveAttribute("href", "mailto:john.doe@odoo.com");
+    expect(`.o_field_email a`).toHaveAttribute("href", "mailto:john.doe@xodoo.cn");
     expect(`.o_field_email a`).toHaveAttribute("target", "_blank");
-    await fieldInput("email").edit("new@odoo.com");
-    expect(`.o_field_email input[type="email"]`).toHaveValue("new@odoo.com");
+    await fieldInput("email").edit("new@xodoo.cn");
+    expect(`.o_field_email input[type="email"]`).toHaveValue("new@xodoo.cn");
 });
 
 test("in editable list view", async () => {
     Contact._records = [
-        { id: 1, email: "john.doe@odoo.com" },
-        { id: 2, email: "jane.doe@odoo.com" },
+        { id: 1, email: "john.doe@xodoo.cn" },
+        { id: 2, email: "jane.doe@xodoo.cn" },
     ];
     await mountView({
         type: "list",
@@ -48,23 +48,23 @@ test("in editable list view", async () => {
     expect(`tbody td:not(.o_list_record_selector) a`).toHaveCount(2);
     expect(`.o_field_email a`).toHaveCount(2);
     expect(queryAllTexts(`tbody td:not(.o_list_record_selector) a`)).toEqual([
-        "john.doe@odoo.com",
-        "jane.doe@odoo.com",
+        "john.doe@xodoo.cn",
+        "jane.doe@xodoo.cn",
     ]);
-    expect(".o_field_email a:first").toHaveAttribute("href", "mailto:john.doe@odoo.com");
+    expect(".o_field_email a:first").toHaveAttribute("href", "mailto:john.doe@xodoo.cn");
     let cell = queryFirst("tbody td:not(.o_list_record_selector)");
     await contains(cell).click();
     expect(cell.parentElement).toHaveClass("o_selected_row");
-    expect(`.o_field_email input[type="email"]`).toHaveValue("john.doe@odoo.com");
-    await fieldInput("email").edit("new@odoo.com");
+    expect(`.o_field_email input[type="email"]`).toHaveValue("john.doe@xodoo.cn");
+    await fieldInput("email").edit("new@xodoo.cn");
     await contains(getFixture()).click();
     cell = queryFirst("tbody td:not(.o_list_record_selector)");
     expect(cell.parentElement).not.toHaveClass("o_selected_row");
     expect(queryAllTexts(`tbody td:not(.o_list_record_selector) a`)).toEqual([
-        "new@odoo.com",
-        "jane.doe@odoo.com",
+        "new@xodoo.cn",
+        "jane.doe@xodoo.cn",
     ]);
-    expect(".o_field_email a:first").toHaveAttribute("href", "mailto:new@odoo.com");
+    expect(".o_field_email a:first").toHaveAttribute("href", "mailto:new@xodoo.cn");
 });
 
 test("with empty value", async () => {

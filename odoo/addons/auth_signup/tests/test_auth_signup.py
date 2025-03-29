@@ -67,8 +67,8 @@ class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
 
     def test_copy_multiple_users(self):
         users = self.env['res.users'].create([
-            {'login': 'testuser1', 'name': 'Test User 1', 'email': 'test1@odoo.com'},
-            {'login': 'testuser2', 'name': 'Test User 2', 'email': 'test2@odoo.com'},
+            {'login': 'testuser1', 'name': 'Test User 1', 'email': 'test1@xodoo.cn'},
+            {'login': 'testuser2', 'name': 'Test User 2', 'email': 'test2@xodoo.cn'},
         ])
         initial_user_count = self.env['res.users'].search_count([])
         users.copy()

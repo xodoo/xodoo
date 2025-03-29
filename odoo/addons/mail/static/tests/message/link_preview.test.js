@@ -69,7 +69,7 @@ test("simplest card layout", async () => {
         og_description: "Description",
         og_title: "Article title",
         og_type: "article",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -93,7 +93,7 @@ test("simplest card layout with image", async () => {
         og_image: "https://c.tenor.com/B_zYdea4l-4AAAAC/yay-minions.gif",
         og_title: "Article title",
         og_type: "article",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -118,7 +118,7 @@ test("Link preview video layout", async () => {
         og_image: "https://c.tenor.com/B_zYdea4l-4AAAAC/yay-minions.gif",
         og_title: "video title",
         og_type: "video.other",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -188,7 +188,7 @@ test("Remove link preview card", async () => {
         og_description: "Description",
         og_title: "Article title",
         og_type: "article",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -213,7 +213,7 @@ test("Remove link preview video", async () => {
         og_image: "https://c.tenor.com/B_zYdea4l-4AAAAC/yay-minions.gif",
         og_title: "video title",
         og_type: "video.other",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -303,7 +303,7 @@ test("Link preview and message should not be squashed when the link preview is n
         og_description: "Description",
         og_title: "Article title",
         og_type: "article",
-        source_url: "https://www.odoo.com",
+        source_url: "https://www.xodoo.cn",
     });
     const channelId = pyEnv["discuss.channel"].create({ name: "wololo" });
     pyEnv["mail.message"].create({
@@ -355,7 +355,7 @@ test("Delete all link previews at once", async () => {
             og_description: "Description",
             og_title: "Article title 1",
             og_type: "article",
-            source_url: "https://www.odoo.com",
+            source_url: "https://www.xodoo.cn",
         },
         {
             image_mimetype: "image/jpg",
@@ -396,7 +396,7 @@ test("link preview request is only made when message contains URL", async () => 
     await click("button[aria-label='Send']:enabled");
     await contains(".o-mail-Message", { text: "Sales" });
     await assertSteps([]);
-    await insertText(".o-mail-Composer-input", "https://www.odoo.com");
+    await insertText(".o-mail-Composer-input", "https://www.xodoo.cn");
     await click("button[aria-label='Send']:enabled");
     await assertSteps(["/mail/link_preview"]);
 });

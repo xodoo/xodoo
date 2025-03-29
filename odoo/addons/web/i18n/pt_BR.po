@@ -4385,8 +4385,8 @@ msgstr "Muçulmano"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "Minha conta Odoo.com"
+msgid "My xodoo.cn account"
+msgstr "Minha conta xodoo.cn"
 
 #. module: web
 #. odoo-javascript

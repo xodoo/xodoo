@@ -4293,8 +4293,8 @@ msgstr ""
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "Миний Odoo.com данс"
+msgid "My xodoo.cn account"
+msgstr "Миний xodoo.cn данс"
 
 #. module: web
 #. odoo-javascript

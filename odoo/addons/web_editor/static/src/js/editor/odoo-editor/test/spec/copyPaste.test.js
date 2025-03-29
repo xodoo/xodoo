@@ -2429,9 +2429,9 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p>xy<a href="#" oe-zws-empty-inline="">\u200B[]</a>z</p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'http://odoo.com');
+                        await pasteText(editor, 'http://xodoo.cn');
                     },
-                    contentAfter: '<p>xy<a href="http://odoo.com">http://odoo.com</a>[]z</p>',
+                    contentAfter: '<p>xy<a href="http://xodoo.cn">http://xodoo.cn</a>[]z</p>',
                 });
                 const imageUrl = 'https://download.odoocdn.com/icons/website/static/description/icon.png';
                 await testEditor(BasicEditor, {
@@ -2463,16 +2463,16 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[]\u200B</a></p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'abc www.odoo.com xyz');
+                        await pasteText(editor, 'abc www.xodoo.cn xyz');
                     },
-                    contentAfter: '<p>abc <a href="http://www.odoo.com">www.odoo.com</a> xyz[]</p>',
+                    contentAfter: '<p>abc <a href="http://www.xodoo.cn">www.xodoo.cn</a> xyz[]</p>',
                 });
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[]\u200B</a></p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'odoo.com\ngoogle.com');
+                        await pasteText(editor, 'xodoo.cn\ngoogle.com');
                     },
-                    contentAfter: '<p style="margin-bottom: 0px;"><a href="http://odoo.com">odoo.com</a></p>' +
+                    contentAfter: '<p style="margin-bottom: 0px;"><a href="http://xodoo.cn">xodoo.cn</a></p>' +
                                   '<p><a href="http://google.com">google.com</a>[]</p>'
                 });
             });
@@ -2480,13 +2480,13 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[]\u200B</a></p>',
                     stepFunction: async editor => {
-                        await pasteHtml(editor, '<a href="www.odoo.com">odoo.com</a><br><a href="www.google.com">google.com</a>');
+                        await pasteHtml(editor, '<a href="www.xodoo.cn">xodoo.cn</a><br><a href="www.google.com">google.com</a>');
                     },
-                    contentAfter: '<p><a href="www.odoo.com">odoo.com</a></p><p><a href="www.google.com">google.com</a>[]</p>',
+                    contentAfter: '<p><a href="www.xodoo.cn">xodoo.cn</a></p><p><a href="www.google.com">google.com</a>[]</p>',
                 });
             });
             it('should paste and transform URL among text', async () => {
-                const url = 'https://www.odoo.com';
+                const url = 'https://www.xodoo.cn';
                 const imgUrl = 'https://download.odoocdn.com/icons/website/static/description/icon.png';
                 const videoUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
                 await testEditor(BasicEditor, {
@@ -2518,7 +2518,7 @@ describe('Paste', () => {
                 });
             });
             it('should paste and transform multiple URLs', async () => {
-                const url = 'https://www.odoo.com';
+                const url = 'https://www.xodoo.cn';
                 const imgUrl = 'https://download.odoocdn.com/icons/website/static/description/icon.png';
                 const videoUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
                 await testEditor(BasicEditor, {
@@ -2608,7 +2608,7 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p>[abc]</p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'www.odoo.com');
+                        await pasteText(editor, 'www.xodoo.cn');
                         editor.historyUndo();
                     },
                     contentAfter: '<p>[abc]</p>',
@@ -2616,7 +2616,7 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p>[abc]</p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'def www.odoo.com xyz');
+                        await pasteText(editor, 'def www.xodoo.cn xyz');
                         editor.historyUndo();
                     },
                     contentAfter: '<p>[abc]</p>',
@@ -2626,14 +2626,14 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p>[abc]</p>',
                     stepFunction: async editor => {
-                        await pasteHtml(editor, '<a href="www.odoo.com">odoo.com</a><br><a href="www.google.com">google.com</a>');
+                        await pasteHtml(editor, '<a href="www.xodoo.cn">xodoo.cn</a><br><a href="www.google.com">google.com</a>');
                         editor.historyUndo();
                     },
                     contentAfter: '<p>[abc]</p>',
                 });
             });
             it('should paste and transform URLs among text or multiple URLs', async () => {
-                const url = 'https://www.odoo.com';
+                const url = 'https://www.xodoo.cn';
                 const imgUrl = 'https://download.odoocdn.com/icons/website/static/description/icon.png';
                 const videoUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
                 await testEditor(BasicEditor, {
@@ -2695,16 +2695,16 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[xyz]</a></p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'www.odoo.com');
+                        await pasteText(editor, 'www.xodoo.cn');
                     },
-                    contentAfter: '<p><a href="http://www.odoo.com">www.odoo.com</a>[]</p>',
+                    contentAfter: '<p><a href="http://www.xodoo.cn">www.xodoo.cn</a>[]</p>',
                 });
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[xyz]</a></p>',
                     stepFunction: async editor => {
-                        await pasteText(editor, 'abc www.odoo.com xyz');
+                        await pasteText(editor, 'abc www.xodoo.cn xyz');
                     },
-                    contentAfter: '<p>abc <a href="http://www.odoo.com">www.odoo.com</a> xyz[]</p>',
+                    contentAfter: '<p>abc <a href="http://www.xodoo.cn">www.xodoo.cn</a> xyz[]</p>',
                 });
                 const imageUrl = 'https://download.odoocdn.com/icons/website/static/description/icon.png';
                 await testEditor(BasicEditor, {
@@ -2735,9 +2735,9 @@ describe('Paste', () => {
                 await testEditor(BasicEditor, {
                     contentBefore: '<p><a href="#">[xyz]</a></p>',
                     stepFunction: async editor => {
-                        await pasteHtml(editor, '<a href="www.odoo.com">odoo.com</a><br><a href="www.google.com">google.com</a>');
+                        await pasteHtml(editor, '<a href="www.xodoo.cn">xodoo.cn</a><br><a href="www.google.com">google.com</a>');
                     },
-                    contentAfter: '<p><a href="www.odoo.com">odoo.com</a></p><p><a href="www.google.com">google.com</a>[]</p>',
+                    contentAfter: '<p><a href="www.xodoo.cn">xodoo.cn</a></p><p><a href="www.google.com">google.com</a>[]</p>',
                 });
             });
         });

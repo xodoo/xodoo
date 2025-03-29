@@ -8116,8 +8116,8 @@ msgstr "O modelo (Odoo Document Kind) a qual esta alias corresponde. Qualquer em
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_name
-msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.odoo.com>"
-msgstr "O nome do alias de email, ex.: 'jobs' se quiser receber emails de <jobs@example.odoo.com>"
+msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.xodoo.cn>"
+msgstr "O nome do alias de email, ex.: 'jobs' se quiser receber emails de <jobs@example.xodoo.cn>"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_user_id
@@ -8848,7 +8848,7 @@ msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Using your own email server is required to send/receive emails in Community and Enterprise versions. Online users already benefit from a ready-to-use email server (@mycompany.odoo.com)."
+msgid "Using your own email server is required to send/receive emails in Community and Enterprise versions. Online users already benefit from a ready-to-use email server (@mycompany.xodoo.cn)."
 msgstr ""
 
 #. module: mail
@@ -13896,7 +13896,7 @@ msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
+msgid "e.g: \"info@mycompany.xodoo.cn\""
 msgstr ""
 
 #. module: mail

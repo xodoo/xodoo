@@ -9514,8 +9514,8 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
-msgstr "邮件别名的名称，例如：如果您要收取 <jobs@example.odoo.com> 的EMail,别名就要设为：\"jobs\""
+"<jobs@example.xodoo.cn>"
+msgstr "邮件别名的名称，例如：如果您要收取 <jobs@example.xodoo.cn> 的EMail,别名就要设为：\"jobs\""
 
 #. module: mail
 #. odoo-python
@@ -10531,10 +10531,10 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.xodoo.cn)."
 msgstr ""
 "在社区和企业版本中，发送/接收电子邮件需要使用自己的电子邮件服务器。上线用户已受益于随时可用的电子邮件服务器 "
-"(@mycompany.odoo.com)。"
+"(@mycompany.xodoo.cn)。"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_alias__alias_status__valid
@@ -11381,8 +11381,8 @@ msgstr "例如：user_id"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
-msgstr "例如：“info@mycompany.odoo.com”"
+msgid "e.g: \"info@mycompany.xodoo.cn\""
+msgstr "例如：“info@mycompany.xodoo.cn”"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_compose_message_view_form_template_save

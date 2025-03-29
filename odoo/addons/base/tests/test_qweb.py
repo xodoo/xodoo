@@ -654,7 +654,7 @@ class TestQWebNS(TransactionCase):
             'type': 'qweb',
             'arch': """
                 <t t-name="base.dummy">
-                    <Invoice xmlns:od="http://odoo.com/od">
+                    <Invoice xmlns:od="http://xodoo.cn/od">
                         <od:name t-att-test="'a' + 1"/>
                     </Invoice>
                 </t>

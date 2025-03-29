@@ -4364,8 +4364,8 @@ msgstr ""
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "Min Odoo.com konto"
+msgid "My xodoo.cn account"
+msgstr "Min xodoo.cn konto"
 
 #. module: web
 #. odoo-javascript

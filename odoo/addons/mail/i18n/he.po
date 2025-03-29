@@ -9484,10 +9484,10 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.xodoo.cn>"
 msgstr ""
 "שם כינוי הדוא\"ל, למשל 'עבודות' אם ברצונך לקבל הודעות דוא\"ל ל "
-"<jobs@example.odoo.com>"
+"<jobs@example.xodoo.cn>"
 
 #. module: mail
 #. odoo-python
@@ -10482,7 +10482,7 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.xodoo.cn)."
 msgstr ""
 
 #. module: mail
@@ -11323,7 +11323,7 @@ msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
+msgid "e.g: \"info@mycompany.xodoo.cn\""
 msgstr ""
 
 #. module: mail

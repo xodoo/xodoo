@@ -129,7 +129,7 @@
                                 <field name="zip" placeholder="ZIP" class="o_address_zip"/>
                                 <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
                             </div>
-                            <field name="website" string="Website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                            <field name="website" string="Website" widget="url" placeholder="e.g. https://www.xodoo.cn"/>
                         </group>
                         <group>
                         </group>
@@ -214,7 +214,7 @@
                                         "form_url":"/xodoo/user_id",
                                         "fun_area":"1500px,800px"
                                         }'
-                                   placeholder="e.g. https://www.odoo.com"/>
+                                   placeholder="e.g. https://www.xodoo.cn"/>
                             <field name="title" options='{"no_open": True}' placeholder="e.g. Mister"
                                 invisible="is_company"/>
                             <field name="lang" invisible="active_lang_count &lt;= 1"/>

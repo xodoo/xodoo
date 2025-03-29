@@ -9575,9 +9575,9 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.xodoo.cn>"
 msgstr ""
-"<jobs@example.odoo.com>에 대한 이메일을 수신하도록 하려면 이메일의 별칭 이름을 적어주세요. 예: 'jobs'"
+"<jobs@example.xodoo.cn>에 대한 이메일을 수신하도록 하려면 이메일의 별칭 이름을 적어주세요. 예: 'jobs'"
 
 #. module: mail
 #. odoo-python
@@ -10597,10 +10597,10 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.xodoo.cn)."
 msgstr ""
 "커뮤니티 및 유료버전에서 이메일을 보내고 받으려면 전자 메일 서버를 사용해야 합니다. 온라인 사용자는 이미 가입하면 바로 사용가능한 "
-"이메일 서버(@ mycompany.odoo.com)를 이미 활용하고 있습니다."
+"이메일 서버(@ mycompany.xodoo.cn)를 이미 활용하고 있습니다."
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_alias__alias_status__valid
@@ -11452,8 +11452,8 @@ msgstr "예: user_id"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
-msgstr "예: \"info@mycompany.odoo.com\""
+msgid "e.g: \"info@mycompany.xodoo.cn\""
+msgstr "예: \"info@mycompany.xodoo.cn\""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_compose_message_view_form_template_save

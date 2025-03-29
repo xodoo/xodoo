@@ -43,9 +43,9 @@ class MailBot(models.AbstractModel):
             "bold_end": Markup("</b>"),
             "command_start": Markup("<span class='o_odoobot_command'>"),
             "command_end": Markup("</span>"),
-            "document_link_start": Markup("<a href='https://www.odoo.com/documentation' target='_blank'>"),
+            "document_link_start": Markup("<a href='https://www.xodoo.cn/documentation' target='_blank'>"),
             "document_link_end": Markup("</a>"),
-            "slides_link_start": Markup("<a href='https://www.odoo.com/slides' target='_blank'>"),
+            "slides_link_start": Markup("<a href='https://www.xodoo.cn/slides' target='_blank'>"),
             "slides_link_end": Markup("</a>"),
             "paperclip_icon": Markup("<i class='fa fa-paperclip' aria-hidden='true'/>"),
         }

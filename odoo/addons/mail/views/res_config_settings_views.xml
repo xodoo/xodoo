@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <div id="emails" position='replace'>
                     <block title="Emails" id="emails">
-                        <setting id="email_servers_setting" title="Using your own email server is required to send/receive emails in Community and Enterprise versions. Online users already benefit from a ready-to-use email server (@mycompany.odoo.com)." documentation="/applications/general/email_communication/email_servers.html" help="Configure your own email servers">
+                        <setting id="email_servers_setting" title="Using your own email server is required to send/receive emails in Community and Enterprise versions. Online users already benefit from a ready-to-use email server (@mycompany.xodoo.cn)." documentation="/applications/general/email_communication/email_servers.html" help="Configure your own email servers">
                             <field name="external_email_server_default"/>
                             <div class="content-group mb-3" invisible="not external_email_server_default">
                                 <div>

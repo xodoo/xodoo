@@ -743,7 +743,7 @@ test("chat preview should not display correspondent name in body", async () => {
     // DM chat with demo, the conversation is named "Demo" and body is simply message content
     // not prefix like "Demo:"
     const pyEnv = await startServer();
-    const partnerId = pyEnv["res.partner"].create({ name: "Demo", email: "demo@odoo.com" });
+    const partnerId = pyEnv["res.partner"].create({ name: "Demo", email: "demo@xodoo.cn" });
     const userId = pyEnv["res.users"].create({ partner_id: partnerId });
     const channelId = pyEnv["discuss.channel"].create({
         channel_type: "chat",

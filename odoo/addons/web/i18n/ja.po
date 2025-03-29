@@ -4332,8 +4332,8 @@ msgstr "イスラム"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "Odoo.comアカウント"
+msgid "My xodoo.cn account"
+msgstr "xOdoo.comアカウント"
 
 #. module: web
 #. odoo-javascript

@@ -242,7 +242,7 @@ function patchSessionInfo() {
         db: "test",
         is_admin: true,
         is_system: true,
-        username: "thewise@odoo.com",
+        username: "thewise@xodoo.cn",
         name: "Mitchell",
         partner_id: 7,
         uid: 7,

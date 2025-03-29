@@ -20,8 +20,8 @@ from lxml import html
 
 from ..models.ir_attachment import SUPPORTED_IMAGE_MIMETYPES
 
-DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.odoo.com'
-DEFAULT_OLG_ENDPOINT = 'https://olg.api.odoo.com'
+DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.xodoo.cn'
+DEFAULT_OLG_ENDPOINT = 'https://olg.api.xodoo.cn'
 
 # Regex definitions to apply speed modification in SVG files
 # Note : These regex patterns are duplicated on the server side for

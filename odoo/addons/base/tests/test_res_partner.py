@@ -61,7 +61,7 @@ class TestPartner(TransactionCaseWithUserDemo):
     def test_archive_internal_partners(self):
         test_partner = self.env['res.partner'].create({'name':'test partner'})
         test_user = self.env['res.users'].create({
-                                'login': 'test@odoo.com',
+                                'login': 'test@xodoo.cn',
                                 'partner_id': test_partner.id,
                                 })
         # Cannot archive the partner

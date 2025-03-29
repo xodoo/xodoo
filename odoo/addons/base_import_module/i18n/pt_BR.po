@@ -5,11 +5,11 @@
 #: code:addons/base_import_module/models/ir_module.py:0
 msgid ""
 "\n"
-"You may need the Enterprise version to install the data module. Please visit https://www.odoo.com/pricing-plan for more information.\n"
+"You may need the Enterprise version to install the data module. Please visit https://www.xodoo.cn/pricing-plan for more information.\n"
 "If you need Website themes, it can be downloaded from https://github.com/odoo/design-themes.\n"
 msgstr ""
 "\n"
-"Pode ser que você precise da versão Enterprise para instalar esse módulo de dados. Visite https://www.odoo.com/pricing-plan para obter mais informações.\n"
+"Pode ser que você precise da versão Enterprise para instalar esse módulo de dados. Visite https://www.xodoo.cn/pricing-plan para obter mais informações.\n"
 "Se precisar de temas de site, o download pode ser feito em https://github.com/odoo/design-themes.\n"
 
 #. module: base_import_module

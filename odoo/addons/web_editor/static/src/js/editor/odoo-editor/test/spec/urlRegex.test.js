@@ -45,14 +45,14 @@ describe('urlRegex', () => {
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match 1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = '1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match 1234-abc.runbot007.xodoo.cn/web#id=3&menu_id=221', () => {
+        const url = '1234-abc.runbot007.xodoo.cn/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = 'https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match https://1234-abc.runbot007.xodoo.cn/web#id=3&menu_id=221', () => {
+        const url = 'https://1234-abc.runbot007.xodoo.cn/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);

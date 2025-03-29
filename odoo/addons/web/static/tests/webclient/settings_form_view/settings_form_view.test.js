@@ -113,7 +113,7 @@ test("change setting on nav bar click in base settings", async () => {
                         </setting>
                     </block>
                     <block title="Title of group Foo">
-                        <setting help="this is foo" documentation="https://www.odoo.com/documentation/1.0/applications/technical/web/settings/this_is_another_test.html">
+                        <setting help="this is foo" documentation="https://www.xodoo.cn/documentation/1.0/applications/technical/web/settings/this_is_another_test.html">
                             <field name="foo"/>
                         </setting>
                         <setting string="Personalize setting" help="this is full personalize setting">
@@ -156,11 +156,11 @@ test("change setting on nav bar click in base settings", async () => {
     expect(".o_setting_box a").toHaveCount(2);
     expect(".o_setting_box a:eq(0)").toHaveAttribute(
         "href",
-        "https://www.odoo.com/documentation/1.0/applications/technical/web/settings/this_is_a_test.html"
+        "https://www.xodoo.cn/documentation/1.0/applications/technical/web/settings/this_is_a_test.html"
     );
     expect(".o_setting_box a:eq(1)").toHaveAttribute(
         "href",
-        "https://www.odoo.com/documentation/1.0/applications/technical/web/settings/this_is_another_test.html"
+        "https://www.xodoo.cn/documentation/1.0/applications/technical/web/settings/this_is_another_test.html"
     );
 
     await editSearch("Hello there");

@@ -392,7 +392,7 @@ test("chat window: close on ESCAPE (multi)", async () => {
 test("Close composer suggestions in chat window with ESCAPE does not also close the chat window", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@xodoo.cn",
         name: "TestPartner",
     });
     pyEnv["res.users"].create({ partner_id: partnerId });

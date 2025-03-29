@@ -156,9 +156,9 @@ test("Posting message should transform links.", async () => {
     });
     await start();
     await openDiscuss(channelId);
-    await insertText(".o-mail-Composer-input", "test https://www.odoo.com/");
+    await insertText(".o-mail-Composer-input", "test https://www.xodoo.cn/");
     await click(".o-mail-Composer-send:enabled");
-    await contains("a[href='https://www.odoo.com/']");
+    await contains("a[href='https://www.xodoo.cn/']");
 });
 
 test("Posting message should transform relevant data to emoji.", async () => {

@@ -9756,10 +9756,10 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.xodoo.cn>"
 msgstr ""
 "Nazwa aliasu e-mail, np. \"jobs\", jeśli chcesz przechwytywać wiadomości "
-"e-mail dla <jobs@example.odoo.com>"
+"e-mail dla <jobs@example.xodoo.cn>"
 
 #. module: mail
 #. odoo-python
@@ -10788,11 +10788,11 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.xodoo.cn)."
 msgstr ""
 "Korzystanie z własnego serwera e-mail jest wymagane do wysyłania / "
 "odbierania wiadomości e-mail w wersjach Community i Enterprise. Użytkownicy "
-"online korzystają z gotowego do użycia serwera e-mail (@mycompany.odoo.com)."
+"online korzystają z gotowego do użycia serwera e-mail (@mycompany.xodoo.cn)."
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_alias__alias_status__valid
@@ -11668,8 +11668,8 @@ msgstr "np. user_id"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
-msgstr "np.: \"info@mycompany.odoo.com\""
+msgid "e.g: \"info@mycompany.xodoo.cn\""
+msgstr "np.: \"info@mycompany.xodoo.cn\""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_compose_message_view_form_template_save

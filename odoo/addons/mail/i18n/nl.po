@@ -9844,7 +9844,7 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.xodoo.cn>"
 msgstr ""
 "De naam van de e-mailalias, bijvoorbeeld: 'vacature' als je alle e-mails van"
 " vacature@uwbedrijf.nl wilt afvangen"
@@ -10898,11 +10898,11 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.xodoo.cn)."
 msgstr ""
 "Het gebruik van je eigen e-mailserver is vereist voor het verzenden / "
 "ontvangen van e-mails in Community- en Enterprise-versies. Online gebruikers"
-" profiteren van een kant-en-klare e-mailserver (@ mijnbedrijf.odoo.com)."
+" profiteren van een kant-en-klare e-mailserver (@ mijnbedrijf.xodoo.cn)."
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_alias__alias_status__valid
@@ -11784,8 +11784,8 @@ msgstr "bijv. user_id"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
-msgstr "bijvoorbeeld: \"info@mijnbedrijf.odoo.com\""
+msgid "e.g: \"info@mycompany.xodoo.cn\""
+msgstr "bijvoorbeeld: \"info@mijnbedrijf.xodoo.cn\""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_compose_message_view_form_template_save

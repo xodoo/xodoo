@@ -29,8 +29,8 @@ test("UrlField in form view", async () => {
     expect(`.o_field_widget input[type="text"]`).toHaveCount(1);
     expect(`.o_field_widget input[type="text"]`).toHaveValue("https://www.example.com");
     expect(`.o_field_url a`).toHaveAttribute("href", "https://www.example.com");
-    await fieldInput("url").edit("https://www.odoo.com");
-    expect(`.o_field_widget input[type="text"]`).toHaveValue("https://www.odoo.com");
+    await fieldInput("url").edit("https://www.xodoo.cn");
+    expect(`.o_field_widget input[type="text"]`).toHaveValue("https://www.xodoo.cn");
 });
 
 test("in form view (readonly)", async () => {
@@ -93,7 +93,7 @@ test("href attribute and website_path option", async () => {
 test("in editable list view", async () => {
     Product._records = [
         { id: 1, url: "example.com" },
-        { id: 2, url: "odoo.com" },
+        { id: 2, url: "xodoo.cn" },
     ];
     await mountView({
         type: "list",
@@ -104,11 +104,11 @@ test("in editable list view", async () => {
     expect(".o_field_url.o_field_widget[name='url'] a").toHaveCount(2);
     expect(queryAllAttributes(".o_field_url.o_field_widget[name='url'] a", "href")).toEqual([
         "http://example.com",
-        "http://odoo.com",
+        "http://xodoo.cn",
     ]);
     expect(queryAllTexts(".o_field_url.o_field_widget[name='url'] a")).toEqual([
         "example.com",
-        "odoo.com",
+        "xodoo.cn",
     ]);
     let cell = queryFirst("tbody td:not(.o_list_record_selector)");
     await contains(cell).click();
@@ -122,11 +122,11 @@ test("in editable list view", async () => {
     expect(".o_field_url.o_field_widget[name='url'] a").toHaveCount(2);
     expect(queryAllAttributes(".o_field_url.o_field_widget[name='url'] a", "href")).toEqual([
         "http://test",
-        "http://odoo.com",
+        "http://xodoo.cn",
     ]);
     expect(queryAllTexts(".o_field_url.o_field_widget[name='url'] a")).toEqual([
         "test",
-        "odoo.com",
+        "xodoo.cn",
     ]);
 });
 
@@ -146,14 +146,14 @@ test("onchange scenario", async () => {
     Product._fields.url_source = fields.Char({
         onChange: (record) => (record.url = record.url_source),
     });
-    Product._records = [{ id: 1, url: "odoo.com", url_source: "another.com" }];
+    Product._records = [{ id: 1, url: "xodoo.cn", url_source: "another.com" }];
     await mountView({
         type: "form",
         resModel: "product",
         resId: 1,
         arch: `<form><field name="url" widget="url" readonly="True"/><field name="url_source"/></form>`,
     });
-    expect(".o_field_widget[name=url]").toHaveText("odoo.com");
+    expect(".o_field_widget[name=url]").toHaveText("xodoo.cn");
     expect(".o_field_widget[name=url_source] input").toHaveValue("another.com");
     await fieldInput("url_source").edit("example.com");
     expect(".o_field_widget[name=url]").toHaveText("example.com");

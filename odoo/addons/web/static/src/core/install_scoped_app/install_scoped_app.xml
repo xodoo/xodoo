@@ -21,7 +21,7 @@
                                 </t>
                             </Dropdown>
                         </div>
-                        <a class="text-primary text-decoration-none" href="https://odoo.com" alt="Odoo" target="_blank">Odoo S.A.</a>
+                        <a class="text-primary text-decoration-none" href="https://xodoo.cn" alt="Odoo" target="_blank">Odoo S.A.</a>
                     </div>
                 </div>
                 <button t-if="pwa.isAvailable" class="btn btn-primary btn-lg rounded-5 shadow py-2 px-3" t-on-click="onInstall">Install</button>

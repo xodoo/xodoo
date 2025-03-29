@@ -20,8 +20,8 @@ from odoo.tools.image import image_data_uri, binary_to_image
 
 
 logger = logging.getLogger(__name__)
-DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.odoo.com'
-DEFAULT_OLG_ENDPOINT = 'https://olg.api.odoo.com'
+DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.xodoo.cn'
+DEFAULT_OLG_ENDPOINT = 'https://olg.api.xodoo.cn'
 
 
 def get_existing_attachment(IrAttachment, vals):

@@ -4335,8 +4335,8 @@ msgstr "무슬림"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "내 Odoo.com 계정"
+msgid "My xodoo.cn account"
+msgstr "내 xodoo.cn 계정"
 
 #. module: web
 #. odoo-javascript

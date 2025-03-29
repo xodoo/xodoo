@@ -24,7 +24,7 @@ from odoo.tools import file_open, file_open_temporary_directory, ormcache
 
 _logger = logging.getLogger(__name__)
 
-APPS_URL = "https://apps.odoo.com"
+APPS_URL = "https://apps.xodoo.cn"
 MAX_FILE_SIZE = 100 * 1024 * 1024  # in megabytes
 
 
@@ -481,7 +481,7 @@ class IrModule(models.Model):
                 description += "- " + module + "\n"
             description += _(
                 "\nYou may need the Enterprise version to install the data module. Please visit "
-                "https://www.odoo.com/pricing-plan for more information.\n"
+                "https://www.xodoo.cn/pricing-plan for more information.\n"
                 "If you need Website themes, it can be downloaded from https://github.com/odoo/design-themes.\n"
             )
         else:

@@ -4327,8 +4327,8 @@ msgstr "穆斯林 / 伊斯蘭教徒"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "我的 Odoo.com 帳戶"
+msgid "My xodoo.cn account"
+msgstr "我的 xodoo.cn 帳戶"
 
 #. module: web
 #. odoo-javascript

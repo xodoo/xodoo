@@ -4303,8 +4303,8 @@ msgstr ""
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Odoo.com account"
-msgstr "Mans Odoo.com konts"
+msgid "My xodoo.cn account"
+msgstr "Mans xodoo.cn konts"
 
 #. module: web
 #. odoo-javascript
