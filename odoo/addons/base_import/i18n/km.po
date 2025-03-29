@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 #. module: base_import
 #. odoo-javascript
 #: code:addons/base_import/static/src/import_model.js:0

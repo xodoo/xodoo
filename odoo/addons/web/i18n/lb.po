@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/legacy/js/fields/field_utils.js:0

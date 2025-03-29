@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 "#-#-#-#-#  bn.po (Odoo 9.0)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 

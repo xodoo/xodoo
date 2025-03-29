@@ -1,6 +1,5 @@
 # Translation of Odoo Server.
 
-
 #. module: auth_totp_mail
 #: model:mail.template,body_html:auth_totp_mail.mail_template_totp_invite
 msgid ""

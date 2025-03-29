@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 #. module: privacy_lookup
 #: model:ir.model.fields,field_description:privacy_lookup.field_privacy_log__additional_note
 msgid "Additional Note"

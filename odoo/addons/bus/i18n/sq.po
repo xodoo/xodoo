@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 #. module: bus
 #: model:ir.model.fields.selection,name:bus.selection__bus_presence__status__away
 msgid "Away"

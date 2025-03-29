@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 #. module: base_import_module
 #: model_terms:ir.ui.view,arch_db:base_import_module.view_base_module_import
 msgid "Cancel"

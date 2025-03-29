@@ -34,7 +34,6 @@ class Database(http.Controller):
         d['langs'] = odoo.service.db.exp_list_lang()
         d['countries'] = odoo.service.db.exp_list_countries()
         d['pattern'] = DBNAME_PATTERN
-        print(d)
         # databases list
         try:
             d['databases'] = http.db_list()

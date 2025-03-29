@@ -1,4 +1,5 @@
 # Translation of Odoo Server.
+
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: mail_bot
