@@ -1,5 +1,44 @@
 (function ($) {
 
+
+
+     function initlogo_sidebar() {
+         const Fn_logo_sidebar = document.getElementById('logo_sidebar');
+
+         // 添加点击事件
+         Fn_logo_sidebar.addEventListener('click', () => {
+             // classList.toggle 自动切换类名
+
+
+
+             try {
+
+
+                 var page_topbar = document.getElementById('page-topbar');
+                 page_topbar.style.width = '71px';
+
+                 // 选择 navbar-brand-box 元素
+                 var navbarBrandBox = document.querySelector('.navbar-brand-box');
+                 navbarBrandBox.style.borderRight = '0px';
+
+
+             } catch (err) {
+             }
+
+
+             // 可选：添加点击反馈（缩放动画）
+             Fn_logo_sidebar.style.transform = 'scale(0.95)';
+             setTimeout(() => {
+                 Fn_logo_sidebar.style.transform = 'scale(1)';
+             }, 100);
+
+             // 可选：同步更新 ARIA 状态
+             // targetDiv.setAttribute('aria-expanded', targetDiv.classList.contains('visible'));
+         });
+     }
+
+
+
     'use strict';
 
     var language = localStorage.getItem('minia-language');
@@ -81,9 +120,12 @@
             }
         });
 
+
+
         $('#vertical-menu-btn').on('click', function (event) {
             event.preventDefault();
             $('body').toggleClass('sidebar-enable');
+            alert(currentSIdebarSize);
             if ($(window).width() >= 992) {
                 if (currentSIdebarSize == null) {
                     (document.body.getAttribute('data-sidebar-size') == null || document.body.getAttribute('data-sidebar-size') == "lg") ? document.body.setAttribute('data-sidebar-size', 'sm') : document.body.setAttribute('data-sidebar-size', 'lg')
@@ -115,7 +157,7 @@
                     (document.body.getAttribute('data-sidebar-size') == "sm") ? document.body.setAttribute('data-sidebar-size', 'lg') : document.body.setAttribute('data-sidebar-size', 'sm')
                 }
             } else {
-                alert(1)
+                alert(111)
             }
         });
     }
@@ -378,7 +420,18 @@
         });
     }
 
+
+    function logo_sidebar(){
+        $('.logo_sidebar').on('click', function (e) {
+            alert('clicked');
+            // $('body').toggleClass('right-bar-enabled');
+        });
+    }
+
+
     function init() {
+
+        initlogo_sidebar();
         initMetisMenu();
         initCounterNumber();
         initLeftMenuCollapse();
@@ -394,6 +447,7 @@
         layoutSetting();
         Waves.init();
         initCheckAll();
+        logo_sidebar();
     }
 
     init();
@@ -402,3 +456,4 @@
 
 
 feather.replace()
+

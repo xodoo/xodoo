@@ -10,13 +10,16 @@
                                 <!-- LOGO -->
                                 <div class="navbar-brand-box" style="height:60px;width:250px;background-color:#5a4f7f;box-shadow:none;border-right:none;padding-left:10px;">
                                     <a href="/web" class="logo logo-dark">
-                                        <span class="logo-sm">
+                                        <span class="logo-sm" >
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
+                                                 id="logo_sidebar"
+                                                 onclick="toggle_logo_sidebar(event)"
+                                                 style="cursor: pointer;"
                                                  height="35"/>
                                         </span>
                                         <span class="logo-lg">
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
-                                                 height="35"/>
+                                                height="35"/>
                                             <button type="button" class="btn header-item right-bar-toggle me-2">
                                                <span class="logo-txt" style="color:#FFFFFF;font-size:28px;">XODOO</span>
                                             </button>
@@ -98,6 +101,31 @@
         </div>
         <!-- /Right-bar -->
     </header>
+
+        <script defer="defer">
+
+            var default_logo_sidebar = 0;
+
+            function toggle_logo_sidebar(event) {
+
+                    if (event) {
+                        event.preventDefault();
+                    }
+            
+                    if(default_logo_sidebar==0)
+                    {
+                       $('body').toggleClass('sidebar-enable');
+                       default_logo_sidebar = 1;
+                    }
+                    else
+                    {
+                         $('body').removeClass('sidebar-enable');
+                         default_logo_sidebar = 0;
+                    }
+
+        }
+
+        </script>
 
 
         <script src="/web/static/minia/assets/js/app.js"></script>

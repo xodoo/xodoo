@@ -4,12 +4,13 @@
 <!-- Owl Templates -->
 
 <div t-name="web.BurgerMenu" class="d-flex">
-    <button
+    <!-- amos write -->
+    <div style="background-color:#5a4f7f;margin-top:15px;"
         class="o_mobile_menu_toggle o_nav_entry o-no-caret d-md-none border-0 pe-3"
         title="Toggle menu" aria-label="Toggle menu"
         t-on-click="_openBurger">
         <img class="o_burger_menu_avatar o_image_24_cover rounded" t-att-src="'/web/image?model=res.users&amp;field=avatar_128&amp;id=' + user.userId" alt="Menu"/>
-    </button>
+    </div>
 
     <t t-portal="'body'">
       <Transition name="'o-burger-slide'" visible="state.isBurgerOpened" leaveDuration="200" t-slot-scope="transition">
