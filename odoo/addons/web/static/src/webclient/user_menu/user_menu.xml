@@ -2,16 +2,17 @@
 <templates xml:space="preserve">
 
     <t t-name="web.UserMenu">
-        <div class="o_user_menu d-none d-md-block pe-0">
+        <div class="o_user_menu d-none d-md-block pe-0" style="background-color:#5a4f7f;"
+             onmouseover="this.style.background='#71639e'"
+             onmouseout="this.style.background='#5a4f7f'">
             <DropdownGroup group="'web-navbar-group'">
                 <Dropdown>
-                    <button class="py-1 py-lg-0">
-<!--                        <img class="o_avatar o_user_avatar rounded" t-att-src="source" alt="User"/>-->
-                        <!-- todo Amos-->
-                        <small class="oe_topbar_name d-none ms-2 text-start smaller lh-1 text-truncate"  t-att-class="{'d-lg-inline-block' : env.debug}" style="max-width: 200px;margin-top: 15px;">
-                           <p style="color:#5a4f7f;"> <t t-esc="userName"/></p>
+                    <div class="py-1 py-lg-0" style="margin-top:10px;cursor: pointer;transition:background 0.3s;"  >
+                        <img t-att-src="source" alt="User" style="border-radius: 50%;object-fit: cover;margin-left:10px;height:32px;width:32px;background-color:#5a4f7f;"/>
+                        <small  t-att-class="{'d-lg-inline-block' : env.debug}" style="color:#FFFFFF;margin-left:10px;margin-right:10px;">
+                            <t t-esc="userName"/>
                         </small>
-                    </button>
+                    </div>
                     <t t-set-slot="content">
                         <t t-foreach="getElements()" t-as="element" t-key="element_index">
                             <t t-if="!element.hide">

@@ -1,9 +1,5 @@
 $(document).on("click", ".metismenu li a, .navbar-nav  li a", function(e) {
 	e.preventDefault();
-
-	debugger;
-
-
 	var page = $(this).attr("href");
 
 	if ($(this).attr("target") == "_self") {window.location.href= page; return true};

@@ -3,7 +3,7 @@
 
   <!--amos write-->
     <t t-name="web.NavBar">
-    <header class="o_navbar main-content" style="margin-top: 0px;background-color:#71639e;" t-ref="root" >
+    <header class="o_navbar main-content" style="margin-top: 0px;background-color:#71639e;" t-ref="root">
           <div id="page-topbar" style="z-index:10;width:251px;">
                         <div class="navbar-header" style="padding: 0 0 0 0;height:50px;">
                             <div class="d-flex">
@@ -35,31 +35,33 @@
                                         </span>
                                     </a>
 
-                                 <button type="button" class="btn btn-sm px-3
-                                    font-size-16 header-item" style="height:70px;z-index:100;float: right;margin-right:0px;" id="vertical-menu-btn">
+                                    <button type="button" class="btn btn-sm px-3
+                                    font-size-16 header-item"
+                                            style="height:70px;z-index:100;float: right;margin-right:0px;"
+                                            id="vertical-menu-btn">
                                     <i class="fa fa-fw fa-bars" id="sidebar_list" style="color:#FFFFFF;"></i>
                                 </button>
+
+
                                 </div>
 
                             </div>
                         </div>
 
+
                     </div>
 
 
-
-<!--         &lt;!&ndash; amos write  &ndash;&gt;-->
-<!--        <div t-if="env.debug or isSingleCompany==0" class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu" style="float: right;background-color:#71639e;">-->
-<!--                  <t t-foreach="systrayItems" t-as="item" t-key="item.key">-->
-<!--                      <div t-att-data-index="item.index"/>-->
-<!--                      <ErrorHandler onError="error => this.handleItemError(error, item)">-->
-<!--                        <t t-component="item.Component" t-props="item.props"/>-->
-<!--                    </ErrorHandler>-->
-<!--                  </t>-->
-<!--        </div>-->
-
-
-
+        <!-- amos write  t-if="env.debug or isSingleCompany==0"-->
+        <div class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu"
+             style="float: right;background-color:#5a4f7f;height:60px;">
+                          <t t-foreach="systrayItems" t-as="item" t-key="item.key">
+                              <div t-att-data-index="item.index"/>
+                              <ErrorHandler onError="error => this.handleItemError(error, item)">
+                                <t t-component="item.Component" t-props="item.props"/>
+                            </ErrorHandler>
+                          </t>
+                </div>
 
 
         <!-- Right Sidebar -->
@@ -67,7 +69,7 @@
             <div class="h-100">
                 <div class="rightbar-title d-flex align-items-center" style="background-color:#71639e;">
                     <h5 class="m-0 me-2 text-white">
-                        <div class="dropdown d-inline-block o_main_navbar"  style="height:50px;border-bottom: 0px solid">
+                        <div class="dropdown d-inline-block o_main_navbar" style="height:50px;border-bottom: 0px solid">
 
 
                         </div>
