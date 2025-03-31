@@ -150,7 +150,7 @@
                 <!-- 开始页面 -->
                 <div id="layout-wrapper">
                     <!-- ========== 左侧栏开始 ========== -->
-                    <div class="vertical-menu" style="background-color:#5a4f7f;margin-top:-10px;z-index:10000;">
+                    <div class="vertical-menu" style="background-color:#5a4f7f;margin-top:0px;z-index:10000;">
                         <div class="h-100 simplebar-scrollable-y" data-simplebar="init">
                             <!--- 页面菜单 style="overflow-y: auto;overflow-x: hidden;"-->
                             <div id="sidebar-menu" >

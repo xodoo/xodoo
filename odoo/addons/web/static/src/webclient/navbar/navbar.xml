@@ -3,22 +3,22 @@
 
   <!--amos write-->
     <t t-name="web.NavBar">
-    <header class="o_navbar main-content" style="margin-top: 0px;background-color:#71639e;" t-ref="root">
-          <div id="page-topbar" style="z-index:10;width:251px;">
-                        <div class="navbar-header" style="padding: 0 0 0 0;height:50px;">
+    <header class="o_navbar main-content" style="margin-top: 0px;background-color:#5a4f7f;" t-ref="root">
+          <div id="page-topbar" style="z-index:10;width:250px;">
+                        <div class="navbar-header" style="padding: 0 0 0 0;height:50px;background-color:#5a4f7f;">
                             <div class="d-flex">
                                 <!-- LOGO -->
-                                <div class="navbar-brand-box" style="height:80px;width:251px;background-color:#5a4f7f;">
+                                <div class="navbar-brand-box" style="height:60px;width:250px;background-color:#5a4f7f;box-shadow:none;border-right:none;padding-left:10px;">
                                     <a href="/web" class="logo logo-dark">
                                         <span class="logo-sm">
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
-                                                 height="24"/>
+                                                 height="35"/>
                                         </span>
                                         <span class="logo-lg">
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
-                                                 height="24"/>
+                                                 height="35"/>
                                             <button type="button" class="btn header-item right-bar-toggle me-2">
-                                               <span class="logo-txt" style="color:#FFFFFF;">XODOO</span>
+                                               <span class="logo-txt" style="color:#FFFFFF;font-size:28px;">XODOO</span>
                                             </button>
                                         </span>
                                     </a>
@@ -26,18 +26,18 @@
                                     <a href="index.html" class="logo logo-light">
                                         <span class="logo-sm">
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
-                                                 height="24"/>
+                                                 height="35"/>
                                         </span>
                                         <span class="logo-lg">
                                             <img src="/web/static/minia/assets/images/logo-sm.svg" alt=""
-                                                 height="24"/>
-                                            <span class="logo-txt" style="color:#FFFFFF;">XODOO</span>
+                                                 height="35"/>
+                                            <span class="logo-txt" style="color:#FFFFFF;font-size:28px;">XODOO</span>
                                         </span>
                                     </a>
 
                                     <button type="button" class="btn btn-sm px-3
                                     font-size-16 header-item"
-                                            style="height:70px;z-index:100;float: right;margin-right:0px;"
+                                            style="z-index:100;float: right;margin-right:0px;"
                                             id="vertical-menu-btn">
                                     <i class="fa fa-fw fa-bars" id="sidebar_list" style="color:#FFFFFF;"></i>
                                 </button>
