@@ -22,7 +22,6 @@ from .utils import ensure_db, _get_login_redirect_url, is_user_internal
 
 _logger = logging.getLogger(__name__)
 
-
 # Shared parameters for all login/signup flows
 SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
                           'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
@@ -34,11 +33,13 @@ CREDENTIAL_PARAMS = ['login', 'password', 'type']
 # TODO(amos): amos add
 import os
 from jinja2 import Environment, FileSystemLoader
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 templateLoader = FileSystemLoader(searchpath=BASE_DIR + "/static/src/templates")
 env = Environment(loader=templateLoader)
 # TODO(amos): add
 from odoo import release
+
 
 class Home(http.Controller):
 
@@ -52,7 +53,8 @@ class Home(http.Controller):
         return False
 
     # ideally, this route should be `auth="user"` but that don't work in non-monodb mode.
-    @http.route(['/web', '/odoo', '/odoo/<path:subpath>', '/scoped_app/<path:subpath>'], type='http', auth="none", readonly=_web_client_readonly)
+    @http.route(['/web', '/odoo', '/odoo/<path:subpath>', '/scoped_app/<path:subpath>'], type='http', auth="none",
+                readonly=_web_client_readonly)
     def web_client(self, s_action=None, **kw):
 
         # Ensure we have both a database and a user
@@ -107,9 +109,12 @@ class Home(http.Controller):
     def web_assets_load_menus(self, unique, lang=None):
 
         print(request.session.debug)
+        debug_url = request.session.debug
+        if debug_url != "":
+            debug_url = "?debug=%s" % debug_url
 
         if unique == '1234':
-            menus = self._get_menus(request)
+            menus = self._get_menus(request,debug_url)
             return menus
 
         if lang:
@@ -126,7 +131,7 @@ class Home(http.Controller):
         return response
 
     # TODO(Amos): add
-    def _get_menus(self, request):
+    def _get_menus(self, request,debug_url):
         """
         自定义用户菜单
         增缓存变量
@@ -139,6 +144,7 @@ class Home(http.Controller):
 
         menus = pool['ir.ui.menu'].load_web_menus(request.session.debug)
         root = menus.get('root')
+        print(menus)
 
         # 一级模板:只有一个节点
         menu1 = """<li>
@@ -160,32 +166,32 @@ class Home(http.Controller):
 
             if node1:
                 node_html = ''
-                node_html += self._get_node1(node1, menus)
+                node_html += self._get_node1(node1, menus,debug_url)
 
                 font_icon = ''
                 if menus.get(line).get('font_icon'):
                     font_icon = '<i class="%s"></i>' % menus.get(line).get('font_icon')
 
-                url = menus.get(line).get('actionPath','')
+                url = menus.get(line).get('actionPath', '')
                 if url:
-                    url = 'action-%s' % menus.get(line).get('actionID','')
+                    url = 'action-%s%s' % (menus.get(line).get('actionID', ''),debug_url)
                     if url == 'action-False':
                         url = 'javascript: void(0);'
                 else:
                     url = 'javascript: void(0);'
 
-                limenus += menu1_children % (url,font_icon, menus.get(line).get('name'), node_html)
+                limenus += menu1_children % (url, font_icon, menus.get(line).get('name'), node_html)
 
             else:
                 font_icon = ''
                 if menus.get(line).get('font_icon'):
                     font_icon = '<i class="%s"></i>' % menus.get(line).get('font_icon')
 
-                url = menus.get(line).get('actionPath','')
+                url = menus.get(line).get('actionPath', '')
                 if url != 'False':
-                    url = 'action-%s' % menus.get(line).get('actionID','')
+                    url = 'action-%s%s' % (menus.get(line).get('actionID', ''),debug_url)
                 else:
-                    url = 'action-%s' % menus.get(line).get('actionID', '')
+                    url = 'action-%s%s' % (menus.get(line).get('actionID', ''),debug_url)
                 # limenus += menu1 % (menus.get(url, font_icon, menus.get(line).get('name'))
                 limenus += menu1 % (url, font_icon, menus.get(line).get('name'))
 
@@ -195,7 +201,7 @@ class Home(http.Controller):
         return json.dumps(data)
 
     # TODO(Amos): add
-    def _get_node1(self, node1, menus):
+    def _get_node1(self, node1, menus,debug_url):
         """
         用户第一个节点
         """
@@ -216,7 +222,7 @@ class Home(http.Controller):
             node1 = menus.get(line).get('children')
             if node1:
                 node_html = ''
-                node_html += self._get_node1(node1, menus)
+                node_html += self._get_node1(node1, menus,debug_url)
 
                 font_icon = ''
                 if menus.get(line).get('font_icon'):
@@ -227,10 +233,13 @@ class Home(http.Controller):
                     url = 'action-%s' % menus.get(line).get('actionID')
                     if url == 'action-False':
                         url = 'javascript: void(0);'
+                    else:
+                        url = 'action-%s%s' % (menus.get(line).get('actionID'), debug_url)
+
                 else:
                     url = 'javascript: void(0);'
 
-                limenus += menu1_children % (url,font_icon, menus.get(line).get('name'), node_html)
+                limenus += menu1_children % (url, font_icon, menus.get(line).get('name'), node_html)
             else:
                 font_icon = ''
                 if menus.get(line).get('font_icon'):
@@ -238,7 +247,7 @@ class Home(http.Controller):
 
                 url = menus.get(line).get('actionPath')
                 if url == False:
-                    url = 'action-%s' % menus.get(line).get('actionID')
+                    url = 'action-%s%s' % (menus.get(line).get('actionID'),debug_url)
                 limenus += menu1 % (url, font_icon, menus.get(line).get('name'))
 
         return limenus
@@ -304,8 +313,6 @@ class Home(http.Controller):
 
         values['csrf_token'] = request.csrf_token()
         values['session_db'] = request.session.db
-
-
 
         template = env.get_template('login/zh_CN/login.html')
         html = template.render(object=values)
