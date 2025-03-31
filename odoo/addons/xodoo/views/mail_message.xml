@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="xodoo_mail_message_form_inherit">
+            <field name="name">mail.message.form.inherit</field>
+            <field name="model">mail.message</field>
+            <field name="inherit_id" ref="mail.view_message_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='res_id']" position="after">
+                         <field name="form_id"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

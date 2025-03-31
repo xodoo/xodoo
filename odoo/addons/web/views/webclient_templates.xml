@@ -150,12 +150,12 @@
                 <!-- 开始页面 -->
                 <div id="layout-wrapper">
                     <!-- ========== 左侧栏开始 ========== -->
-                    <div class="vertical-menu" style="background-color:#5a4f7f;margin-top:-10px;z-index:10000;overflow-y: auto;">
-                        <div class="h-100">
-                            <!--- 页面菜单 -->
-                            <div id="sidebar-menu">
+                    <div class="vertical-menu" style="background-color:#5a4f7f;margin-top:-10px;z-index:10000;">
+                        <div class="h-100 simplebar-scrollable-y" data-simplebar="init">
+                            <!--- 页面菜单 style="overflow-y: auto;overflow-x: hidden;"-->
+                            <div id="sidebar-menu" >
                                 <!-- 左侧菜单开始 -->
-                                <ul class="metismenu list-unstyled  mm-show" id="side-menu">
+                                <ul class="metismenu list-unstyled  mm-show" id="side-menu" >
 
                                 </ul>
 

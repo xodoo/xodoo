@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <link href="/web/static/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<table class="layui-hide" id="widgets_char"></table>
+<div class="layui-bg-orange layui-border-green" id="MultyPageDemo" style="width: 500px;margin-top: 50px;"></div>
+<script type="text/html" id="demo-toolbar-setRowChecked">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+    </div>
+</script>
+
+<script src="/web/static/layui/layui.js"></script>
+<script src="/web/static/assets/libs/jquery/jquery.min.js"></script>
+
+
+<script>
+    /*
+     * @function URL解码
+     * @param 系统中已加入必要参数
+     */
+    function getUrlParams() {
+        var url = window.location.href;
+        var params = {};
+        var queryString = url.split('?')[1];
+        if (queryString) {
+            var paramPairs = queryString.split('&');
+            for (var i = 0; i < paramPairs.length; i++) {
+                var paramPair = paramPairs[i].split('=');
+                var paramName = decodeURIComponent(paramPair[0]);
+                var paramValue = decodeURIComponent(paramPair[1]);
+                params[paramName] = paramValue;
+            }
+        }
+        return params;
+    }
+
+    var urlParams = getUrlParams();
+    console.log(urlParams);
+
+
+    layui.use('table', function () {
+        var table = layui.table;
+        var count = 100;
+
+        // 获取字符串类型的参数
+        // 渲染
+        table.render({
+            elem: '#widgets_char',
+            url: '/web/static/layui/user.json', // 此处为静态模拟数据，实际使用时需换成真实接口
+            page: true,
+            limit: 10,
+            cols: [[
+                // {type: 'radio', fixed: 'left'},
+                {field: 'id', title: 'ID', width: 80, fixed: 'left', unresize: true},
+                {field: 'username', title: '用户', width: 120},
+                {field: 'sex', title: '性别', width: 80},
+                {field: 'city', title: '城市', width: 100},
+                {field: 'sign', title: '签名'},
+                {field: 'experience', title: '积分', width: 80, sort: true}
+            ]],
+            toolbar: '#demo-toolbar-setRowChecked',
+            initSort: { // 设置初始排序
+                field: 'experience', // 字段名
+                type: 'desc' // 倒序
+            },
+            height: 366
+
+        });
+
+        // 行单击事件( 双击事件为: rowDouble )
+        table.on('row(widgets_char)', function (obj) {
+            var data = obj.data; // 获取当前行数据
+
+            // 显示 - 仅用于演示
+            // layer.msg('当前行数据：<br>'+ JSON.stringify(data), {
+            //   offset: '65px'
+            // });
+            // 标注当前点击行的选中状态
+            obj.setRowChecked({
+                type: 'radio' // radio 单选模式；checkbox 复选模式
+            });
+        });
+        // 头工具栏事件
+        table.on('toolbar(widgets_char)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
+            switch (obj.event) {
+                case 'getCheckData':
+                    var data = checkStatus.data;  // 获取选中行数据
+                    layer.alert(JSON.stringify(data));  // 显示 - 仅用于演示
+                    break;
+            }
+            ;
+        });
+
+         laypage.render({
+        elem: 'widgets_char',
+        count: 750,
+        limit: 20,
+        limits: [10, 20, 50, 100, 200],
+        prev: '回到上一页',
+        next: '跳转到下一页',
+        first: '开头页',
+        last: '结束页',
+        groups: 5,
+        layout: ['prev', 'page', 'next'],
+        theme: '#aa00ff'
+    });
+
+    });
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+    <TITLE> ZTREE DEMO </TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/xodoo/static/src/zTreeStyle/zTreeStyle.css" type="text/css">
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        div, p, table, th, td {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 12px;
+            font-family: dotum, Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+        }
+
+        #testIframe {
+            margin-left: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="/xodoo/static/src/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/xodoo/static/src/js/jquery.ztree.core.js"></script>
+    <SCRIPT type="text/javascript">
+        var many2one_list = [];  //列表选中栏数据
+
+        var zTree;
+        var demoIframe;
+
+        var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                onCheck: onCheck
+                // beforeClick: function (treeId, treeNode) {
+                //     let zTree = $.fn.zTree.getZTreeObj("tree");
+                //
+                //     let selectedNodes = zTree.getSelectedNodes(); // 获取当前选中的节点对象数组
+                //     debugger;
+                //     let selectedNodeId = selectedNodes[0].id; // 获取第一个选中节点的id
+                //     let selectedNodeName = selectedNodes[0].name; // 获取第一个选中节点的name
+                //
+                //     debugger;
+                //
+                //     many2one_list = [];
+                //     let v = {}
+                //     v['id'] = selectedNodeId;
+                //     v['name'] = selectedNodeName;
+                //     many2one_list.push(v)
+                //
+                // }
+            }
+        };
+
+        function onCheck(event, treeId, treeNode) {
+           alert(1);
+            console.log(treeNode.name + " 被选中");
+        }
+
+        var zNodes = {{ object.zNodes }};
+
+        $(document).ready(function () {
+            var t = $("#tree");
+            t = $.fn.zTree.init(t, setting, zNodes);
+            demoIframe = $("#testIframe");
+            demoIframe.bind("load", loadReady);
+            zTree = $.fn.zTree.getZTreeObj("tree");
+            // zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+        });
+
+        function loadReady() {
+            var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+                htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+                maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+                h = demoIframe.height() >= maxH ? minH : maxH;
+            if (h < 530) h = 530;
+            demoIframe.height(h);
+        }
+
+        //-->
+    </SCRIPT>
+</HEAD>
+
+<BODY>
+
+<ul id="tree" class="ztree" style="width:260px; overflow:auto;"></ul>
+
+</BODY>
+</HTML>

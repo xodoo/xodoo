@@ -1,0 +1,491 @@
+.xodoo_form {
+    .o_form_sheet {
+        padding-bottom: 0 !important;
+        border-style: solid !important;
+        border-color: white;
+    }
+
+    .o_inner_group {
+        /* 线框的样式 */
+        /*--line-box-border: 1px solid #666;*/
+        /*box-shadow: 0 1px 0 #e6e6e6;*/
+        margin: 0;
+    }
+
+    .grid {
+        display: grid;
+        gap: 0;
+    }
+
+    .row {
+        --gutter-x: 0px !important;
+        --gutter-y: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--gutter-y));
+        margin-right: calc(-.5 * var(--gutter-x));
+        margin-left: calc(-.5 * var(--gutter-x));
+    }
+
+    .o_form_view .o_inner_group {
+        gap: 0px 0px;
+        margin-bottom: 0 !important;
+    }
+
+    .o_form_view .o_form_sheet_bg {
+        --formView-sheetBg-padding-x: 16px;
+        padding-top: 8px;
+        padding-left: var(--formView-sheetBg-padding-x);
+        padding-right: var(--formView-sheetBg-padding-x);
+        width: 100%;
+        max-width: initial !important; /* 或者其他值 */
+        margin-right: auto;
+    }
+
+    /*.o_form_label {*/
+    /*    font-size: 0.875rem;*/
+    /*    line-height: 1.5;*/
+    /*    font-weight: 500;*/
+    /*    color: #000000;*/
+
+    /*}*/
+
+
+    .o_cell {
+        padding: 0;
+        background-color: #ffffff;
+
+        border-top: 1px solid #cccccc; /* 上边线 */
+        border-left: 1px solid #cccccc; /* 左边线 */
+        border-right: 1px solid #cccccc; /* 右边线 */
+        border-bottom: 1px solid #cccccc; /* 下边线 */
+
+
+        &.o_wrap_label {
+            text-align: right;
+            width: 140px;
+            background-color: #eee;
+
+        }
+
+        &.o_wrap_label .o_form_label {
+            height: 100%;
+        }
+
+
+        /*数值文本*/
+
+        .o_field_integer .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*文本框*/
+
+        .o_field_char .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+            /*border: 1px solid #ccc; !* 设置1像素的黑色实线边框 *!*/
+            /*padding: 3px; !* 内边距 *!*/
+            /*margin: 3px; !* 外边距 *!*/
+        }
+
+
+        /*长日期*/
+
+        .o_field_datetime .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*短日期*/
+
+        .o_field_date .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*下拉选择*/
+
+        .o_field_selection .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*Many2one下拉选择*/
+
+        .o_field_many2one .o_input {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*多对多*/
+
+        .o_field_many2many_tags {
+            background-color: #FFF;
+            height: 85.5px !important;
+            overflow: auto; /* 当内容超出div大小时显示滚动条 */
+        }
+
+        .o_field_many2many_tags .o_input {
+            margin-left: 10px;
+            width: 98%;
+            border-width: 0 0 0 0 !important;
+        }
+
+
+        /*标签 直角*/
+
+        .o_field_many2many_tags .badge {
+            border-radius: 0 !important;
+            margin-top: 5px;
+        }
+
+
+        /*下拉框 水平*/
+
+        .o_field_radio {
+            background-color: #FFF;
+        }
+
+        .o_field_radio .o_form_label {
+            line-height: 22px;
+        }
+
+
+        /*判断*/
+
+        .o_field_boolean_toggle {
+            margin-left: 10px;
+            margin-top: 9px;
+        }
+
+        .form-check-input {
+            /*width: 98%;*/
+        }
+
+
+        /*大文本*/
+
+        .o_field_text {
+            width: 98%;
+            overflow: auto;
+            height: 96px !important;
+            margin-left: 5px;
+        }
+
+        /*大文本*/
+
+        .o_field_text.o_input {
+            height: 100px !important;
+            width: 98%;
+
+        }
+
+        /*大文本*/
+
+        .text-info {
+            height: 100px !important;
+            width: 98%;
+        }
+
+
+        /*进度条*/
+
+        .o_progressbar {
+            height: 40px !important;
+            margin-left: 10px;
+            width: 98%;
+        }
+
+        /*单选*/
+
+        .o_radio_input {
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+
+        /*单选文本*/
+
+        .form-check .form-check-label {
+            margin-left: 5px;
+            background-color: #FFF !important;
+            margin-top: 5px;
+            /*line-height: 30px;*/
+            margin-bottom: 0.1rem;
+        }
+
+
+        /*小部件*/
+
+        .o_field_widget {
+            margin-bottom: 0px !important;
+        }
+
+        /*.o_field_widget .o_input {*/
+        /*    margin-top: 10px;*/
+        /*}*/
+
+        .o_field_email {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*网址*/
+
+        .o_field_url {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*时间 小时*/
+
+        .o_field_float_time {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*金额*/
+
+        .o_field_monetary {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*图片*/
+
+        .o_field_image {
+            margin-top: 2px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        /*星级*/
+
+        .o_field_priority {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*百分号*/
+
+        .o_field_percentage {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*颜色*/
+
+        .o_field_color_picker {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*小图标 emojis*/
+
+        .o_field_char_emojis {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+        }
+
+        /*收藏*/
+
+        .o_field_boolean_favorite {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*用户头像*/
+
+        .o_field_many2many_selection {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*过滤*/
+
+        .o_field_domain {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*关联标签*/
+
+        .o_field_reference {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*HTML*/
+
+        .o_field_html {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*颜色*/
+
+        .o_field_int_color {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*附件*/
+
+        .o_field_binary {
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*按钮下拉*/
+
+        .o_field_state_selection {
+            margin-top: 10px;
+            margin-left: 10px !important;
+            width: 97%;
+            line-height: 30px;
+        }
+
+        /*多对多用户*/
+
+        .o_field_many2many_tags_avatar {
+            margin-top: 10px;
+            margin-left: 10px !important;
+            width: 97%;
+            overflow: auto; /* 当内容超出div大小时显示滚动条 */
+            height: 85.5px !important;
+        }
+
+
+        /*大文件框高度*/
+
+        .text-info {
+            height: 100px !important;
+        }
+
+
+        .o_wrap_input {
+            background-color: #eee;
+            line-height: 40px;
+
+        }
+
+        /*字段标签*/
+
+        .o_form_label {
+            background-color: #eee;
+            /*padding-right: 8px;*/
+            /*padding-left: 8px;*/
+            font-size: 14px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100px;
+            line-height: 40px;
+            height: 100%;
+            margin-bottom: 0px !important;
+
+            /*padding-right: 20px;*/
+            /*margin-right: 0;*/
+            /*min-width: 0;*/
+            /*white-space: nowrap;*/
+            /*&:after {*/
+            /*    content: ":";*/
+            /*}*/
+        }
+
+    }
+
+
+}
+
+.xodoo_text {
+    height: 100% !important;
+    /*border-top: 1px solid black; !* 上边线 *!*/
+    border-left: 1px solid #cccccc;; /* 左边线 */
+    /*border-right: 1px solid #5f636f; !* 右边线 *!*/
+    border-bottom: 1px solid #cccccc; /* 下边线 */
+}
+
+/*.xodoo_char {*/
+/*    height: 40px !important;*/
+/*}*/
+
+/*.xodoo_char .o_input {*/
+/*    height: 40px !important;*/
+/*    margin-left: 10px;*/
+/*    width: 98%;*/
+/*}*/
+/*.xodoo_date {*/
+/*    height: 40px !important;*/
+/*}*/
+
+/*.xodoo_date .o_input {*/
+/*    height: 40px !important;*/
+/*    margin-left: 10px;*/
+/*    width: 98%;*/
+/*}*/
+
+/*.xodoo_datetime {*/
+/*    height: 40px !important;*/
+/*}*/
+
+/*.xodoo_datetime .o_input {*/
+/*    height: 40px !important;*/
+/*    margin-left: 10px;*/
+/*    width: 98%;*/
+/*}*/
+
+/*.o_field_integer {*/
+/*    height: 40px !important;*/
+/*}*/
+
+/*.o_field_integer .o_input {*/
+/*    height: 40px !important;*/
+/*    margin-left: 10px;*/
+/*    width: 98%;*/
+/*}*/
+
+.o_form_view .o_horizontal_separator:not(:empty) {
+    box-shadow: none !important;
+    font-size: 18px;
+}

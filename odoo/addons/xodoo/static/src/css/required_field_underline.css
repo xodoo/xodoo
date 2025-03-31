@@ -1,0 +1,7 @@
+.o_field_widget input,
+.o_field_widget textarea {
+    border-bottom: #ACACAC 1px solid;
+  }
+  .o_field_widget.o_field_many2many_tags_avatar .o_field_many2many_selection .o_input {
+    border-bottom: #ACACAC 1px solid;
+  }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>百度地图</title>
+    <style>
+        .BMap_noprint {
+            cursor: pointer;
+            margin: 0px auto;
+            background-color: white;
+            position: absolute;
+            z-index: 10;
+            user-select: none;
+            -moz-text-size-adjust: none;
+            inset: 10px 250px auto auto;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="point" value=""/>
+<div id="myMap"
+     style="width:100%;height:590px;overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div>
+<input type="hidden" class="store_Lng"/>
+<input type="hidden" class="store_Lat"/>
+
+<script src="https://api.map.baidu.com/api?v=2.0&ak=bQ34jZGGTy6LbpWl3wHt9crMpk6i4f5c&callback=mapinit"></script>
+<script src="/amos/static/templates/baidu_map/js/jquery-1.10.2.js"></script>
+<script src="/web/static/layui/layui.js"></script>
+
+<script>
+    window.onload = function () {
+        function loadData() {
+        }
+
+        function loadDefulatMap(callback) {
+            var point = new BMap.Point(116.404, 39.915);
+            map.centerAndZoom(point, 15);
+            map.addControl(new BMap.NavigationControl());
+            map.addControl(new BMap.ScaleControl());
+            map.addControl(new BMap.OverviewMapControl());
+            map.setCurrentCity("北京");
+            callback();
+        }
+
+
+        function Autocomplete() {
+            var ac = new BMap.Autocomplete({"input": "baiduAddress", "location": map});
+            ac.addEventListener("onhighlight", function (e) {
+                var str = "";
+                var _value = e.fromitem.value;
+                var value = "";
+                if (e.fromitem.index > -1) {
+                    value = _value.province + _value.city + _value.district + _value.street + _value.business;
+                }
+                str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+                value = "";
+                if (e.toitem.index > -1) {
+                    _value = e.toitem.value;
+                    value = _value.province + _value.city + _value.district + _value.street + _value.business;
+                }
+                str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+                $(".area_tip").innerHTML = str;
+            });
+            ac.addEventListener("onconfirm", function (e) {
+                var _value = e.item.value;
+                var myValue = _value.street + _value.business;
+                $(".area_tip").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+                setPlace(myValue);
+            })
+        }
+
+        function clickCoordinate(e) {
+            var point = e.point;
+            document.getElementById("point").value = e.point.lng + ',' + e.point.lat;
+            createMarker(point);
+        }
+
+        function setPlace(value) {
+            function myFun() {
+                if (local.getResults().getPoi(0)) {
+                    var point = local.getResults().getPoi(0).point;
+                    createMarker(point);
+                } else {
+                    alert("未搜索到结果，请重新输入");
+                }
+            }
+
+            var local = new BMap.LocalSearch(map, {onSearchComplete: myFun});
+            local.search(value);
+        }
+
+        var baiduParam = {
+            oldPoint: null,
+            Exceed_Error: "定位地址失败，您搜索或定位超出县级范围，请重新选择定位",
+            SelectRegion_Error: "定位地址失败，您搜索或定位超出县级范围，请先选择省市区",
+            Location_Div: "<div id='descConten'>已将坐标定位为<hr/>{address}<br/><small style='color: #858585;line-height: 24px;'>地址：{title}</small><br/><br/><input type='button' value='确定' id='saveLngLat' style=' background:#5a4f7f;border: none;color: white;height: 30px;width: 60px;border-radius: 4px;' ></div> ",
+            Location_Sure_Div: "<img style='width:20px;top: 5px;position: relative;'  src='/amos/static/templates/baidu_map/img/success.png' />已将坐标定位为<hr/>{address}<br/><small style='color: #858585;line-height: 24px;'>地址：{title}</small><br/><br/>"
+        }
+
+        function createMarker(point, isLoad) {
+            myGeo.getLocation(point, function (rs) {
+                map.clearOverlays();
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+                marker.enableDragging();
+                marker.addEventListener("dragstart", function (e) {
+                    baiduParam.oldPoint = e.point;
+                })
+                marker.addEventListener("dragend", function (e) {
+                    createMarker(e.point);
+                })
+                baiduParam.oldPoint = null;
+                var html = baiduParam.Location_Div;
+                if (isLoad == true) {
+                    map.centerAndZoom(point, map.getZoom());
+                    html = baiduParam.Location_Sure_Div;
+                }
+                var rsaddress = rs.address;
+                var rstitle = rs.surroundingPois[0] != null ? rs.surroundingPois[0].title : "";
+                html = html.replace("{address}", rsaddress).replace("{title}", rstitle);
+                var infoWindow = new BMap.InfoWindow(html, {offset: {width: 0, height: -25}});
+                map.openInfoWindow(infoWindow, point);
+                infoWindow.addEventListener("open", function (a) {
+                    $("#saveLngLat").unbind("click");
+                    $("#saveLngLat").click(function () {
+                        infoWindow.setContent("<img style='width:20px;top: -2px;position: relative;' src='/amos/static/templates/baidu_map/img/success.png' />已将坐标定位为<hr/>" + rs.address + "<br/><small style='color: #858585;line-height: 24px;'>地址：" + (rs.surroundingPois[0] != null ? rs.surroundingPois[0].title : "") + "</small><br/><br/>");
+                        $(".store_Lng").val(rs.point.lng);
+                        $(".store_Lat").val(rs.point.lat);
+                        document.getElementById("point").value = rs.point.lng + ',' + rs.point.lat;
+                    })
+                })
+                infoWindow.redraw(function () {
+                    $("#saveLngLat").unbind("click");
+                    $("#saveLngLat").click(function () {
+                        infoWindow.setContent("<img style='width:20px;top: -2px;position: relative;'  src='/amos/static/templates/baidu_map/img/success.png' />已将坐标定位为<hr/>" + rs.address + "<br/><small style='color: #858585;line-height: 24px;'>地址：" + (rs.surroundingPois[0] != null ? rs.surroundingPois[0].title : "") + "</small><br/><br/>");
+                        $(".store_Lng").val(rs.point.lng);
+                        $(".store_Lat").val(rs.point.lat);
+                        document.getElementById("point").value = rs.point.lng + ',' + rs.point.lat;
+                    })
+                });
+            });
+        }
+
+        function BigZoomControl() {
+            this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+            this.defaultOffset = new BMap.Size(150, 20);
+        }
+
+        BigZoomControl.prototype = new BMap.Control();
+        BigZoomControl.prototype.initialize = function (map) {
+            var div = document.createElement("div");
+            div.style.cursor = "pointer";
+            div.style.margin = "0 auto";
+            div.style.backgroundColor = "white";
+            div.innerHTML = "<div><input type='text' id = 'baiduAddress' name = 'baiduAddress' style='width: 350px;height: 33px;text-indent:1em;float:left;border: 1px solid #D2D2D2!important;border-right:none;' placeholder='输入门店详细地址, 越详细定位越精准' /><div  class='searchMap' style='border:1px solid #5a4f7f;background-color:#5a4f7f;width:60px;height:33px;float:left;'></div><img  class='searchMap' src='/amos/static/templates/baidu_map/img/search.png' style='height: 22px;position: absolute;right: 18px;top: 7px;'/><div style='clear:both'></div></div>";
+            map.getContainer().appendChild(div);
+            return div;
+        }
+        var map = new BMap.Map("myMap");
+        map.enableScrollWheelZoom(true);
+        var myGeo = new BMap.Geocoder();
+        loadDefulatMap(loadData);
+        var myZoomCtrl = new BigZoomControl();
+        map.addControl(myZoomCtrl);
+        $(".searchMap").click(function () {
+            setPlace($("#baiduAddress").val());
+        });
+        Autocomplete();
+        bindEvent();
+
+        function bindEvent() {
+            map.addEventListener("click", clickCoordinate);
+        }
+    }
+
+    //返回坐标
+    function callbackdata() {
+        var data = {
+            point: document.getElementById("point").value,
+        };
+        return data;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="form_xodoo_res_partner" model="ir.ui.view">
+            <field name="name">amos.test.form</field>
+            <field name="model">amos.test</field>
+            <field name="arch" type="xml">
+                <form string="表单">
+                    <header>
+                        <button name='button_ok' string='Xodoo' type='object' class='oe_highlight'/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+
+                        </div>
+                        <group>
+                            <group>
+                                <field
+                                        name="name"
+                                        widget="char_url"
+                                        string="默认Char"
+                                        context='{
+                                        "fun_model":"res.partner.title",
+                                        "fun_field":"id,name",
+                                        "fun_field_width":{"name":"200"},
+                                        "fun_search_field":{"char":"name"},
+                                        "fun_write_field":"name:name:char",
+                                        "form_url":"/widget_char/main",
+                                        "fun_value":"1",
+                                        "fun_area":"800px,600px"
+                                        }'
+                                        help="用户使用字符串通过接口，可以访问第三方的数据"
+                                />
+                                <field name="title_ids" widget="many2many_tags_url" class="oe_inline"
+                                       string="默认many2many"
+                                       context='{
+                                        "fun_model":"res.users",
+                                        "fun_tree_field":{"fun_model":"res.partner.category","fun_parent":"parent_id","fun_display_name":"name"},
+                                        "fun_field":"id,name,date,create_date,user_id",
+                                        "fun_field_width":{"name":"200","create_date":"160"},
+                                        "fun_search_field":{"char":"name,code","data":"create_date,write_date","selection":"type"},
+                                        "fun_write_field":"title_ids:title_ids:many2many",
+                                        "form_url":"/xodoo/user_id",
+                                        "fun_area":"1500px,800px"
+                                        }'
+                                />
+
+                            </group>
+                            <group>
+
+
+                                 <field name="user_id" widget="many2one_url" string="默认Many2one"
+                                       options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"
+                                       readonly='0'
+                                       context='{
+                                        "fun_model":"res.users",
+                                        "fun_field":"id,name",
+                                        "fun_field_width":{"name":"200"},
+                                        "fun_search_field":{"char":"name"},
+                                        "fun_write_field":"user_id:user_id:many2one",
+                                        "form_url":"/widget_many2one/main",
+                                        "fun_value":"0",
+                                        "fun_is_backend":"0",
+                                        "fun_area":"800px,600px"
+                                        }'
+                                />
+
+<!--                                <field name="user_id" widget="many2one_url" string="自定义Many2one"-->
+<!--                                       options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"-->
+<!--                                       readonly='0'-->
+<!--                                       context='{-->
+<!--                                        "fun_model":"res.users",-->
+<!--                                        "fun_tree_field":{"fun_model":"res.partner.category","fun_parent":"parent_id","fun_display_name":"name"},-->
+<!--                                        "fun_field":"id,name,date,create_date,user_id",-->
+<!--                                        "fun_field_width":{"name":"200","create_date":"160"},-->
+<!--                                        "fun_search_field":{"char":"name,code","data":"create_date,write_date","selection":"type"},-->
+<!--                                        "fun_write_field":"user_id:user_id:many2one",-->
+<!--                                        "form_url":"/widget_many2one/main",-->
+<!--                                        "fun_area":"1500px,800px"-->
+<!--                                        }'-->
+<!--                                />-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tree_xodoo_res_partner" model="ir.ui.view">
+            <field name="name">amos.test.tree</field>
+            <field name="model">amos.test</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="列表">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="title_ids"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_xodoo_res_partner" model="ir.actions.act_window">
+            <field name="name">测试1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">amos.test</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_xodoo_res_partner" action="action_xodoo_res_partner" sequence="0"/>
+
+    </data>
+</odoo>

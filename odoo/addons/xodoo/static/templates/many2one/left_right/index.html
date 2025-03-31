@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>伸缩侧边栏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        li {
+            list-style: none
+        }
+
+        body {
+            background-color: #e3e9f8;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            background-color: #e3e9f8;
+        }
+
+        .nav {
+            flex: 1;
+            height: 64px;
+            color: #7a7a7a;
+            font-size: 36px;
+            font-weight: 600;
+            padding-left: 100px;
+            line-height: 64px
+        }
+
+        .menu {
+            position: relative;
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fafafa;
+            padding: 10px 14px;
+            transition: width .3s ease-in
+        }
+
+        .menu-author {
+            display: flex;
+            align-items: center;
+            max-height: 40px;
+            margin-bottom: 30px;
+            cursor: pointer
+        }
+
+        .author-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-height: 40px;
+            font-size: 14px;
+            transition: all .4s
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #7a7a7a
+        }
+
+        .author-developer {
+            color: #9b9b9b
+        }
+
+        .author-img {
+            display: flex;
+            justify-content: center;
+            min-width: 60px
+        }
+
+        .menu-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px
+        }
+
+        .menu-bar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        #default {
+            background-color: #f6f5ff
+        }
+
+        #default input {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            background-color: #f6f5ff;
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        #default:hover ion-icon {
+            color: #7b7b7b
+        }
+
+        .menu-bar li {
+            border-radius: 4px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px
+        }
+
+        .menu-bar li:hover {
+            background-color: #695cfe
+        }
+
+        .menu-bar li:hover ion-icon {
+            color: #fff
+        }
+
+        .menu-bar li:hover span {
+            color: #fff
+        }
+
+        .menu-bar li span {
+            color: #7b7b7b;
+            cursor: pointer;
+            transition: all .3s
+        }
+
+        ion-icon {
+            min-width: 60px;
+            font-size: 16px;
+            color: #7b7b7b
+        }
+
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            right: -12.5px;
+            width: 25px;
+            height: 25px;
+            background-color: #695cfe;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .menu-btn span {
+            font-size: 20px;
+            color: #fff;
+            transition: all .3s
+        }
+
+        .on-dark {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            margin-left: 15px;
+            border-radius: 15px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center
+        }
+
+        .on-dark div {
+            position: absolute;
+            left: 4px;
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all .2s ease-in
+        }
+
+        .on-dark.move {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            margin-left: 15px;
+            border-radius: 15px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .on-dark.move div {
+            position: absolute;
+            left: 28px;
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #242526;
+            transition: all .2s ease-in
+        }
+
+        .active-rotate {
+            transform: rotate(180deg)
+        }
+
+        .menu.shrink {
+            width: 88px
+        }
+
+        .hide {
+            display: none
+        }
+
+        .dark {
+            background-color: #18191a
+        }
+
+        .menu-dark {
+            background-color: #242526
+        }
+
+        .menu-bar-dark {
+            color: #fff;
+            background-color: #3a3b3c !important
+        }
+
+        .menu-bar.hover-dark li:hover {
+            background-color: #3a3b3c
+        }
+
+
+    </style>
+    <script>
+        function hideDiv() {
+            document.getElementById('menu').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+<div class="menu" id="menu">
+    <div class="menu-author"><span class="author-img"><img src="./author.webp"/></span>
+        <div class="author-text"><span class="author-name">JieCi</span><span
+                class="author-developer">Web&nbsp;Developer</span></div>
+    </div>
+    <div class="menu-bar">
+        <ul>
+            <li id="default">
+                <ion-icon name="search-outline"></ion-icon>
+                <span><input type="text" placeholder="Search..."></span></li>
+            <li>
+                <ion-icon name="home-outline"></ion-icon>
+                <span>home</span></li>
+            <li>
+                <ion-icon name="stats-chart-outline"></ion-icon>
+                <span>Revenue</span></li>
+            <li>
+                <ion-icon name="notifications-outline"></ion-icon>
+                <span>Notifications</span></li>
+            <li>
+                <ion-icon name="time-outline"></ion-icon>
+                <span>Analytics</span></li>
+            <li>
+                <ion-icon name="heart-outline"></ion-icon>
+                <span>Likes</span></li>
+            <li>
+                <ion-icon name="wallet-outline"></ion-icon>
+                <span>Wallets</span></li>
+        </ul>
+        <div class="menu-set">
+            <li>
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span>Logout</span></li>
+            <li>
+                <ion-icon name="moon-outline"></ion-icon>
+                <span>Dark Mode</span>
+                <div class="on-dark">
+                    <div></div>
+                </div>
+            </li>
+        </div>
+    </div>
+    <div class="menu-btn" onclick="hideDiv()"><span class="iconfont icon-zuojiantou"></span></div>
+</div>
+<div class="nav">navigation bar</div>
+</body>
+</html>

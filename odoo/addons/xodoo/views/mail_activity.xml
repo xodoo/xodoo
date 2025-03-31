@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tree_mail_activity" model="ir.ui.view">
+            <field name="name">mail.activity.tree</field>
+            <field name="model">mail.activity</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="任务" editable="bottom" create="false" edit="false" delete="false" duplicate="false" import="false" export_xlsx="false">
+                    <field name="res_name"/>
+                    <field name="res_model" optional="hide"/>
+                    <field name="activity_type_id" optional="hide"/>
+                    <field name="summary"/>
+                    <field name="create_date" string="创建日期" optional="hide"/>
+                    <field name="create_uid" string="创建人" optional="hide"/>
+                    <field name="date_deadline"/>
+                    <field name="user_id" optional="hide"/>
+                    <field name="note" string="备注"/>
+                    <button name='action_open_document'  string='打开' type='object'  class='oe_highlight'/>
+                </list>
+            </field>
+        </record>
+
+
+        <record id="view_search_mail_activity" model="ir.ui.view">
+            <field name="name">mail.activity.search</field>
+            <field name="model">mail.activity</field>
+            <field name="arch" type="xml">
+                <search string="查询">
+                    <field name="name" string=""
+                           filter_domain="['|','|',('res_name','ilike',self),('summary','ilike',self),('note','ilike',self)]"/>
+                    <filter string="今天" name="today"
+                            domain="[('create_date', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),('create_date', '&lt;=', time.strftime('%Y-%m-%d 23:59:59'))]"
+                    />
+                    <filter string="本月" name="month"
+                            domain="[('create_date','&lt;=', time.strftime('%Y-%m-%d')),('create_date','&gt;=',time.strftime('%Y-%m-01'))]"
+                    />
+                    <filter string="本年" name="year"
+                            domain="[('create_date','&lt;=', time.strftime('%%Y-12-31')),('create_date','&gt;=',time.strftime('%%Y-01-01'))]"
+                    />
+                    <filter string="我的单据" domain="[('user_id','=',uid)]" name="my_orders_filter"/>
+                    <separator/>
+                    <separator/>
+                    <group expand="0" string="分组">
+                        <filter string="分配给" name ='user_id' domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="任务类型" name='activity_type_id' domain="[]" context="{'group_by':'activity_type_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_mail_activity" model="ir.actions.act_window">
+            <field name="name">任务中心</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mail.activity</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_search_mail_activity"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_mail_activity" action="action_mail_activity" sequence="0" groups="base.group_erp_manager"
+        web_icon="xodoo,static/description/time.png"
+        />
+
+    </data>
+</odoo>

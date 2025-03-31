@@ -1,0 +1,257 @@
+.xodoo_form {
+    .o_form_sheet {
+        /*padding-bottom: 0 !important;*/
+        /*border-style: solid !important;*/
+
+        .o_group{
+
+            .o_inner_group{
+                gap: 0px 0px !important;
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .table2{
+            width: 50%;
+        }
+        .table4{
+            width: 24%;
+        }
+
+        .grid-row{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .grid-item{
+                border: 1px solid #ccc;
+                margin: -1px 0 0 -1px;
+                padding: 5px;
+
+            }
+
+            .o_wrap_label{
+                 background-color: #EEEEEE;
+                width: 105px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                min-height: 42px;
+
+             }
+            .o_warp_input{
+                flex: 1;
+                display: flex;
+                align-items: center;
+
+                .o_field_widget{
+                    width: 100%;
+                    min-height: 30px;
+                    margin-bottom: 0 !important;
+
+                    .o_field_many2one_selection{
+                        min-height: 30px;
+                        align-items: center;
+                    }
+                    .o_input,.align-items-center{
+                        min-height: 30px;
+                     }
+                    .o_field_tags{
+                        height: unset !important;
+                    }
+                    .o_field_boolean{
+                        margin-top: 5px;
+                    }
+                    .btn{
+                        padding: 0 10px;
+                    }
+
+                    .o_favorite{
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    /*.o_input_dropdown{*/
+                    /*    .o_input{*/
+                    /*        border: 0 !important;*/
+                    /*    }*/
+                    /*}*/
+                    .o_input,.note-editable{
+                        border: 1px solid #ccc;
+                        border-radius: 3px;
+                        padding: 0 5px;
+                    }
+                    .note-editable{
+                        height: 50px;
+                    }
+                }
+                .d-inline-flex,.o_row,.d-flex{
+                    min-height: 30px;
+                }
+                .d-flex >span{
+                    display: flex;
+                    align-items: center;
+                }
+                .o_priority{
+                    line-height:28px
+                }
+                .o_field_radio{
+                    align-items: center;
+
+                }
+                /*.o_field_boolean_toggle,.o_field_radio,.o_field_boolean_toggle,.o_field_progressbar,.o_field_image,.o_field_state_selection,.o_field_binary{*/
+                /*    border: 0;*/
+                /*}*/
+                .o_field_monetary input{
+                    width: 50% !important;
+                }
+            }
+        }
+    }
+    .o_input{
+        border-width: 0;
+    }
+
+
+    .o-mail-Form-chatter.o-aside {
+        flex-shrink: 0;
+        flex-grow: 1;
+        padding: 0;
+        width: 530px;
+    }
+
+
+    .o_wrap_field {
+
+
+        .o_cell {
+            max-width: 100%;
+            border: 1px solid #cccccc;
+
+            &.o_wrap_label {
+                 text-align: right;
+                 padding-left: 30px;
+                 padding-right: 8px;
+                 line-height: 40px;
+                 background-color: #EEEEEE;
+                 border: 1px solid #ccc;
+             }
+             &.o_wrap_input{
+                 padding:5px;
+                  line-height: 25px;
+             }
+
+            .o_field_char {
+                /*margin-left: 10px;*/
+            }
+
+            .o_field_widget {
+
+                line-height: 25px;
+                border-radius: 4px;
+                margin-bottom: 0 !important;
+
+
+                .o_input {
+                    margin-left: 5px;
+                    width: 95%;
+                }
+
+                &:not(.o_field_boolean_toggle){
+                     width: 100%;
+                    border: 1px solid #CCC;
+                 }
+
+                  &.o_field_radio,&.o_field_progressbar,&.o_field_image,&.o_field_state_selection,&.o_field_binary,&.o_field_color_picker{
+                      border: 0 !important;
+                  }
+
+
+                &.o_field_boolean {
+                     margin-right: 0;
+                 }
+                 &.o_field_char_emojis{
+                    .o_input{
+                        width: 93% !important;
+                    }
+
+                  }
+                &.o_required_modifier{
+                    margin-top: 5px;
+                 }
+                 &.o_field_domain >div{
+                      margin-left: 5px;
+                  }
+
+
+            }
+            .o_field_many2many_tags_avatar >.o_input{
+                margin-left: 0;
+            }
+
+            .o_input_dropdown {
+                width: auto;
+                max-width: 100%;
+            }
+
+            .o_form_label {
+                /*margin-left: 10px;*/
+
+            }
+
+
+
+
+        }
+    }
+
+    .row > *{
+        padding-right: 0;
+    }
+
+
+
+}
+
+@media (max-width: 576px) {
+    .xodoo_form{
+
+        .o_wrap_field {
+
+            .o_cell {
+
+                &.o_wrap_label {
+                    text-align: left !important;
+                    padding-left: 8px !important;
+                }
+            }
+
+        }
+        .grid-row{
+
+            .grid-item{
+                margin: -1px 1px 0 -1px !important;
+            }
+
+            .o_wrap_label{
+                width: 100% !important;
+                justify-content: flex-start !important;
+                min-height:37px !important;
+
+
+                .o_form_label{
+                    font-size: 0.875rem !important;
+                }
+            }
+
+        }
+
+        .table2,.table4{
+            width: 100% !important;
+        }
+
+    }
+
+}
+

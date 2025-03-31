@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="default_wizard_view" model="ir.ui.view">
+            <field name="name">默认值</field>
+            <field name="model">default.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3>1,默认参数</h3>
+                                <div>
+                                    <p>
+                                        修改目的:
+                                        <ol>
+                                            <li>1，工作台消息默认图标与风格</li>
+                                            <li>2，批量修改用户时区</li>
+                                            <li>3，批量通知为内部消息</li>
+                                        </ol>
+                                    </p>
+                                    <p>更新:
+                                        <button name='button_default' string='所有用户默认界面' type='object'
+                                                class='oe_highlight'/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+
+                            </div>
+
+                        </div>
+
+
+                        <footer>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_default_wizard" model="ir.actions.act_window">
+            <field name="name">默认值</field>
+            <field name="res_model">default.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="default_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="menu_default_wizard" action="action_default_wizard" sequence="100"
+        web_icon="xodoo,static/description/icon.png"
+        />
+
+
+    </data>
+</odoo>

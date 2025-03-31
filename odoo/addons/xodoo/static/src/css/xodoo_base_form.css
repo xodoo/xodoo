@@ -1,0 +1,8 @@
+.xodoo_base_form {
+    .o_form_sheet {
+        padding-bottom: 0 !important;
+        border-style: solid !important;
+        border-color: white;
+        max-width: 1700px;
+    }
+}

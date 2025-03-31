@@ -1,0 +1,45 @@
+/*该文件用来定义视图中的一些格式,需要用到的地方直接在xml文件中进行引用*/
+/*语法说明*/
+/*
+table th:nth-child(1)  代表定位到table 的 th上面到第一个th标题
+nth-child()参考 css语法http://www.w3school.com.cn/cssref/css_selectors.asp
+:nth-child(1) 表示 第1个元素
+:nth-child(even) 表示 偶数
+:nth-child(odd) 表示 奇数
+:表示所有(未在od中测试)
+*/
+/*
+!important  作用是权重作用  权重最大，样式有优先级
+*/
+
+
+/*样式 树形列表中所有标题居中  这里利用奇数和偶数都居中的语法 *
+/*样式 树形列表中元素p根据序数进行标题居中设置*/
+.melon_fix_width_tree_style_p1 table th:nth-child(even) {
+    width: 200px !important;
+    background-color: #EEEEEE !important;
+    border: 1px solid black;
+    border-collapse: collapse; /* 移除表格内边框间的间隙 */
+
+    text-align: center;
+}
+
+.melon_fix_width_tree_style_p1 table th:nth-child(odd) {
+    width: 200px !important;
+    background-color: #EEEEEE !important;
+    border: 1px solid black;
+    border-collapse: collapse; /* 移除表格内边框间的间隙 */
+    text-align: center;
+
+}
+
+.o_list_renderer .o_list_table thead th {
+   background-color: #eeeeee !important;
+}
+
+
+
+.table-bordered > thead > tr > th {
+  border: 1px solid #2b2c2d;
+   text-align: center;
+}

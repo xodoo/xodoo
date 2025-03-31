@@ -1,0 +1,64 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>仿美团百度地图</title>
+    <style>
+        input, select {
+            width: 200px;
+            height: 35px;
+        }
+
+        .form-item {
+            margin: 20px;
+            width: 100%;
+        }
+
+        .content {
+            width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="layui-form">
+            <div class="form-item">
+                <label>省/市/区</label>&nbsp;&nbsp;
+                <select name="Province" class="store_Province" style="width:200px;">
+                    <option value="">请选择省</option>
+                    <option value="广东省">广东省</option>
+                </select>&nbsp;&nbsp;
+                <select name="City" class="store_City" style="width:200px;">
+                    <option value="">请选择市</option>
+                    <option value="广州市">广州市</option>
+                </select>&nbsp;&nbsp;
+                <select name="Area" class="store_Area" style="width:200px">
+                    <option value="">请选择县/区</option>
+                    <option value="天河区">天河区</option>
+                    <option value="番禺区">番禺区</option>
+                    <option value="越秀区">越秀区</option>
+                    <option value="荔湾区">荔湾区</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            详细地址&nbsp;&nbsp;
+            <input type="text" class="layui-input store_Address" style="width:400px;" maxlength="300" name="Address" id="address" placeholder="详细至门牌号, 与营业执照地址一致" />
+            <img src="img/location.png" style="width:20px;top: 5px; position: relative;" id="btnLocation" />
+        </div>
+
+        <div class="form-item">
+            <div style="width:710px">
+                <div id="myMap" style="width:100%;height:400px;"></div>
+            </div>
+        </div>
+        <input type="hidden" class="store_Lng" />
+        <input type="hidden" class="store_Lat" />
+    </div>
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=RZZ2gObry82Y2BSzZ1xzMhfm&callback=mapinit"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

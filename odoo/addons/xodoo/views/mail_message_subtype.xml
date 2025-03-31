@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="xodoo_mail_message_subtype_form_inherit">
+            <field name="name">mail.message.subtype.form.inherit</field>
+            <field name="model">mail.message.subtype</field>
+            <field name="inherit_id" ref="mail.view_mail_message_subtype_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group/group[last()]" position="after">
+                    <group string="参照颜色">
+                        <field name="form_id"/>
+                        <field name="tree_id"/>
+                        <field name="icon"/>
+                        <field name="icon_bg"/>
+
+                        <field name="title_color" widget="color"/>
+                        <field name="title_background" widget="color"/>
+
+                        <field name="content_color" widget="color"/>
+                        <field name="content_background" widget="color"/>
+
+                        <label for="button_icon_bg" string="图标参照颜色"/>
+                        <div class="o_row card-body d-flex flex-wrap gap-2">
+                            <button name='button_icon_bg' string='主色' type='object' class='btn-primary bg-primary'
+                                    context="{'icon_bg':'bg-primary'}"/>
+                            <button name='button_icon_bg' string='次色' type='object' class='btn-primary bg-secondary'
+                                    context="{'icon_bg':'bg-secondary'}"/>
+                            <button name='button_icon_bg' string='成功' type='object' class='btn-primary bg-success'
+                                    context="{'icon_bg':'bg-success'}"/>
+                            <button name='button_icon_bg' string='红色' type='object' class='btn-primary bg-danger'
+                                    context="{'icon_bg':'bg-danger'}"/>
+                            <button name='button_icon_bg' string='警告' type='object' class='btn-primary bg-warning'
+                                    context="{'icon_bg':'bg-warning'}"/>
+                            <button name='button_icon_bg' string='浅蓝' type='object' class='btn-primary bg-info'
+                                    context="{'icon_bg':'bg-info'}"/>
+                            <button name='button_icon_bg' string='浅色' type='object'
+                                    class='btn-outline-secondary bg-light'
+                                    context="{'icon_bg':'bg-light'}"/>
+                            <button name='button_icon_bg' string='黑色' type='object' class='btn-primary bg-dark'
+                                    context="{'icon_bg':'bg-dark'}"/>
+
+                        </div>
+
+                    </group>
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

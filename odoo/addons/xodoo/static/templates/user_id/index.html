@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link href="/web/static/layui/css/layui.css" rel="stylesheet">
+
+    <style>
+        .text{
+            display: flex;
+        }
+        .div1 .div2 .div3{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="text">
+    <div class="div1" style="width: 22%;background-color: rgba(204,204,204,0.1);height: 700px;" class="layui-form-item">
+
+        <div class="layui-form layui-row" >
+          <div style="float: left">
+             <label class="layui-form-label" style="width:40px;">公司:</label>
+          </div>
+          <div class="layui-col-md9" >
+            <select id="country" lay-filter="Country">
+                {% for option in object.company %}
+                    {% if option.name == company_name %}
+                        <option value="{{ option.id }}" selected>{{ option.name }}</option>
+                    {% else %}
+                        <option value="{{ option.id }}">{{ option.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div id="ID-tree-demo-showCheckbox" lay-filter="treeData" ></div>
+    </div>
+    <div class="div2" style="width: 58%;height: 700px;" >
+        <div class="layui-form layui-row" style="padding-bottom: 5px; float: left">
+          <div style="float: left">
+            <input name="search_name" id="search_name" type="text"  lay-options="{split: true}" placeholder="搜索员工…" class="layui-input" style="color: #556dea;width: 300px;">
+          </div>
+        </div>
+        <table class="layui-hide" id="ID-table-demo-data" lay-filter="tableData" ></table>
+    </div>
+    <div class="div3" style="width: 20%;height: 700px;">
+        <div class="layui-form layui-row" style="padding-bottom: 5px; float: left;height: 40px;">
+        </div>
+        <form class="layui-form" action="" id="form_employee">
+            <table class="layui-hide" id="table_employee" lay-filter="tableEmployee"></table>
+        </form>
+    </div>
+</div>
+
+<script src="/web/static/layui/layui.js"></script>
+<script src="/web/static/lib/jquery/jquery.js"></script>
+
+
+<script>
+
+    var table_test = []  //列表选中栏数据
+    var table_workers = []  //选中树后的员工
+
+    // 删除数组中的对象
+    function removeByAttr(array, attr, value) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i][attr] === value) {
+          array.splice(i, 1);
+          break;
+        }
+      }
+    }
+
+    //树组件
+    layui.use('tree', function(){
+          var tree = layui.tree;
+
+          //初始化渲染
+          tree.render({
+            elem: '#ID-tree-demo-showCheckbox',
+            data: {{ object.department }},
+            // showCheckbox: true,
+            onlyIconControl: true,  // 是否仅允许节点左侧图标控制展开收缩
+            // isJump: true, // 是否允许点击节点时弹出新窗口跳转
+            id: 'treeId',
+            click: function(obj){
+                //选中的classlayui-tree-txt
+                var nodes = document.getElementsByClassName("layui-tree-txt")
+                console.log(nodes)
+                for (var i = 0; i < nodes.length; i++) {
+                    if ((nodes[i].innerHTML === obj.data.title) || (nodes[i].innerHTML === obj.data.label)) {　　// if(obj.data.children){} //判断当前节点是否有子节点
+                        // if (obj.data.children == null || obj.data.children.length == 0) {//判断是不是子节点（父节点对应的children不为空，且有的父节点长度为0也可代表子节点）
+                        //     nodes[i].style.color = "red";//灰色
+                        //     //将选中的值存储在Session
+                        // }
+                        nodes[i].style.color = "#556dea";//灰色
+                    } else {
+                        nodes[i].style.color = "#555555";//灰色
+                    }
+                }
+                console.log(JSON.stringify(obj.data))
+                table_workers = JSON.stringify(obj.data)
+                var inputData = document.getElementById("search_name").value
+                console.log(inputData)
+                $.ajax({
+                      type: "POST",
+                      dataType: "json",
+                      url: '/xodoo/user_id/staff',
+                      data: {
+                          "treedata": table_workers,
+                          "input": inputData
+                      },
+                      success: function (result) {
+                          console.log(result)
+                          //更新表格组件
+                          var table = layui.table
+                          table.reloadData('tableId', {
+                              data: result
+                          })
+                      }
+                  });
+
+            }
+          });
+    });
+
+    //表格组件
+    layui.use('table', function(){
+          var table = layui.table;
+          // 初始化表格组件数据渲染
+          table.render({
+            elem: '#ID-table-demo-data',
+            id:"tableId",
+            cols: [[ //标题栏
+              // {field: 'box_id', type: 'checkbox'},
+              {field: 'id', title: 'ID',width:80, sort: true},
+              {field: 'name', title: '姓名',width:200,},
+              {field: 'department', title: '部门',width:250,},
+              {field: 'company', title: '公司',width:250,},
+            ]],
+            data: [],
+            skin: 'nob', // 表格风格
+            size:'lg',
+            // even: true,
+            page: true, // 是否显示分页
+            limit: 10, // 每页默认显示的数量
+            limits: [10, 20, 30] //每页条数的选择项
+          });
+
+          // 点击表格添加信息到列表中
+          table.on('row(tableData)', function(obj){
+            var v = {}
+            var bool = true
+            v['id'] = obj.data.id
+            v['name'] = obj.data.name
+            console.log(v)
+            for (var key in table_test) {
+                if (table_test[key]['id'] == obj.data.id){
+                    // delete table_test[key];
+                    removeByAttr(table_test, 'id', obj.data.id)
+                    bool = false
+                    break
+                }
+            }
+            if (bool){
+                table_test.push(v)
+            }
+            console.log(table_test)
+            table.reloadData('tableEmployee', {
+                data: table_test,
+            })
+
+        });
+
+
+          // 初始化选中员工表格组件数据渲染
+          table.render({
+            elem: '#table_employee',
+            id:"tableEmployee",
+            cols: [[ //标题栏
+              {field: 'id', title: 'ID',width:80,},
+              {field: 'name', title: '姓名',width:200,},
+            ]],
+            data: [],
+            skin: 'nob', // 表格风格
+            size:'lg', // md
+            // even: true
+          });
+
+          // 点击表格删除行
+          table.on('row(tableEmployee)', function(obj){
+              console.log(obj); // 查看对象所有成员
+              console.log(obj.data); // 查看对象所有成员
+              removeByAttr(table_test, 'id', obj.data.id)
+              obj.del() // 删除当前行
+            });
+
+      });
+
+    //监听下拉框并发送请求
+    layui.use(['table','form','layer'],function () {
+        var form=layui.form;
+        var layer=layui.layer;
+
+        //下拉框选中
+        form.on('select(Country)',function(data){
+            console.log(data.value)
+            //发送ajax请求
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: '/xodoo/user_id/department_id',
+                data: {
+                    "company_id": data.value
+                },
+                success: function (result) {
+                    var new_data = result.data.department
+                    console.log(new_data)
+                    var tree = layui.tree
+
+                    tree.reload('treeId',{
+                      data:new_data
+                    })
+
+                }
+            })
+        });
+
+    })
+
+    $(function(){
+   //输入框的值改变时触发
+      $("#search_name").on("input",function(e){
+        //获取input输入的值
+        console.log(e.delegateTarget.value);
+        $.ajax({
+              type: "POST",
+              dataType: "json",
+              url: '/xodoo/user_id/staff',
+              data: {
+                  "treedata": table_workers,
+                  "input": e.delegateTarget.value
+              },
+              success: function (result) {
+                  console.log(result)
+                  //更新表格组件
+                  var table = layui.table
+                  table.reloadData('tableId', {
+                      data: result
+                  })
+              }
+          });
+      });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend_xodoo" name="xodoo assets backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/xodoo/static/src/zTreeStyle/zTreeStyle.css" type="text/css"/>
+            <script type="text/javascript" src="/xodoo/static/src/js/jquery-1.4.4.min.js"></script>
+            <script type="text/javascript" src="/xodoo/static/src/js/jquery.ztree.core.js"></script>
+
+        </xpath>
+    </template>
+
+</odoo>

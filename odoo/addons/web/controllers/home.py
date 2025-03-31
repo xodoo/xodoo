@@ -105,6 +105,9 @@ class Home(http.Controller):
     # TODO(Amos): add
     @http.route('/web/assets/load_menus/<string:unique>', type='http', auth='user', methods=['GET'])
     def web_assets_load_menus(self, unique, lang=None):
+
+        print(request.session.debug)
+
         if unique == '1234':
             menus = self._get_menus(request)
             return menus

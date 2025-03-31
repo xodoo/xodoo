@@ -48,15 +48,15 @@
 
 
 
-         <!-- amos write  -->
-        <div t-if="env.debug or isSingleCompany==0" class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu" style="float: right;background-color:#71639e;">
-                  <t t-foreach="systrayItems" t-as="item" t-key="item.key">
-                      <div t-att-data-index="item.index"/>
-                      <ErrorHandler onError="error => this.handleItemError(error, item)">
-                        <t t-component="item.Component" t-props="item.props"/>
-                    </ErrorHandler>
-                  </t>
-        </div>
+<!--         &lt;!&ndash; amos write  &ndash;&gt;-->
+<!--        <div t-if="env.debug or isSingleCompany==0" class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu" style="float: right;background-color:#71639e;">-->
+<!--                  <t t-foreach="systrayItems" t-as="item" t-key="item.key">-->
+<!--                      <div t-att-data-index="item.index"/>-->
+<!--                      <ErrorHandler onError="error => this.handleItemError(error, item)">-->
+<!--                        <t t-component="item.Component" t-props="item.props"/>-->
+<!--                    </ErrorHandler>-->
+<!--                  </t>-->
+<!--        </div>-->
 
 
 
