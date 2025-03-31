@@ -4,7 +4,8 @@
 <t t-name="mail.ActivityMenu">
     <Dropdown position="'bottom-end'" state="dropdown" beforeOpen.bind="onBeforeOpen" menuClass="discussSystray.menuClass">
         <!-- amos write -->
-        <div style="margin: 15px 10px 10px;color:#FFFFFF;" >
+        <div style="width:40px;display: flex;justify-content: center;align-items: center;color:#FFFFFF;cursor: pointer;" onmouseover="this.style.background='#71639e'"
+             onmouseout="this.style.background='#5a4f7f'">
             <i class="fa fa-lg fa-clock-o" role="img" aria-label="Activities"></i>
             <span t-if="store.activityCounter" class="o-mail-ActivityMenu-counter badge rounded-pill"><t t-esc="store.activityCounter"/></span>
         </div>

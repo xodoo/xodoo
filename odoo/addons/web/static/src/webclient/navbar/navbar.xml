@@ -38,7 +38,7 @@
                                         </span>
                                     </a>
 
-                                    <button type="button" class="btn btn-sm px-3
+                                    <button type="button" class="btn btn-sm px-3 d-none d-lg-block
                                     font-size-16 header-item"
                                             style="z-index:100;float: right;margin-right:0px;"
                                             id="vertical-menu-btn">
@@ -111,7 +111,7 @@
                     if (event) {
                         event.preventDefault();
                     }
-            
+
                     if(default_logo_sidebar==0)
                     {
                        $('body').toggleClass('sidebar-enable');
