@@ -8,6 +8,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 
 from odoo import api, exceptions, fields, models, tools, _
+import xodoo
 
 class SignupError(Exception):
     pass

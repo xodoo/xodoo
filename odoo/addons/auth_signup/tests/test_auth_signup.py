@@ -5,6 +5,7 @@ from unittest.mock import patch
 
 import odoo
 from odoo import http
+import xodoo
 from odoo.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
 from odoo.exceptions import AccessError
 
