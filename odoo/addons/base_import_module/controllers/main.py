@@ -2,6 +2,7 @@
 import functools
 
 from odoo import _
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import Controller, route, request, Response
 

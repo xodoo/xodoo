@@ -12,6 +12,7 @@ from socket import gaierror, timeout
 from ssl import SSLError
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import UserError, ValidationError
 
 

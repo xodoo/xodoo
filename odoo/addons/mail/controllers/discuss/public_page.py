@@ -3,6 +3,7 @@ import psycopg2.errors
 from werkzeug.exceptions import NotFound
 
 from odoo import _, http
+import xodoo
 from odoo.exceptions import UserError
 from odoo.http import request
 from odoo.tools import consteq, replace_exceptions

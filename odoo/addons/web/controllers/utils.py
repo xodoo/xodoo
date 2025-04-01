@@ -14,6 +14,7 @@ from werkzeug.urls import iri_to_uri
 from odoo.tools.translate import JAVASCRIPT_TRANSLATION_COMMENT
 from odoo.tools.misc import file_open
 from odoo import http
+import xodoo
 from odoo.http import request
 
 

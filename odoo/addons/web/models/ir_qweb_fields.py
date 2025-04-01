@@ -7,6 +7,7 @@ from werkzeug.urls import url_quote
 from markupsafe import Markup
 
 from odoo import api, models, fields
+import xodoo
 from odoo.tools import html_escape as escape
 
 

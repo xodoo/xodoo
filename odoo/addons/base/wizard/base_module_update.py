@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+import xodoo
 
 
 class BaseModuleUpdate(models.TransientModel):

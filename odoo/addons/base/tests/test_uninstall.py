@@ -7,6 +7,7 @@ from contextlib import contextmanager
 import unittest
 
 from odoo import api, SUPERUSER_ID
+import xodoo
 from odoo.tests import common
 from odoo.tests.common import BaseCase
 

@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from unittest.mock import patch, Mock
 
 from odoo import Command, modules
+import xodoo
 from odoo.tests.common import new_test_user, TransactionCase, HttpCase
 from odoo.tools.mail import email_split_and_format
 

@@ -14,6 +14,7 @@ from io import BytesIO
 from os.path import join as opj
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import AccessDenied, AccessError, UserError
 from odoo.http import request
 from odoo.modules.module import adapt_version, MANIFEST_NAMES

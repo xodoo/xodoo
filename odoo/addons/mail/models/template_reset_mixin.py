@@ -6,6 +6,7 @@ import json
 from lxml import etree
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import UserError
 from odoo.modules.module import get_resource_from_path
 from odoo.tools.convert import xml_import

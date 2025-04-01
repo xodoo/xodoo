@@ -2,6 +2,7 @@
 import base64
 from io import BytesIO
 from odoo import api, fields, models
+import xodoo
 
 
 class BaseImportModule(models.TransientModel):

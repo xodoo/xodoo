@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 from functools import partial
 from itertools import groupby
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
+import xodoo
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools.misc import formatLang
 from odoo.osv import expression

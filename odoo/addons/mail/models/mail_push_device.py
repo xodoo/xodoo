@@ -5,6 +5,7 @@ import json
 import logging as logger
 
 from odoo import api, fields, models
+import xodoo
 from ..tools.jwt import generate_vapid_keys, InvalidVapidError
 
 _logger = logger.getLogger(__name__)

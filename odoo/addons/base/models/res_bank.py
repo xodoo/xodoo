@@ -3,6 +3,7 @@ import re
 from collections.abc import Iterable
 
 from odoo import api, fields, models
+import xodoo
 from odoo.tools import _, SQL
 
 

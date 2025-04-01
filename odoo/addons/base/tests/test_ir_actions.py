@@ -13,6 +13,7 @@ from odoo.tools import mute_logger
 from odoo.tests import common, tagged
 from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
 from odoo import Command
+import xodoo
 
 
 class TestServerActionsBase(TransactionCaseWithUserDemo):

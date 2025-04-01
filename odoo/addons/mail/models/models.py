@@ -7,6 +7,7 @@ from lxml.builder import E
 from markupsafe import Markup
 
 from odoo import api, exceptions, models, tools, _
+import xodoo
 from odoo.addons.mail.tools.alias_error import AliasError
 
 import logging

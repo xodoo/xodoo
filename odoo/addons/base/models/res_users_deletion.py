@@ -6,6 +6,7 @@ import threading
 
 
 from odoo import api, fields, models
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

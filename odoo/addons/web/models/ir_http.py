@@ -5,6 +5,7 @@ import json
 
 import odoo
 from odoo import api, models, fields
+import xodoo
 from odoo.http import request, DEFAULT_MAX_CONTENT_LENGTH
 from odoo.tools import ormcache, config
 from odoo.tools.misc import str2bool

@@ -28,6 +28,7 @@ except ImportError:
 
 import odoo
 from odoo import api, http, models, tools, SUPERUSER_ID
+import xodoo
 from odoo.exceptions import AccessDenied
 from odoo.http import request, Response, ROUTING_KEYS
 from odoo.modules.registry import Registry

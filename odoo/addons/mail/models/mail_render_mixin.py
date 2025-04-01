@@ -13,6 +13,7 @@ from markupsafe import Markup, escape
 from werkzeug import urls
 
 from odoo import _, api, fields, models, tools
+import xodoo
 from odoo.addons.base.models.ir_qweb import QWebException
 from odoo.exceptions import UserError, AccessError
 from odoo.tools.mail import is_html_empty, prepend_html_content, html_normalize

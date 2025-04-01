@@ -17,6 +17,7 @@ except ImportError:
 import odoo
 import odoo.modules.registry
 from odoo import SUPERUSER_ID, _, http, api
+import xodoo
 from odoo.addons.base.models.assetsbundle import ANY_UNIQUE
 from odoo.exceptions import AccessError, UserError
 from odoo.http import request, Response

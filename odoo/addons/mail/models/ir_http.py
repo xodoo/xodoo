@@ -2,6 +2,7 @@
 
 import odoo
 from odoo import api, models, fields
+import xodoo
 from odoo.http import request
 from odoo.addons.mail.tools.discuss import Store
 

@@ -7,6 +7,7 @@ from unittest.mock import patch
 from uuid import uuid4
 
 from odoo import tools
+import xodoo
 from odoo.addons.base.models.res_partner import Partner
 from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
 from odoo.tests import Form, tagged, users

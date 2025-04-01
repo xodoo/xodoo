@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, api, tools
+import xodoo
 from odoo.tools.misc import str2bool
 
 

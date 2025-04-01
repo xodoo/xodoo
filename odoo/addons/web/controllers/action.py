@@ -2,6 +2,7 @@
 
 import logging
 from odoo import _
+import xodoo
 from odoo.exceptions import UserError, MissingError, AccessError
 from odoo.http import Controller, request, route
 from .utils import clean_action

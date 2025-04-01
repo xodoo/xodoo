@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models
+import xodoo
 from odoo.addons.mail.tools.discuss import get_twilio_credentials
 import requests
 

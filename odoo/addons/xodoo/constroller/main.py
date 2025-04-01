@@ -14,11 +14,13 @@ import json
 import os
 import odoo
 from odoo import http, fields, _
+import xodoo
 from odoo.http import request
 from jinja2 import Environment, FileSystemLoader
 from odoo.tools.image import image_data_uri, binary_to_image
 from odoo.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
 from odoo import http,api, fields, models, tools, SUPERUSER_ID, _
+import xodoo
 import ast
 
 

@@ -3,6 +3,7 @@
 
 from markupsafe import Markup
 from odoo import _, api, fields, models, tools
+import xodoo
 
 
 class MailGatewayAllowed(models.Model):

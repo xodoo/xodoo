@@ -4,6 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields
+import xodoo
 from odoo.http import request, route, Controller
 
 

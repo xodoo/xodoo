@@ -1,4 +1,5 @@
 from odoo import fields
+import xodoo
 from odoo.tests import common
 
 

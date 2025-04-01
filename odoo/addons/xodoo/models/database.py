@@ -19,6 +19,7 @@ from lxml import html
 import odoo
 import odoo.modules.registry
 from odoo import http
+import xodoo
 from odoo.http import content_disposition, dispatch_rpc, request, Response
 from odoo.service import db
 from odoo.tools.misc import file_open, str2bool

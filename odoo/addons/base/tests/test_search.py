@@ -3,6 +3,7 @@
 
 from odoo.tests.common import TransactionCase
 from odoo import Command
+import xodoo
 
 
 class test_search(TransactionCase):

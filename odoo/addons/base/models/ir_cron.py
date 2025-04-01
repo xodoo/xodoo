@@ -11,6 +11,7 @@ from dateutil.relativedelta import relativedelta
 
 import odoo
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import UserError
 from odoo.modules.registry import Registry
 from odoo.tools import SQL

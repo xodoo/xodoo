@@ -7,6 +7,7 @@ import logging
 from datetime import datetime
 
 from odoo import api, fields, models
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

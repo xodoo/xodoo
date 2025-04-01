@@ -9,6 +9,7 @@ import re
 from typing import Any, Literal
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import OrderedSet, frozendict
 

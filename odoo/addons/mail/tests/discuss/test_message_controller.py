@@ -9,6 +9,7 @@ from odoo.addons.base.tests.common import HttpCase, HttpCaseWithUserDemo
 from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
 from odoo.http import STATIC_CACHE_LONG
 from odoo import Command, fields, http
+import xodoo
 
 
 @odoo.tests.tagged("-at_install", "post_install")

@@ -7,6 +7,7 @@ from werkzeug import urls
 import odoo
 import odoo.modules.module  # get_manifest, don't from-import it
 from odoo import api, fields, models, tools
+import xodoo
 from odoo.tools import misc
 from odoo.tools.constants import ASSET_EXTENSIONS, EXTERNAL_ASSET
 import xodoo

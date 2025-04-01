@@ -5,6 +5,7 @@ import random
 
 from markupsafe import Markup
 from odoo import models, _
+import xodoo
 from odoo.tools import html_escape
 
 

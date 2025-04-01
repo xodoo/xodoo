@@ -4,6 +4,7 @@ import re
 from datetime import datetime, timedelta
 
 from odoo import http, _
+import xodoo
 from odoo.exceptions import AccessDenied
 from odoo.http import request
 from odoo.addons.web.controllers import home as web_home

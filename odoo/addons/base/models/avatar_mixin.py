@@ -4,6 +4,7 @@
 from base64 import b64encode
 from hashlib import sha512
 from odoo import models, fields, api
+import xodoo
 from odoo.tools import html_escape, file_open
 import xodoo
 

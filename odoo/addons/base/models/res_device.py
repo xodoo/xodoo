@@ -5,6 +5,7 @@ from datetime import datetime
 import logging
 
 from odoo import api, fields, models, tools
+import xodoo
 from odoo.http import GeoIP, request, root
 from odoo.tools import SQL, OrderedSet, unique
 from odoo.tools.translate import _

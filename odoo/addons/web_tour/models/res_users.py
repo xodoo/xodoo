@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+import xodoo
 
 
 class ResUsers(models.Model):

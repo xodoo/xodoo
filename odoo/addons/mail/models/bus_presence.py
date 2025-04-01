@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models
+import xodoo
 
 
 class BusPresence(models.Model):

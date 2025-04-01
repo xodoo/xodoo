@@ -11,6 +11,7 @@ from unittest.mock import patch
 from weakref import WeakSet
 
 from odoo import http
+import xodoo
 from odoo.api import Environment
 from odoo.tests import common, new_test_user
 from odoo.tools import mute_logger

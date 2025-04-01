@@ -5,6 +5,7 @@ from collections import defaultdict
 from datetime import date, datetime
 
 from odoo import fields, models
+import xodoo
 from odoo.tools import groupby
 
 

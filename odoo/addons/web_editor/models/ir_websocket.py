@@ -4,6 +4,7 @@
 import re
 
 from odoo import models
+import xodoo
 from odoo.exceptions import AccessDenied
 
 

@@ -7,6 +7,7 @@ from markupsafe import Markup
 from datetime import timedelta
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.addons.mail.tools.discuss import Store
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.osv import expression

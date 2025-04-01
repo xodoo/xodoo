@@ -7,6 +7,7 @@ from collections import defaultdict
 from markupsafe import Markup
 
 from odoo import _, api, fields, models
+import xodoo
 from odoo.exceptions import ValidationError, UserError
 from odoo.osv import expression
 from odoo.tools import is_html_empty, remove_accents

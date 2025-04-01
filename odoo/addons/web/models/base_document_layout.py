@@ -2,6 +2,7 @@
 from markupsafe import Markup
 
 from odoo import api, fields, models
+import xodoo
 
 from odoo.addons.base.models.ir_qweb_fields import nl2br
 from odoo.tools import html2plaintext, is_html_empty, image as tools

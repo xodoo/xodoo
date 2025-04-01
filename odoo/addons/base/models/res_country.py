@@ -4,6 +4,7 @@
 import re
 import logging
 from odoo import api, fields, models, tools
+import xodoo
 from odoo.osv import expression
 from odoo.exceptions import UserError
 from psycopg2 import IntegrityError

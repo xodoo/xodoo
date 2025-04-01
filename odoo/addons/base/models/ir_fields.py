@@ -10,6 +10,7 @@ import psycopg2
 import pytz
 
 from odoo import api, Command, fields, models
+import xodoo
 from odoo.tools import OrderedSet
 from odoo.tools.translate import _, code_translations, LazyTranslate
 

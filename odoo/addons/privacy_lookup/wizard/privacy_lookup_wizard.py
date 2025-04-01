@@ -4,6 +4,7 @@
 from collections import defaultdict
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import UserError
 from odoo.tools import SQL
 

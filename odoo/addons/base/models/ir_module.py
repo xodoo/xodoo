@@ -25,6 +25,7 @@ import psycopg2
 
 import odoo
 from odoo import api, fields, models, modules, tools, _
+import xodoo
 from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
 from odoo.exceptions import AccessDenied, UserError, ValidationError
 from odoo.osv import expression

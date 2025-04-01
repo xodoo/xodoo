@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models
+import xodoo
 
 class IrQWeb(models.AbstractModel):
     _inherit = "ir.qweb"

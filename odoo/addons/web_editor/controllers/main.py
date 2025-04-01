@@ -15,6 +15,7 @@ from os.path import join as opj
 
 from odoo.http import request, Response
 from odoo import http, tools, _
+import xodoo
 from odoo.tools.misc import file_open
 from odoo.tools.image import image_data_uri, binary_to_image
 

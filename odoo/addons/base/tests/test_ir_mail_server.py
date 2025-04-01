@@ -9,6 +9,7 @@ from unittest.mock import patch
 import psycopg2.errors
 
 from odoo import tools
+import xodoo
 from odoo.addons.base.tests import test_mail_examples
 from odoo.addons.base.tests.common import MockSmtplibCase
 from odoo.tests import tagged, users

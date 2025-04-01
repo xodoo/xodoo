@@ -5,6 +5,7 @@ import base64
 import re
 
 from odoo import api, models
+import xodoo
 from odoo.tools import misc
 from odoo.addons.base.models.assetsbundle import EXTENSIONS
 

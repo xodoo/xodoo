@@ -7,6 +7,7 @@ from ast import literal_eval
 import requests
 
 from odoo import api, fields, release, SUPERUSER_ID
+import xodoo
 from odoo.exceptions import UserError
 from odoo.models import AbstractModel
 from odoo.tools.translate import _

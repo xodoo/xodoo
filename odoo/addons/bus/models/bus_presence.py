@@ -2,7 +2,9 @@
 from datetime import timedelta
 
 from odoo import api, fields, models
+import xodoo
 from odoo import tools
+import xodoo
 from odoo.service.model import PG_CONCURRENCY_EXCEPTIONS_TO_RETRY
 
 UPDATE_PRESENCE_DELAY = 60

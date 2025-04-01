@@ -4,6 +4,7 @@
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import UserError
 
 class MailActivityType(models.Model):

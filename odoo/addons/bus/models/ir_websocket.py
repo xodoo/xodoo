@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from odoo import models
+import xodoo
 from odoo.http import request, SessionExpiredException
 from odoo.tools import OrderedSet
 from odoo.osv import expression

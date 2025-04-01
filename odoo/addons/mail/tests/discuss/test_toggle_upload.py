@@ -3,6 +3,7 @@
 from requests.exceptions import HTTPError
 
 from odoo import Command, http
+import xodoo
 from odoo.tests.common import tagged, HttpCase
 from odoo.tools import file_open, mute_logger
 

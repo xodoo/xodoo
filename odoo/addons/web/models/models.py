@@ -6,6 +6,7 @@ import itertools
 import json
 
 from odoo import api, models
+import xodoo
 from odoo.fields import Command
 from odoo.models import BaseModel, NewId
 from odoo.osv.expression import AND, TRUE_DOMAIN, normalize_domain

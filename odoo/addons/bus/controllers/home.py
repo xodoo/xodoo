@@ -3,6 +3,7 @@
 import ipaddress
 
 from odoo import _, SUPERUSER_ID
+import xodoo
 from odoo.http import request
 from odoo.addons.web.controllers.home import Home as WebHome
 

@@ -4,6 +4,7 @@
 import datetime
 
 from odoo import _, fields, models
+import xodoo
 from odoo.exceptions import UserError
 
 

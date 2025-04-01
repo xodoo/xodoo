@@ -13,6 +13,7 @@ from odoo.tests.common import BaseCase, TransactionCase
 from odoo.tools import mute_logger
 from odoo.osv import expression
 from odoo import Command
+import xodoo
 
 
 class TransactionExpressionCase(TransactionCase):

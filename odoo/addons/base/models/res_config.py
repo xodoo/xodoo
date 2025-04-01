@@ -5,6 +5,7 @@ import re
 from ast import literal_eval
 
 from odoo import api, models, _
+import xodoo
 from odoo.exceptions import AccessError, RedirectWarning, UserError
 
 _logger = logging.getLogger(__name__)

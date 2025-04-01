@@ -6,6 +6,7 @@ from markupsafe import Markup
 from urllib.parse import urlparse
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
+import xodoo
 from odoo.exceptions import UserError, AccessError, RedirectWarning
 from odoo.service import security
 from odoo.tools.safe_eval import safe_eval, time

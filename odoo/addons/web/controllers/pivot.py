@@ -6,6 +6,7 @@ import io
 import json
 
 from odoo import http, _
+import xodoo
 from odoo.http import content_disposition, request
 from odoo.tools import osutil
 from odoo.tools.misc import xlsxwriter

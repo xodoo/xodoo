@@ -23,6 +23,7 @@ from PIL import Image
 
 from collections import defaultdict
 from odoo import api, fields, models
+import xodoo
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 from odoo.tools.mimetypes import guess_mimetype

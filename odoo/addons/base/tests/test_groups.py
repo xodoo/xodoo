@@ -1,4 +1,5 @@
 from odoo import Command
+import xodoo
 from odoo.exceptions import ValidationError
 from odoo.tests import common
 from odoo.tools import SetDefinitions

@@ -3,6 +3,7 @@
 from hashlib import sha256
 
 from odoo import api, models
+import xodoo
 
 
 class Base(models.AbstractModel):

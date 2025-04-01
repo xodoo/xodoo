@@ -2,6 +2,7 @@
 
 import odoo.tests
 from odoo import Command
+import xodoo
 from odoo.addons.base.tests.common import HttpCaseWithUserDemo
 
 

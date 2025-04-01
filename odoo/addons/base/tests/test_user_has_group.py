@@ -4,6 +4,7 @@
 from odoo.tests.common import TransactionCase
 from odoo.exceptions import AccessError, ValidationError
 from odoo import Command
+import xodoo
 
 
 class TestHasGroup(TransactionCase):

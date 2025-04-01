@@ -2,6 +2,7 @@
 
 from markupsafe import Markup
 from odoo import fields, models, _
+import xodoo
 
 
 class PhoneBlacklistRemove(models.TransientModel):

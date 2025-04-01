@@ -5,6 +5,7 @@ import ast
 import logging
 
 from odoo import exceptions
+import xodoo
 from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
 from odoo.tests.common import TransactionCase, ADMIN_USER_ID, tagged
 

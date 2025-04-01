@@ -6,6 +6,7 @@ from lxml import etree
 import logging
 
 from odoo import exceptions, Command
+import xodoo
 from odoo.tests import Form, TransactionCase, tagged
 
 _logger = logging.getLogger(__name__)

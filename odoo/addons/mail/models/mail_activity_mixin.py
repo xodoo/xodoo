@@ -7,6 +7,7 @@ import logging
 import pytz
 
 from odoo import api, fields, models
+import xodoo
 from odoo.osv import expression
 from odoo.tools import SQL
 

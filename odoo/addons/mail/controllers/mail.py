@@ -6,6 +6,7 @@ from werkzeug.urls import url_encode
 from werkzeug.exceptions import NotFound, Unauthorized
 
 from odoo import _, http
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.tools import consteq

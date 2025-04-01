@@ -6,6 +6,7 @@ import re
 from werkzeug.urls import url_encode
 
 from odoo import _
+import xodoo
 
 logger = logging.getLogger(__name__)
 

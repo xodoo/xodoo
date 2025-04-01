@@ -2,6 +2,7 @@
 
 import logging
 from odoo import models
+import xodoo
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)

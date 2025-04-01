@@ -3,6 +3,7 @@
 from werkzeug.exceptions import NotFound
 
 from odoo import http
+import xodoo
 from odoo.http import request
 from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
 from odoo.addons.mail.tools.discuss import Store

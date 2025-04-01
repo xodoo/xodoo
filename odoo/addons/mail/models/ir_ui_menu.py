@@ -3,6 +3,7 @@
 import contextlib
 
 from odoo import api, models
+import xodoo
 from odoo.exceptions import AccessError
 
 

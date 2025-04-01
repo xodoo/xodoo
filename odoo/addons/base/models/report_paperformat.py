@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import ValidationError
 
 # see http://doc.qt.io/archives/qt-4.8/qprinter.html#PaperSize-enum

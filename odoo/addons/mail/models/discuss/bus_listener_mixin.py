@@ -3,6 +3,7 @@
 from markupsafe import Markup
 
 from odoo import models
+import xodoo
 from odoo.addons.mail.tools.discuss import Store
 
 

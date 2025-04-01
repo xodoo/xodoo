@@ -3,6 +3,7 @@
 from collections import defaultdict
 
 from odoo import _, api, Command, fields, models, modules, tools
+import xodoo
 from odoo.tools import email_normalize
 from odoo.addons.mail.tools.discuss import Store
 

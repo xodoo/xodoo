@@ -5,6 +5,7 @@ import logging
 from base64 import b64decode
 
 from odoo import models
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

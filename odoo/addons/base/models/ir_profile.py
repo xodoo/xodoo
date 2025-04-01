@@ -9,6 +9,7 @@ import logging
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models, api, _
+import xodoo
 from odoo.exceptions import UserError
 from odoo.http import request
 from odoo.tools.profiler import make_session

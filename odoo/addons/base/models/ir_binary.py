@@ -4,6 +4,7 @@ from datetime import datetime
 from mimetypes import guess_extension
 
 from odoo import models
+import xodoo
 from odoo.exceptions import MissingError, UserError
 from odoo.http import Stream, request
 from odoo.tools import file_open, replace_exceptions

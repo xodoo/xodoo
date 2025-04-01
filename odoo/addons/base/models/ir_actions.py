@@ -3,6 +3,7 @@
 
 import odoo
 from odoo import api, fields, models, tools, _, Command
+import xodoo
 from odoo.exceptions import MissingError, ValidationError, AccessError, UserError
 from odoo.tools import frozendict
 from odoo.tools.safe_eval import safe_eval, test_python_expr

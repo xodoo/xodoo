@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import fields, models
+import xodoo
 
 
 class ActWindowView(models.Model):

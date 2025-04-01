@@ -11,6 +11,7 @@ from unittest.mock import patch
 from freezegun import freeze_time
 
 from odoo import fields
+import xodoo
 from odoo.tests.common import TransactionCase, RecordCapturer
 from odoo.tools import mute_logger
 from odoo.addons.base.models.ir_cron import MIN_FAILURE_COUNT_BEFORE_DEACTIVATION, MIN_DELTA_BEFORE_DEACTIVATION

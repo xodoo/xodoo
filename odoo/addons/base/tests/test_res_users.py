@@ -5,6 +5,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from odoo import SUPERUSER_ID
+import xodoo
 from odoo.addons.base.models.res_users import is_selection_groups, get_selection_groups, name_selection_groups
 from odoo.exceptions import UserError, ValidationError
 from odoo.http import _request_stack

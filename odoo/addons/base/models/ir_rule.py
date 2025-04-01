@@ -3,6 +3,7 @@
 import logging
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import AccessError, ValidationError
 from odoo.osv import expression
 from odoo.tools import config, SQL

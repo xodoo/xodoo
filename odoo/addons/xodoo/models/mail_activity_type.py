@@ -18,6 +18,7 @@ from odoo.osv import expression
 from odoo.tools import float_is_zero, float_compare, DEFAULT_SERVER_DATETIME_FORMAT
 from odoo.tools.misc import formatLang
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
+import xodoo
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
 from odoo.osv import expression
 

@@ -6,6 +6,7 @@ import base64
 import io
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.tools.translate import trans_export, trans_export_records
 
 NEW_LANG_KEY = '__new__'

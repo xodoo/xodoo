@@ -9,6 +9,7 @@ from werkzeug.urls import url_encode
 import odoo
 import odoo.modules.registry
 from odoo import http
+import xodoo
 from odoo.modules import module
 from odoo.exceptions import AccessError, UserError, AccessDenied
 from odoo.http import request

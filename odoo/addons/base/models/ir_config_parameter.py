@@ -8,6 +8,7 @@ import uuid
 import logging
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import ValidationError
 from odoo.tools import config, ormcache, mute_logger
 

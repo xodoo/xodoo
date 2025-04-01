@@ -7,6 +7,7 @@ import warnings
 import traceback
 
 from odoo import api, models
+import xodoo
 from odoo.exceptions import AccessDenied
 import xodoo
 

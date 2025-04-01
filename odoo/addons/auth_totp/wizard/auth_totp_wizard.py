@@ -9,6 +9,7 @@ import re
 import werkzeug.urls
 
 from odoo import _, api, fields, models
+import xodoo
 from odoo.addons.base.models.res_users import check_identity
 from odoo.exceptions import UserError
 from odoo.http import request

@@ -6,6 +6,7 @@ import mimetypes
 from urllib.parse import unquote, urlencode
 
 from odoo import http, modules
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.tools import file_open, file_path, image_process

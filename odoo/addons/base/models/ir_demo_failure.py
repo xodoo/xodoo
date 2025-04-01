@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+import xodoo
 
 
 class DemoFailure(models.TransientModel):

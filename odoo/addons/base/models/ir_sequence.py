@@ -5,6 +5,7 @@ import logging
 import pytz
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import UserError
 from odoo.tools import SQL
 

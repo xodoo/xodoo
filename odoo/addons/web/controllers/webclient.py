@@ -13,6 +13,7 @@ import werkzeug.wsgi
 import odoo
 import odoo.modules.registry
 from odoo import http
+import xodoo
 from odoo.modules import get_manifest
 from odoo.http import request
 from odoo.tools.misc import file_path

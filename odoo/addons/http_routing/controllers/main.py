@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import http
+import xodoo
 from odoo.http import request
 from odoo.addons.web.controllers.home import Home
 from odoo.addons.web.controllers.session import Session

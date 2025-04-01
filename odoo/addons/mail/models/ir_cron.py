@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, SUPERUSER_ID
+import xodoo
 
 
 class IrCron(models.AbstractModel):

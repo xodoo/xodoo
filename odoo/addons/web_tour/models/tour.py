@@ -1,4 +1,5 @@
 from odoo import api, fields, models, Command
+import xodoo
 import json
 import base64
 

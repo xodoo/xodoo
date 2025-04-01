@@ -3,6 +3,7 @@
 from urllib.parse import quote
 
 from odoo import api, models, fields
+import xodoo
 from odoo.tools.image import base64_to_image
 from odoo.exceptions import UserError
 

@@ -3,6 +3,7 @@
 
 from operator import itemgetter
 from odoo import api, models
+import xodoo
 
 class IrUiView(models.Model):
     _inherit = 'ir.ui.view'

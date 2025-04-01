@@ -3,6 +3,7 @@
 from markupsafe import Markup
 
 from odoo import models, fields, _
+import xodoo
 
 class Users(models.Model):
     _inherit = 'res.users'

@@ -4,6 +4,7 @@
 from datetime import datetime
 
 from odoo import api, fields, models
+import xodoo
 
 
 class MailTracking(models.Model):

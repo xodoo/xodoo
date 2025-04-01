@@ -7,6 +7,7 @@ from binascii import Error as binascii_error
 from collections import defaultdict
 
 from odoo import _, api, fields, models, modules, tools
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.osv import expression
 from odoo.tools import clean_context, format_list, groupby, SQL

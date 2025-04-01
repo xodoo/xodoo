@@ -4,6 +4,7 @@
 import json
 
 from odoo import http
+import xodoo
 from odoo.http import request
 from odoo.tools import misc
 

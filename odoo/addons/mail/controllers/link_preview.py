@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import http
+import xodoo
 from odoo.http import request
 from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
 

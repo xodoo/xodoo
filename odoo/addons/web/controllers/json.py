@@ -13,6 +13,7 @@ from lxml import etree
 from werkzeug.exceptions import BadRequest, NotFound
 
 from odoo import http
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.models import regex_object_name

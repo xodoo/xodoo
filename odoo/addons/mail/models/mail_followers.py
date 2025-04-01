@@ -5,6 +5,7 @@ from collections import defaultdict
 import itertools
 
 from odoo import api, fields, models, Command
+import xodoo
 from odoo.addons.mail.tools.discuss import Store
 
 

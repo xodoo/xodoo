@@ -3,6 +3,7 @@
 import logging
 
 from odoo import tools
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

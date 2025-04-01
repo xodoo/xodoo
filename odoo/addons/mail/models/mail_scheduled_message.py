@@ -4,6 +4,7 @@ from collections import defaultdict
 import json
 
 from odoo import _, api, fields, models
+import xodoo
 from odoo.addons.mail.tools.discuss import Store
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.tools.misc import clean_context

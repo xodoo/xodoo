@@ -9,7 +9,9 @@ import psycopg2
 import datetime
 
 from odoo import api, fields, models, Command
+import xodoo
 from odoo import _
+import xodoo
 from odoo.exceptions import ValidationError, UserError
 from odoo.tools import mute_logger, SQL
 

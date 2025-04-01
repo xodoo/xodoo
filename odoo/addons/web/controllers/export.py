@@ -12,6 +12,7 @@ from collections import OrderedDict
 from werkzeug.exceptions import InternalServerError
 
 from odoo import http
+import xodoo
 from odoo.exceptions import UserError
 from odoo.http import content_disposition, request
 from odoo.tools import lazy_property, osutil

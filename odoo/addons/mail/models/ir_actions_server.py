@@ -4,6 +4,7 @@
 from dateutil.relativedelta import relativedelta
 
 from odoo import _, api, fields, models
+import xodoo
 from odoo.exceptions import ValidationError
 
 

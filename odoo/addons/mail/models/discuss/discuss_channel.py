@@ -8,6 +8,7 @@ from markupsafe import Markup
 from datetime import timedelta
 
 from odoo import _, api, fields, models, tools, Command
+import xodoo
 from odoo.addons.base.models.avatar_mixin import get_hsl_from_seed
 from odoo.addons.mail.tools.discuss import Store
 from odoo.exceptions import AccessError, UserError, ValidationError

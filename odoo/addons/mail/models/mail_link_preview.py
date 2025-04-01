@@ -7,6 +7,7 @@ from datetime import timedelta
 from lxml import html
 
 from odoo import api, models, fields, tools
+import xodoo
 from odoo.tools.misc import OrderedSet
 from odoo.addons.mail.tools.discuss import Store
 from odoo.addons.mail.tools.link_preview import get_link_preview_from_url

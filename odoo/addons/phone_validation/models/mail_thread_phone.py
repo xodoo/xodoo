@@ -4,6 +4,7 @@
 import re
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import AccessError, UserError
 from odoo.osv import expression
 from odoo.tools import create_index

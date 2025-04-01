@@ -3,6 +3,7 @@
 
 import odoo
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import UserError
 
 

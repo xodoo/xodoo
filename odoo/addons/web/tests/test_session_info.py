@@ -4,6 +4,7 @@ import json
 from uuid import uuid4
 
 from odoo import Command
+import xodoo
 from odoo.tests import common
 
 

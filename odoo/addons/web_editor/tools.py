@@ -12,6 +12,7 @@ from urllib.parse import parse_qs
 from werkzeug.urls import url_encode
 
 from odoo import _
+import xodoo
 from odoo.exceptions import ValidationError
 from odoo.http import request
 from odoo.tools import image_process

@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 from odoo import _, fields, models
+import xodoo
 
 
 class MailTrackingDurationMixin(models.AbstractModel):

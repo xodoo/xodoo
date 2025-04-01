@@ -9,6 +9,7 @@ from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.tools import is_html_empty
 from odoo.tools.misc import clean_context, get_lang, groupby

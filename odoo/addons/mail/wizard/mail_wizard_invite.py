@@ -6,6 +6,7 @@ from lxml.html import builder as html
 from markupsafe import Markup
 
 from odoo import _, api, fields, models
+import xodoo
 from odoo.exceptions import UserError
 
 

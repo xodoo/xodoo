@@ -15,6 +15,7 @@ from random import randint
 from werkzeug import urls
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _, Command
+import xodoo
 from odoo.exceptions import RedirectWarning, UserError, ValidationError
 
 import typing

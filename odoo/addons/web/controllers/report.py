@@ -7,6 +7,7 @@ import werkzeug.exceptions
 from werkzeug.urls import url_parse
 
 from odoo import http
+import xodoo
 from odoo.http import content_disposition, request
 from odoo.tools.misc import html_escape
 from odoo.tools.safe_eval import safe_eval, time

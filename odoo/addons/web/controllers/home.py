@@ -7,6 +7,7 @@ import psycopg2
 import odoo.exceptions
 import odoo.modules.registry
 from odoo import http
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.service import security
@@ -39,6 +40,7 @@ templateLoader = FileSystemLoader(searchpath=BASE_DIR + "/static/src/templates")
 env = Environment(loader=templateLoader)
 # TODO(amos): add
 from odoo import release
+import xodoo
 
 
 class Home(http.Controller):

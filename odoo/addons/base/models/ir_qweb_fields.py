@@ -13,6 +13,7 @@ from PIL import Image
 from lxml import etree, html
 
 from odoo import api, fields, models, tools
+import xodoo
 from odoo.tools import posix_to_ldml, float_utils, format_date, format_duration
 from odoo.tools.mail import safe_attrs
 from odoo.tools.misc import get_lang, babel_locale_parse

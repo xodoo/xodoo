@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, exceptions, fields, models, _
+import xodoo
 from odoo.addons.mail.models.mail_alias import dot_atom_text
 
 

@@ -7,6 +7,7 @@ from functools import wraps
 
 from odoo.tools import consteq
 from odoo import _, api, fields, models
+import xodoo
 from odoo.http import request
 from odoo.addons.base.models.res_partner import _tz_get
 from odoo.exceptions import UserError

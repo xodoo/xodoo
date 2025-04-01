@@ -8,6 +8,7 @@ import operator
 import re
 
 from odoo import api, fields, models, tools, _
+import xodoo
 from odoo.exceptions import ValidationError
 from odoo.http import request
 from odoo.osv import expression

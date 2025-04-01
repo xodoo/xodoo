@@ -5,6 +5,7 @@ from odoo.exceptions import AccessError
 from odoo.tests.common import TransactionCase, tagged
 from odoo.tools import mute_logger
 from odoo import Command
+import xodoo
 
 
 class TestORM(TransactionCase):

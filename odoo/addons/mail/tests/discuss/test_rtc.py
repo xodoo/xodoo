@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 from unittest.mock import patch
 
 from odoo import fields
+import xodoo
 from odoo.addons.mail.tests.common import MailCommon
 from odoo.addons.mail.tools.discuss import Store
 from odoo.tests.common import tagged, users

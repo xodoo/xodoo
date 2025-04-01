@@ -4,6 +4,7 @@
 import logging
 
 from odoo import fields, models
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

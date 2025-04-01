@@ -5,6 +5,7 @@ from markupsafe import Markup
 from werkzeug.exceptions import NotFound
 
 from odoo import http
+import xodoo
 from odoo.http import request
 from odoo.tools import frozendict
 from odoo.tools import email_normalize

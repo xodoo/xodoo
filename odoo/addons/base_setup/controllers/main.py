@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import _, http
+import xodoo
 from odoo.exceptions import AccessError
 from odoo.http import request
 

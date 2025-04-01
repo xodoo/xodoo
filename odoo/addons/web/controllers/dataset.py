@@ -5,6 +5,7 @@ import warnings
 from werkzeug.exceptions import NotFound
 
 from odoo import http
+import xodoo
 from odoo.api import call_kw
 from odoo.http import request
 from odoo.models import check_method_name

@@ -9,6 +9,7 @@ import requests
 from os.path import join as opj
 
 from odoo import _, http, tools, SUPERUSER_ID
+import xodoo
 from odoo.addons.html_editor.tools import get_video_url_data
 from odoo.exceptions import UserError, MissingError, AccessError
 from odoo.http import request
