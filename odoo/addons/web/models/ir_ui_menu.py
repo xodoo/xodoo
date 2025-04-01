@@ -79,6 +79,7 @@ class IrUiMenu(models.Model):
                     "id": menu['id'],
                     "name": menu['name'],
                     "font_icon": menu['font_icon'],# TODO(amos): add
+                    "badge": menu['badge'],# TODO(amos): add
                     "children": menu['children'],
                     "appID": menu['app_id'],
                     "xmlid": menu['xmlid'],

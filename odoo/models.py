@@ -6813,6 +6813,13 @@ class BaseModel(metaclass=MetaModel):
     # "Dunder" methods
     #
 
+    def _menu_badge_count(self):
+        """
+        空
+        :return:
+        """
+        return ""
+
     def __bool__(self):
         """ Test whether ``self`` is nonempty. """
         return True if self._ids else False  # fast version of bool(self._ids)

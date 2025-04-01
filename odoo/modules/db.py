@@ -6,6 +6,7 @@ import logging
 from enum import IntEnum
 
 import odoo.modules
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

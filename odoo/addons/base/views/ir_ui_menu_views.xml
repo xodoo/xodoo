@@ -8,9 +8,10 @@
                         <group>
                             <group>
                                 <field name="name"/>
-                                <field name="font_icon"/>
+
                                 <field name="parent_id" groups="base.group_no_one"/>
                                 <field name="sequence" groups="base.group_no_one"/>
+
                             </group>
                             <group groups="base.group_no_one">
                                 <field name="complete_name"/>
@@ -32,6 +33,16 @@
                                         <field icon="icon" name="name" string="Menu"/>
                                     </list>
                                 </field>
+                            </page>
+                            <page string="其它">
+                                <group>
+                                    <group>
+                                        <field name="font_icon"/>
+                                        <field name="badge" groups="base.group_no_one"/>
+                                    </group>
+                                    <group>
+                                    </group>
+                                </group>
                             </page>
                         </notebook>
                    </sheet>

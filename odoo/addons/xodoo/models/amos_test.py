@@ -33,6 +33,13 @@ class amos_test(models.Model):
     title_ids = fields.Many2many('res.partner.title', 'amos_test_res_partner_title_rel', 'test_id', 'title_id')
 
 
+    def _menu_badge_count(self):
+        domain = []
+        rows_count = self.sudo().search_count(domain)
+        menu_badge = '<span class="badge rounded-pill badge-soft-danger  text-danger float-end">%s</span>' % rows_count
+        return menu_badge
+
+
 
     def button_ok(self):
 

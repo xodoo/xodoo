@@ -43602,6 +43602,16 @@ msgid "Web Icon Image"
 msgstr "网络图标图像"
 
 #. module: base
+#: model:ir.model.fields,field_description:base.field_ir_ui_menu__badge
+msgid "Badge"
+msgstr "徽章"
+
+#. module: base
+#: model:ir.model.fields,field_description:base.field_ir_ui_menu__font_icon
+msgid "Font Icon"
+msgstr "字体图标"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_http_routing
 #: model:ir.module.module,summary:base.module_http_routing
 msgid "Web Routing"
@@ -43610,7 +43620,7 @@ msgstr "Web 路由"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_web_studio
 msgid "Web Studio Tests"
-msgstr "Web Studio 测试"
+msgstr "Web Studio 测试"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_test_web_cohort

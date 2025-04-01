@@ -33,10 +33,32 @@ class IrUiMenu(models.Model):
     parent_path = fields.Char(index=True)
     groups_id = fields.Many2many('res.groups', 'ir_ui_menu_group_rel',
                                  'menu_id', 'gid', string='Groups',
-                                 help="If you have groups, the visibility of this menu will be based on these groups. "\
+                                 help="If you have groups, the visibility of this menu will be based on these groups. " \
                                       "If this field is empty, Odoo will compute visibility based on the related object's read access.")
     complete_name = fields.Char(string='Full Path', compute='_compute_complete_name', recursive=True)
     web_icon = fields.Char(string='Web Icon File')
+
+    # TODO(amos): add
+    badge = fields.Char(string='Badge', compute='_compute_badge')
+
+    def _compute_badge(self):
+        """ 实例
+        def _menu_badge_count(self):
+        domain = []
+        rows_count = self.sudo().search_count(domain)
+        menu_badge = '<span class="badge rounded-pill badge-soft-danger  text-danger float-end">%s</span>' % rows_count
+        return menu_badge
+        :return:
+        """
+        for menu in self:
+            menu_badge = ''
+            if menu.action:
+                if menu.action._name == 'ir.actions.act_window':
+                    if menu.action.res_model != False:
+                        menu_badge = self.env[menu.action.res_model]._menu_badge_count()
+
+            menu.badge = menu_badge
+
     action = fields.Reference(selection=[('ir.actions.report', 'ir.actions.report'),
                                          ('ir.actions.act_window', 'ir.actions.act_window'),
                                          ('ir.actions.act_url', 'ir.actions.act_url'),
@@ -86,7 +108,8 @@ class IrUiMenu(models.Model):
         # first discard all menus with groups the user does not have
         group_ids = set(self.env.user._get_group_ids())
         if not debug:
-            group_ids = group_ids - {self.env['ir.model.data']._xmlid_to_res_id('base.group_no_one', raise_if_not_found=False)}
+            group_ids = group_ids - {
+                self.env['ir.model.data']._xmlid_to_res_id('base.group_no_one', raise_if_not_found=False)}
         menus = menus.filtered(
             lambda menu: not (menu.groups_id and group_ids.isdisjoint(menu.groups_id._ids)))
 
@@ -228,8 +251,8 @@ class IrUiMenu(models.Model):
     @tools.ormcache_context('self._uid', keys=('lang',))
     def load_menus_root(self):
         # fields = ['name', 'sequence', 'parent_id', 'action', 'web_icon_data']
-        # TODO(Amos): Add font_icon
-        fields = ['name', 'sequence', 'parent_id', 'action', 'font_icon']
+        # TODO(Amos): Add font_icon badge
+        fields = ['name', 'sequence', 'parent_id', 'action', 'font_icon', 'badge']
 
         menu_roots = self.get_user_roots()
         menu_roots_data = menu_roots.read(fields) if menu_roots else []
@@ -258,7 +281,7 @@ class IrUiMenu(models.Model):
         """
         # fields = ['name', 'sequence', 'parent_id', 'action', 'web_icon']
         # TODO(Amos): Add
-        fields = ['name', 'sequence', 'parent_id', 'action', 'font_icon']
+        fields = ['name', 'sequence', 'parent_id', 'action', 'font_icon', 'badge']
         menu_roots = self.get_user_roots()
         menu_roots_data = menu_roots.read(fields) if menu_roots else []
         menu_root = {
@@ -336,9 +359,9 @@ class IrUiMenu(models.Model):
 
     def _get_menuitems_xmlids(self):
         menuitems = self.env['ir.model.data'].sudo().search([
-                ('res_id', 'in', self.ids),
-                ('model', '=', 'ir.ui.menu')
-            ])
+            ('res_id', 'in', self.ids),
+            ('model', '=', 'ir.ui.menu')
+        ])
 
         return {
             menu.res_id: menu.complete_name

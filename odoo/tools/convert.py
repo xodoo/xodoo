@@ -289,6 +289,10 @@ form: module.record_id""" % (xml_id,)
         if rec.get('font_icon'):
             values['font_icon'] = rec.attrib['font_icon']
 
+        # # TODO(amos): add
+        if rec.get('badge'):
+            values['badge'] = rec.attrib['badge']
+
         if rec.get('action'):
             a_action = rec.attrib['action']
 
