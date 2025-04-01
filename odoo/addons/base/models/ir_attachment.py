@@ -20,6 +20,7 @@ from odoo.http import Stream, root, request
 from odoo.tools import config, human_size, image, str2bool, consteq
 from odoo.tools.mimetypes import guess_mimetype, fix_filename_extension
 from odoo.osv import expression
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

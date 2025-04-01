@@ -5,7 +5,7 @@ from base64 import b64encode
 from hashlib import sha512
 from odoo import models, fields, api
 from odoo.tools import html_escape, file_open
-
+import xodoo
 
 def get_hsl_from_seed(seed):
     hashed_seed = sha512(seed.encode()).hexdigest()

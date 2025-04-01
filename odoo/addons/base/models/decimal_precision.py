@@ -6,6 +6,8 @@ import odoo.addons
 
 import logging
 import sys
+import xodoo
+
 _logger = logging.getLogger(__name__)
 
 

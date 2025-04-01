@@ -32,6 +32,7 @@ from collections import OrderedDict
 from collections.abc import Iterable
 from PIL import Image, ImageFile
 from itertools import islice
+import xodoo
 
 # Allow truncated images
 ImageFile.LOAD_TRUNCATED_IMAGES = True

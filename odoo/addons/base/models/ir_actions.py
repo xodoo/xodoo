@@ -19,6 +19,7 @@ import re
 import contextlib
 
 from pytz import timezone
+import xodoo
 
 _logger = logging.getLogger(__name__)
 _server_action_logger = _logger.getChild("server_action_safe_eval")

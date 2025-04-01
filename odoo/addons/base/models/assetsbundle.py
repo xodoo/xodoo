@@ -10,6 +10,7 @@ import os
 import re
 import textwrap
 import uuid
+import xodoo
 
 try:
     import sass as libsass

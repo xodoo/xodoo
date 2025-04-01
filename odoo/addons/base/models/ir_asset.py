@@ -9,6 +9,7 @@ import odoo.modules.module  # get_manifest, don't from-import it
 from odoo import api, fields, models, tools
 from odoo.tools import misc
 from odoo.tools.constants import ASSET_EXTENSIONS, EXTERNAL_ASSET
+import xodoo
 
 _logger = getLogger(__name__)
 

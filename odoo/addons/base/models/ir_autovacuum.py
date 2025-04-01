@@ -8,6 +8,7 @@ import traceback
 
 from odoo import api, models
 from odoo.exceptions import AccessDenied
+import xodoo
 
 _logger = logging.getLogger(__name__)
 

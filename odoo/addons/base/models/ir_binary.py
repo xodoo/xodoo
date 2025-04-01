@@ -9,6 +9,7 @@ from odoo.http import Stream, request
 from odoo.tools import file_open, replace_exceptions
 from odoo.tools.image import image_process, image_guess_size_from_field_name
 from odoo.tools.mimetypes import guess_mimetype, get_extension
+import xodoo
 
 
 DEFAULT_PLACEHOLDER_PATH = 'web/static/img/placeholder.png'

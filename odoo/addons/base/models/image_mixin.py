@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, fields
-
+import xodoo
 
 class ImageMixin(models.AbstractModel):
     _name = 'image.mixin'
