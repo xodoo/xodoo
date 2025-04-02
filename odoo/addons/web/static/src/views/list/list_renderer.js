@@ -998,6 +998,8 @@ export class ListRenderer extends Component {
      * @param {PointerEvent} ev
      */
     async onCellClicked(record, column, ev) {
+        alert("ListRenderer.onCellClicked is deprecated");
+        debugger;
         if (ev.target.special_click) {
             return;
         }

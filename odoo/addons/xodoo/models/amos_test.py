@@ -37,7 +37,7 @@ class amos_test(models.Model):
     def _menu_badge_count(self):
         domain = []
         rows_count = self.sudo().search_count(domain)
-        menu_badge = '<span class="badge rounded-pill badge-soft-danger  text-danger float-end">%s</span>' % rows_count
+        menu_badge = '<span class="badge bg-warning rounded-pill badge-soft-danger text-white float-end">%s</span>' % rows_count
         return menu_badge
 
 

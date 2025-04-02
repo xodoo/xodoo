@@ -41,6 +41,7 @@ class IrUiMenu(models.Model):
 
     # TODO(amos): add
     badge = fields.Char(string='Badge', compute='_compute_badge')
+    is_badge = fields.Boolean(default=False, string='Show Badge')
 
     def _compute_badge(self):
         """ 实例
@@ -53,11 +54,11 @@ class IrUiMenu(models.Model):
         """
         for menu in self:
             menu_badge = ''
-            if menu.action:
-                if menu.action._name == 'ir.actions.act_window':
-                    if menu.action.res_model != False:
-                        menu_badge = self.env[menu.action.res_model]._menu_badge_count()
-
+            if menu.is_badge:
+                if menu.action:
+                    if menu.action._name == 'ir.actions.act_window':
+                        if menu.action.res_model != False:
+                            menu_badge = self.env[menu.action.res_model]._menu_badge_count()
             menu.badge = menu_badge
 
     action = fields.Reference(selection=[('ir.actions.report', 'ir.actions.report'),

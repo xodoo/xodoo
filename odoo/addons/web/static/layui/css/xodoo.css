@@ -1,0 +1,18 @@
+.mail-list-page-splitter {
+  color: rgba(204, 204, 204, 0.1);
+  position: relative;
+  z-index: 1000;
+  width: 0;
+  cursor: col-resize;
+  height: 100%;
+}
+
+.mail-list-page-splitter .splitter-body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 5px;
+  display: flex;
+  justify-content: center;
+}

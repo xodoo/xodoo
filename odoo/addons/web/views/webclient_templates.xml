@@ -31,6 +31,7 @@
 
                 <!-- 引入 layui.css -->
                 <link href="/web/static/layui/css/layui.css" rel="stylesheet"/>
+                <link href="/web/static/layui/css/xodoo.css" rel="stylesheet"/>
                 <style>
                     .vertical-menu{
                     top:50px;

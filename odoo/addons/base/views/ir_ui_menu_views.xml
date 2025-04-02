@@ -37,6 +37,7 @@
                             <page string="其它">
                                 <group>
                                     <group>
+                                        <field name="is_badge"/>
                                         <field name="font_icon"/>
                                         <field name="badge" groups="base.group_no_one"/>
                                     </group>
