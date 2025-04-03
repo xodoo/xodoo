@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+
+        <record id="amos_demo_tag_01" model="amos.demo.tag">
+            <field name="name">中国</field>
+        </record>
+
+        <record id="amos_demo_tag_02" model="amos.demo.tag">
+            <field name="name">美国</field>
+        </record>
+
+        <record id="amos_demo_tag_03" model="amos.demo.tag">
+            <field name="name">日本1</field>
+        </record>
+
+         <record id="amos_demo_tag_03" model="amos.demo.tag">
+            <field name="name">日本2</field>
+        </record>
+
+         <record id="amos_demo_tag_04" model="amos.demo.tag">
+            <field name="name">日本3</field>
+        </record>
+
+         <record id="amos_demo_tag_05" model="amos.demo.tag">
+            <field name="name">日本4</field>
+        </record>
+
+         <record id="amos_demo_tag_06" model="amos.demo.tag">
+            <field name="name">日本5</field>
+        </record>
+
+         <record id="amos_demo_tag_07" model="amos.demo.tag">
+            <field name="name">日本6</field>
+        </record>
+
+         <record id="amos_demo_tag_08" model="amos.demo.tag">
+            <field name="name">日本7</field>
+        </record>
+
+         <record id="amos_demo_tag_09" model="amos.demo.tag">
+            <field name="name">日本8</field>
+        </record>
+
+         <record id="amos_demo_tag_10" model="amos.demo.tag">
+            <field name="name">日本9</field>
+        </record>
+
+
+    </data>
+</odoo>

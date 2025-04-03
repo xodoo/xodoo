@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  noupdate =1 不更新下面信息   noupdate =0 更新下面的信息-->
+    <data noupdate="0">
+        <record id="ir_cron_res_demo" model="ir.cron">
+            <field name="name">定时任务</field>
+            <field name="model_id" ref="model_amos_demo"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_update_amos_demo()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="True"/>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>
+
+

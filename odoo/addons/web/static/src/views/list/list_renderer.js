@@ -89,6 +89,7 @@ export class ListRenderer extends Component {
     setup() {
         this.uiService = useService("ui");
         this.notificationService = useService("notification");
+        this.actionService = useService("action");
         const key = this.createViewKey();
         this.keyOptionalFields = `optional_fields,${key}`;
         this.keyDebugOpenView = `debug_open_view,${key}`;
@@ -998,8 +999,19 @@ export class ListRenderer extends Component {
      * @param {PointerEvent} ev
      */
     async onCellClicked(record, column, ev) {
-        alert("ListRenderer.onCellClicked is deprecated");
-        debugger;
+
+
+        // alert("clicked");
+        //
+        // this.actionService.doAction({
+        //     type: "ir.actions.act_window",
+        //     res_model: this.props.resModel,
+        //     res_id: record.resId,
+        //     views: [[false, "form"]],
+        //     target: "side_form" // 自定义标识
+        // });
+
+
         if (ev.target.special_click) {
             return;
         }

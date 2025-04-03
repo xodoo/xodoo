@@ -51,4 +51,17 @@ class amos_test(models.Model):
         return True
 
 
+    def button_openurl(self):
+        """ 打开指定视图 """
+        self.ensure_one()
+        form_id = self.env.ref('xodoo.form_xodoo_res_partner').id
+        return {'type': 'ir.actions.act_window',
+                'res_model': 'amos.test',
+                'view_mode': 'form',
+                'views': [(form_id, 'form')],
+                'res_id': self.id,
+                'target': 'fullscreen',
+                'flags': {'form': {'action_buttons': True}}}
+
+
 

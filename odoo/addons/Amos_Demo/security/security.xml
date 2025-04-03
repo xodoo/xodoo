@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="amos_demo_groups" model="ir.module.category">
+            <field name="name">项目</field>
+        </record>
+
+        <record id="amos_demo_user" model="res.groups">
+            <field name="name">操作员</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="category_id" ref="amos_demo_groups"/>
+        </record>
+
+        <record id="amos_demo_manager" model="res.groups">
+            <field name="name">项目经理</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="category_id" ref="amos_demo_groups"/>
+        </record>
+    </data>
+</odoo>

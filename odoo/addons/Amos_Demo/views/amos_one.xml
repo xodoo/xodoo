@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="form_amos_one" model="ir.ui.view">
+            <field name="name">amos.one.form</field>
+            <field name="model">amos.one</field>
+            <field name="arch" type="xml">
+                <form string="表单">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" />
+
+                            </group>
+                            <group>
+                                <field name="product_uom_qty"/>
+
+
+
+
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="页卡" autofocus="autofocus">
+                                <field name="one_ids">
+                                    <list string="列表" editable="bottom">
+                                        <field name="name" required="True"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tree_amos_one" model="ir.ui.view">
+            <field name="name">amos.one.tree</field>
+            <field name="model">amos.one</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="列表">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_amos_one" model="ir.actions.act_window">
+            <field name="name">XODOO 功能测试</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">amos.one</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_amos_one" action="action_amos_one" sequence="0"/>
+
+    </data>
+</odoo>

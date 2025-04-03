@@ -95,6 +95,7 @@
                     <field name="name"/>
                     <field name="user_id"/>
                     <field name="title_ids"/>
+                    <button name='button_openurl'  string='H' type='object'  class='oe_highlight'/>
                 </list>
             </field>
         </record>

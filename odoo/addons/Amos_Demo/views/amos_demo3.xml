@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="form_amos_demo_3" model="ir.ui.view">
+            <field name="name">amos.demo.form</field>
+            <field name="model">amos.demo</field>
+            <field name="arch" type="xml">
+                <form string="表单" class="xodoo_form">
+                    <field name="id" invisible="1"/>
+                    <header>
+
+                        <button type="object" name="toggle_active" string="归档单据" class="oe_highlight"  invisible="active == 0"/>
+                        <button type="object" name="toggle_active" string="恢复单据" invisible="active == 1"/>
+
+
+
+                        <field name='state' widget='statusbar' statusbar_visible="新建,校对,审核,批准,已发布"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="create_workflow"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o"
+                                    string="创建工作流"
+                            >
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only "/>
+                            <h1>
+                                <field name="name" required="1" class="xodoo_title"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group string="基本信息">
+                                <field name="user_id" class="xodoo_many2one"/>
+                                <field name="tag_ids" class="xodoo_many2many" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create_edit': True}"
+                                       placeholder="Tags..."/>
+                                <field name="active" widget="boolean_toggle" class="xodoo_boolean"/>
+                                <field name="type" class="xodoo_select"/>
+                                <field name="line_up" options="{'horizontal': true}" widget="radio"
+                                       class="xodoo_integer"/>
+                                <field name="sequence" widget="progressbar" class="xodoo_integer"/>
+                                <field name="color" options='{"type": "number", "step": 1}' />
+                                <label for="a_note" class="xodoo_text"/>
+                                 <field name="a_note" nolabel='1'/>
+                            </group>
+                            <group string="时间维度">
+                                <field name="year" class="xodoo_char"/>
+                                <field name="quarter" class="xodoo_char"/>
+                                <field name="month" class="xodoo_char"/>
+                                <field name="week_start" class="xodoo_char"/>
+                                <field name="week" class="xodoo_char"/>
+                                <field name="create_date" readonly='0' class="xodoo_datetime"/>
+                                <field name="date" class="xodoo_date"/>
+                                <field name="top_time" class="xodoo_datetime" required="1" help="在XML视图上定义必填信息"/>
+                            </group>
+                        </group>
+
+
+                        <group col="12" string="不规则">
+                            <group colspan="4">
+                                <field name="n_1"  class="xodoo_group_col"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="n_2"  class="xodoo_group_col"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="n_3"  class="xodoo_group_col"/>
+                            </group>
+                             <group colspan="4">
+                                <field name="n_4"  class="xodoo_group_col"/>
+                            </group>
+                             <group colspan="8">
+                                <field name="n_5"  class="xodoo_group_col"/>
+                            </group>
+
+
+                        </group>
+
+
+
+                         <h2>船舶信息</h2>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="table-secondary">船舶呼号</td>
+                                    <td>
+                                        <field name="n_6" nolabel='1'/>
+                                    </td>
+                                    <td class="table-secondary">所在地</td>
+                                    <td>
+                                        <field name="n_7" nolabel='1'/>
+                                    </td>
+                                    <td class="table-secondary">原值(元)</td>
+                                    <td>
+                                        <field name="n_8" nolabel='1'/>
+                                    </td>
+                                    <td class="table-secondary">净值(元)</td>
+                                    <td>
+                                        <field name="n_9" nolabel='1'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <h3>一行四排序</h3>
+                        <group col="12" string="四列" style="margin-top:15px">
+                            <group colspan="3">
+                                <field name="name_1"/>
+                            </group>
+                            <group colspan="3">
+                                <field name="name_2"/>
+                            </group>
+                            <group colspan="3">
+                                <field name="name_3"/>
+                            </group>
+                            <group colspan="3">
+                                <field name="name_4" widget="image" class="float-start oe_avatar"
+                                       options='{"preview_image": "image", "size": [40, 40]}'/>
+                                <field name="name_5" widget="image" class="oe_avatar"
+                                       options='{"preview_image": "image", "size": [40, 40]}'/>
+                            </group>
+                        </group>
+
+                         <strong class="o_horizontal_separator o_row" colspan="2">
+                                 <span style="font-size: 18px;">小部件</span>
+                            </strong>
+
+
+                        <group col="12" string="四列" style="margin-top:15px;font-size: 16px;">
+                            <group colspan="3">
+                                <field name="w_email" widget="email"/>
+                                <field name="w_radio" widget="radio" options="{'horizontal': true}"/>
+                                <field name="w_boolean" widget="boolean_toggle"/>
+                                <field name="w_partner_ids" widget="many2many_tags_avatar"/>
+                                <field name="w_color1" widget="int_color"/>
+
+
+
+                            </group>
+                            <group colspan="3">
+                                <field name="w_selection" widget="selection"/>
+
+                                <label for="w_monetary" class="oe_edit_only"/>
+                                <div class="o_row">
+                                    <field name="w_monetary" widget="monetary" class="oe_inline"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="currency_id" class="oe_inline"/>
+                                </div>
+                                <field name="w_state_selection" widget="state_selection" class="ms-auto mb-2"/>
+
+                                <field name="w_document" widget="binary" filename="filename"/>
+
+
+                            </group>
+                            <group colspan="3">
+                                <field name="w_progressbar" widget="progressbar"/>
+                                <field name="w_hour" widget="float_time"/>
+                                <field name="w_icon" widget="char_emojis"/>
+                                <field name="w_is_favorite" widget="boolean_favorite"/>
+                                <field name="w_user_ids" widget="many2many_avatar_user" options="{'no_quick_create': True}" placeholder="Assignees"/>
+
+
+                            </group>
+                            <group colspan="3">
+                                <field name="w_url" widget="url"/>
+                                <field name="w_priority" widget="priority"/>
+                                <field name="w_color" widget="color_picker"/>
+                                <field name="w_percentage" widget="percentage" />
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="w_note" widget="html" options="{'safe': True}"/>
+                                 <field name="id_object"  />
+
+                            </group>
+                            <group>
+                                <field name="w_demo" widget="domain"
+                                options="{'foldable': True, 'model': 'res.partner', 'in_dialog': True}"
+                                />
+                            </group>
+                        </group>
+
+                        <group string="图表"></group>
+                        <notebook colspan="4" class="xodoo_notebook">
+                            <page string="一对多明细" autofocus="autofocus">
+                                <field name="order_line1" class="xodoo_one2many">
+                                    <list string="列表" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name" required="True"/>
+                                        <field name="state" decoration-info="state in ('新建', '校对')"
+                                               decoration-success="state == '已发布'"
+                                               decoration-muted="state == '批准'" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="备注">
+                                <field name="note" widget="html" class="oe_description" default_focus="1" options="{'resizable': false, 'collaborative': true}" placeholder="备注..."/>
+                            </page>
+
+                            <page string="审批记录">
+                                <group>
+                                    <group>
+
+                                    </group>
+                                    <group>
+                                        <field name="company_id"
+                                               options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"
+                                               required='1'/>
+                                    </group>
+                                </group>
+
+
+                            </page>
+
+                        </notebook>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tree_amos_demo_3" model="ir.ui.view">
+            <field name="name">amos.demo.tree</field>
+            <field name="model">amos.demo</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="列表">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="create_date" widget="remaining_days"/>
+                    <field name="active"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_amos_demo_3" model="ir.actions.act_window">
+            <field name="name">开发教程-自定义3</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">amos.demo</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_amos_demo_3" action="action_amos_demo_3"
+                  web_icon="Amos_Demo,static/description/icon.png" sequence="1"/>
+
+
+
+        <record id="action_amos_demo_view3_1" model="ir.actions.act_window.view">
+            <field eval="10" name="sequence"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="tree_amos_demo_3"/>
+            <field name="act_window_id" ref="action_amos_demo_3"/>
+        </record>
+
+        <record id="action_amos_demo_view3_2" model="ir.actions.act_window.view">
+            <field eval="20" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_amos_demo_3"/>
+            <field name="act_window_id" ref="action_amos_demo_3"/>
+        </record>
+
+
+    </data>
+</odoo>

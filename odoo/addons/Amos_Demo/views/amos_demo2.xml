@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="form_amos_demo_2" model="ir.ui.view">
+            <field name="name">amos.demo.form</field>
+            <field name="model">amos.demo</field>
+            <field name="arch" type="xml">
+                <form string="表单" class="xodoo_form">
+                    <field name="id" invisible="1"/>
+                    <header>
+
+                        <button type="object" name="toggle_active" string="归档单据" class="oe_highlight"  invisible="active == 0"/>
+                        <button type="object" name="toggle_active" string="恢复单据" invisible="active == 1"/>
+
+
+
+                        <field name='state' widget='statusbar' statusbar_visible="新建,校对,审核,批准,已发布"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="create_workflow"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o"
+                                    string="创建工作流"
+                            >
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only "/>
+                            <h1>
+                                <field name="name" required="1" class="xodoo_title"/>
+                            </h1>
+                        </div>
+
+<!--                        <group>-->
+<!--                            <group string="基本信息">-->
+<!--                                <field name="user_id" class="xodoo_many2one"/>-->
+<!--                                <field name="tag_ids" class="xodoo_many2many" widget="many2many_tags"-->
+<!--                                       options="{'color_field': 'color', 'no_create_edit': True}"-->
+<!--                                       placeholder="Tags..."/>-->
+<!--                                <field name="active" widget="boolean_toggle" class="xodoo_boolean"/>-->
+<!--                                <field name="type" class="xodoo_select"/>-->
+<!--                                <field name="line_up" options="{'horizontal': true}" widget="radio"-->
+<!--                                       class="xodoo_integer"/>-->
+<!--                                <field name="sequence" widget="progressbar" class="xodoo_integer"/>-->
+<!--                                <field name="color" options='{"type": "number", "step": 1}' />-->
+<!--                                 <field name="a_note"/>-->
+<!--                            </group>-->
+<!--                            <group string="时间维度">-->
+<!--                                <field name="year" class="xodoo_char"/>-->
+<!--                                <field name="quarter" class="xodoo_char"/>-->
+<!--                                <field name="month" class="xodoo_char"/>-->
+<!--                                <field name="week_start" class="xodoo_char"/>-->
+<!--                                <field name="week" class="xodoo_char"/>-->
+<!--                                <field name="create_date" readonly='0' class="xodoo_datetime"/>-->
+<!--                                <field name="date" class="xodoo_date"/>-->
+<!--                                <field name="top_time" class="xodoo_datetime" required="1" help="在XML视图上定义必填信息"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+
+                        <div class="fw-bolder mb-3 mt-4" style="border-bottom:1px solid #ccc">基本信息</div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label">
+                                <label for="user_id">负责人</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="user_id" class="xodoo_many2one"/>
+                            </div>
+                            <div class="grid-item o_wrap_label">
+                                <label for="tag_ids">Tag</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="tag_ids" class="xodoo_many2many" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create_edit': True}"
+                                       placeholder="Tags..."/>
+                            </div>
+                        </div>
+                    <div class="grid-row">
+                        <div class="grid-item o_wrap_label">
+                            <label for="active">是否归档</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="active" widget="boolean_toggle" class="xodoo_boolean"/>
+                        </div>
+                        <div class="grid-item o_wrap_label">
+                            <label for="type">类型</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="type" class="xodoo_select"/>
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-item o_wrap_label">
+                            <label for="line_up">项目城市</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="line_up" options="{'horizontal': true}" widget="radio"
+                                   class="xodoo_integer"/>
+                        </div>
+                        <div class="grid-item o_wrap_label">
+                            <label for="sequence">排序</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="sequence" widget="progressbar" class="xodoo_integer"/>
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-item o_wrap_label">
+                            <label for="color">颜色</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="color" options='{"type": "number", "step": 1}' />
+                        </div>
+                        <div class="grid-item o_wrap_label">
+                            <label for="a_note">大文本</label>
+                        </div>
+                        <div class="grid-item o_warp_input">
+                            <field name="a_note"/>
+                        </div>
+                    </div>
+                                <div class="fw-bolder mb-3 mt-4" style="border-bottom:1px solid #ccc;">时间维度</div>
+                                <div class="grid-row">
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="year">年度</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="year" class="xodoo_char"/>
+                                    </div>
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="quarter">季</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="quarter" class="xodoo_char"/>
+                                    </div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="month">月度</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="month" class="xodoo_many2one"/>
+                                    </div>
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="week_start">星期几</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="week_start" class="xodoo_char"/>
+                                    </div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="week">在全年多少周</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="week" class="xodoo_char"/>
+                                    </div>
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="create_date">创建时间</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="create_date" readonly='0' class="xodoo_datetime"/>
+                                    </div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="date">截止日期</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="date" class="xodoo_date"/>
+                                    </div>
+                                    <div class="grid-item o_wrap_label">
+                                        <label for="top_time">置顶</label>
+                                    </div>
+                                    <div class="grid-item o_warp_input">
+                                        <field name="top_time" class="xodoo_datetime" required="1" help="在XML视图上定义必填信息"/>
+                                    </div>
+                                </div>
+
+
+<!--                        <group col="12" string="不规则">-->
+<!--                            <group colspan="4">-->
+<!--                                <field name="n_1"  class="xodoo_group_col"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="4">-->
+<!--                                <field name="n_2"  class="xodoo_group_col"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="4">-->
+<!--                                <field name="n_3"  class="xodoo_group_col"/>-->
+<!--                            </group>-->
+<!--                             <group colspan="4">-->
+<!--                                <field name="n_4"  class="xodoo_group_col"/>-->
+<!--                            </group>-->
+<!--                             <group colspan="8">-->
+<!--                                <field name="n_5"  class="xodoo_group_col"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+
+                        <div class="fw-bolder mb-3 mt-4" style="border-bottom:1px solid #ccc;">不规则</div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label">
+                                <label for="n_1">不规则1</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="n_1" class="xodoo_group_col"/>
+                            </div>
+                            <div class="grid-item o_wrap_label">
+                                <label for="n_2">不规则2</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="n_2" class="xodoo_group_col"/>
+                            </div>
+                            <div class="grid-item o_wrap_label">
+                                <label for="n_3">不规则3</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="n_3" class="xodoo_group_col"/>
+                            </div>
+                        </div>
+                        <div class="grid-row">
+
+                            <div class="grid-item o_wrap_label">
+                                <label for="n_4">不规则4</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="n_4" class="xodoo_group_col"/>
+                            </div>
+                            <div class="grid-item o_wrap_label">
+                                <label for="n_5">不规则5</label>
+                            </div>
+                            <div class="grid-item o_warp_input">
+                                <field name="n_5" class="xodoo_group_col"/>
+                            </div>
+                        </div>
+
+
+
+                         <h2 class="mb-3 mt-4">船舶信息</h2>
+<!--                        <table class="table table-bordered">-->
+<!--                            <tbody>-->
+<!--                                <tr>-->
+<!--                                    <td class="table-secondary">船舶呼号</td>-->
+<!--                                    <td>-->
+<!--                                        <div class="" style="border:1px solid #CCC">-->
+<!--                                            <field name="n_6" nolabel='1'/>-->
+<!--                                        </div>-->
+
+<!--                                    </td>-->
+<!--                                    <td class="table-secondary">所在地</td>-->
+<!--                                    <td>-->
+<!--                                        <field name="n_7" nolabel='1'/>-->
+<!--                                    </td>-->
+<!--                                    <td class="table-secondary">原值(元)</td>-->
+<!--                                    <td>-->
+<!--                                        <field name="n_8" nolabel='1'/>-->
+<!--                                    </td>-->
+<!--                                    <td class="table-secondary">净值(元)</td>-->
+<!--                                    <td>-->
+<!--                                        <field name="n_9" nolabel='1'/>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                        <group col="12">-->
+<!--                            <group colspan="3">-->
+<!--                                <field string="船舶呼号" name="n_6"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field string="所在地" name="n_7"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field string="原值(元)" name="n_8"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field string="净值(元)" name="n_9"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"> <label for="n_6">船舶呼号</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field string="船舶呼号" name="n_6"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"> <label for="n_7">所在地</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field string="所在地" name="n_7"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"> <label for="n_8">原值(元)</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field string="原值(元)" name="n_8"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"> <label for="n_9">净值(元)</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field string="净值(元)" name="n_9"/>
+                            </div>
+                        </div>
+
+
+                        <h3 class="mb-3 mt-4">一行四排序</h3>
+                        <div class="fw-bolder mb-3 mt-4" style="border-bottom:1px solid #ccc;">四列</div>
+<!--                        <group col="12" string="四列" style="margin-top:15px">-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="name_1"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="name_2"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="name_3"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="name_4" widget="image" class="float-start oe_avatar"-->
+<!--                                       options='{"preview_image": "image", "size": [40, 40]}'/>-->
+<!--                                <field name="name_5" widget="image" class="oe_avatar"-->
+<!--                                       options='{"preview_image": "image", "size": [40, 40]}'/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"> <label for="name_1">文本</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="name_1"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"> <label for="name_2">长日期</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="name_2"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"> <label for="name_3">短日期</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="name_3"/>
+                            </div>
+
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="name_4">左图片</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="name_4" widget="image" class="float-start oe_avatar"
+                                       options='{"preview_image": "image", "size": [30, 30]}'/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="name_5">右图片</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="name_5" widget="image" class="oe_avatar"
+                                       options='{"preview_image": "image", "size": [30, 30]}'/>
+                            </div>
+                        </div>
+
+                         <strong class="o_horizontal_separator o_row mb-3 mt-4" colspan="2">
+                                 <span style="font-size: 18px;">小部件</span>
+                            </strong>
+
+
+<!--                        <group col="12" string="四列" style="margin-top:15px;font-size: 16px;">-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="w_email" widget="email"/>-->
+<!--                                <field name="w_radio" widget="radio" options="{'horizontal': true}"/>-->
+<!--                                <field name="w_boolean" widget="boolean_toggle"/>-->
+<!--                                <field name="w_partner_ids" widget="many2many_tags_avatar"/>-->
+<!--                                <field name="w_color1" widget="int_color"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="w_selection" widget="selection"/>-->
+
+<!--                                <label for="w_monetary" class="oe_edit_only"/>-->
+<!--                                <div class="o_row">-->
+<!--                                    <field name="w_monetary" widget="monetary" class="oe_inline"-->
+<!--                                           options="{'currency_field': 'currency_id'}"/>-->
+<!--                                    <field name="currency_id" class="oe_inline"/>-->
+<!--                                </div>-->
+<!--                                <field name="w_state_selection" widget="state_selection" class="ms-auto mb-2"/>-->
+<!--                                <field name="w_document" widget="binary" filename="filename"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="w_progressbar" widget="progressbar"/>-->
+<!--                                <field name="w_hour" widget="float_time"/>-->
+<!--                                <field name="w_icon" widget="char_emojis"/>-->
+<!--                                <field name="w_is_favorite" widget="boolean_favorite"/>-->
+<!--                                <field name="w_user_ids" widget="many2many_avatar_user" options="{'no_quick_create': True}" placeholder="Assignees"/>-->
+<!--                            </group>-->
+<!--                            <group colspan="3">-->
+<!--                                <field name="w_url" widget="url"/>-->
+<!--                                <field name="w_priority" widget="priority"/>-->
+<!--                                <field name="w_color" widget="color_picker"/>-->
+<!--                                <field name="w_percentage" widget="percentage" />-->
+<!--                            </group>-->
+<!--                        </group>-->
+
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="w_note" widget="html" options="{'safe': True}"/>-->
+<!--                                 <field name="id_object"  />-->
+
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="w_demo" widget="domain"-->
+<!--                                options="{'foldable': True, 'model': 'res.partner', 'in_dialog': True}"-->
+<!--                                />-->
+<!--                            </group>-->
+<!--                        </group>-->
+
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_email">1，电子邮件</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_email" widget="email"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_selection">2，下拉选择</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_selection" widget="selection"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_progressbar">3，进度条</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_progressbar" widget="progressbar"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_url">4，文本</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_url" widget="url"/>
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_radio">5，下拉选择</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_radio" widget="radio" options="{'horizontal': true}"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_monetary">6，金额</label></div>
+                            <div class="grid-item o_warp_input">
+                                <div style="display: flex;align-items: center;">
+                                    <field name="w_monetary" widget="monetary" class="oe_inline"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="currency_id" class="oe_inline"/>
+                                </div>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_hour">7，时间</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_hour" widget="float_time"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_priority">8，星级</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_priority" widget="priority"/>
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_boolean">9，是否</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_boolean" widget="boolean_toggle"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_state_selection">10，下拉类型</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_state_selection" widget="state_selection" class="ms-auto mb-2"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_icon">11，小图标</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_icon" widget="char_emojis"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_color">12，颜色</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_color" widget="color_picker"/>
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_partner_ids">13，带用户头像</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_partner_ids" widget="many2many_tags_avatar"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_document">14，文件</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_document" widget="binary" filename="filename"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_is_favorite">15，重点</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_is_favorite" widget="boolean_favorite"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_percentage">16，百分号</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_percentage" widget="percentage" />
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_color1">17，颜色</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_color1" widget="int_color"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_user_ids">18，带用户头像</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_user_ids" widget="many2many_avatar_user" options="{'no_quick_create': True}" placeholder="Assignees"/>
+                            </div>
+
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="w_note">19，编辑</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_note" widget="html" options="{'safe': True}"/>
+                            </div>
+                            <div class="grid-item o_wrap_label"><label for="w_demo">20，过滤</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="w_demo" widget="domain"
+                                       options="{'foldable': True, 'model': 'res.partner', 'in_dialog': True}"
+                                />
+                            </div>
+
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-item o_wrap_label"><label for="id_object">21，关联标签</label></div>
+                            <div class="grid-item o_warp_input">
+                                <field name="id_object"  />
+                            </div>
+                        </div>
+
+
+
+                        <group string="图表"></group>
+                        <notebook colspan="4" class="xodoo_notebook">
+                            <page string="一对多明细" autofocus="autofocus">
+                                <field name="order_line1" class="xodoo_one2many">
+                                    <list string="列表" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name" required="True"/>
+                                        <field name="state" decoration-info="state in ('新建', '校对')"
+                                               decoration-success="state == '已发布'"
+                                               decoration-muted="state == '批准'" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="备注">
+                                <field name="note" widget="html" class="oe_description" default_focus="1" options="{'resizable': false, 'collaborative': true}" placeholder="备注..."/>
+                            </page>
+
+                            <page string="审批记录">
+                                <group>
+                                    <group>
+
+                                    </group>
+                                    <group>
+                                        <field name="company_id"
+                                               options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"
+                                               required='1'/>
+                                    </group>
+                                </group>
+
+
+                            </page>
+
+                        </notebook>
+
+
+                    </sheet>
+
+
+                </form>
+            </field>
+        </record>
+
+        <record id="tree_amos_demo_2" model="ir.ui.view">
+            <field name="name">amos.demo.list</field>
+            <field name="model">amos.demo</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="列表">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="create_date" widget="remaining_days"/>
+                    <field name="active"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_amos_demo_2" model="ir.actions.act_window">
+            <field name="name">开发教程-自定义2</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">amos.demo</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_amos_demo_2" action="action_amos_demo_2"
+                  web_icon="Amos_Demo,static/description/icon.png" sequence="1"/>
+
+
+
+        <record id="action_amos_demo_view2_1" model="ir.actions.act_window.view">
+            <field eval="10" name="sequence"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="tree_amos_demo_2"/>
+            <field name="act_window_id" ref="action_amos_demo_2"/>
+        </record>
+
+        <record id="action_amos_demo_view2_2" model="ir.actions.act_window.view">
+            <field eval="20" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_amos_demo_2"/>
+            <field name="act_window_id" ref="action_amos_demo_2"/>
+        </record>
+
+
+    </data>
+</odoo>

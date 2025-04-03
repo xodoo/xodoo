@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="Client_menu_amos_demo" model="ir.actions.report">
+        <field name="name">客户端-演示工作流</field>
+        <field name="model">res.demo</field>
+        <field name="binding_model_id" ref="demo.model_amos_demo"/>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">demo.Client_amos_demo</field>
+        <field name="print_report_name">演示工作流</field>
+        <field name="amos_type">print</field>
+        <field name="client">net4_client</field>
+        <field name="amos_report_templates"><![CDATA[{
+	"Version":"6.7.2.0",
+	"Font":{
+		"Name":"宋体",
+		"Size":105000,
+		"Weight":400,
+		"Charset":134
+	},
+	"Printer":{
+	},
+	"DetailGrid":{
+		"Recordset":{
+			"Field":[
+				{
+					"Name":"amos_demo_id"
+				},
+				{
+					"Name":"amos_demo_name"
+				},
+				{
+					"Name":"workflow_name"
+				}
+			]
+		},
+		"Column":[
+			{
+				"Name":"Column1"
+			},
+			{
+				"Name":"Column2"
+			},
+			{
+				"Name":"Column3"
+			}
+		],
+		"ColumnContent":{
+			"Height":0.608542,
+			"ColumnContentCell":[
+				{
+					"Column":"Column1",
+					"DataField":"amos_demo_id"
+				},
+				{
+					"Column":"Column2",
+					"DataField":"amos_demo_name"
+				},
+				{
+					"Column":"Column3",
+					"DataField":"workflow_name"
+				}
+			]
+		},
+		"ColumnTitle":{
+			"ColumnTitleCell":[
+				{
+					"GroupTitle":false,
+					"Column":"Column1",
+					"TextAlign":"MiddleCenter",
+					"Text":"Column1"
+				},
+				{
+					"GroupTitle":false,
+					"Column":"Column2",
+					"TextAlign":"MiddleCenter",
+					"Text":"Column2"
+				},
+				{
+					"GroupTitle":false,
+					"Column":"Column3",
+					"TextAlign":"MiddleCenter",
+					"Text":"Column3"
+				}
+			]
+		}
+	}
+}]]></field>
+
+
+    </record>
+
+
+    <template id="Client_amos_demo">
+        {"Table":[
+
+        <t t-foreach="docs" t-as="o">
+			<t t-foreach="o.workflow_ids" t-as="l">
+
+					{
+					"amos_demo_id": "<t t-raw="o.id"/>",
+					"amos_demo_name": "<t t-raw="o.name"/>",
+					"workflow_name": "<t t-raw="l.name"/>",
+				   }
+					<t t-if="o_index == 0">,</t>
+
+			</t>
+        </t>
+
+        ]}
+
+
+    </template>
+
+
+
+</odoo>
+
