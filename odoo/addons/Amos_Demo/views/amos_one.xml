@@ -65,7 +65,7 @@
             </field>
         </record>
 
-        <menuitem id="menu_amos_one" action="action_amos_one" sequence="0"/>
+        <menuitem id="menu_amos_one" action="action_amos_one" parent="menu_xodoo_test1" sequence="0"/>
 
     </data>
 </odoo>

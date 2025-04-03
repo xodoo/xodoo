@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_printer_read,res_printer,model_res_printer,base.group_user,1,1,1,1
+access_res_print_data_read,res_print_data,model_res_print_data,base.group_user,1,1,1,1

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="Rubylong_res_users" model="ir.actions.report">
+        <field name="name">登陆用户</field>
+        <field name="model">res.users</field>
+        <field name="binding_model_id" ref="base.model_res_users"/>
+        <field name="report_type">qweb-grf</field>
+        <field name="report_name">xodoo_rubylong_res_users.Rubylong_report_res_users1</field>
+        <field name="print_report_name">'用户 - %s' % (object.name)</field>
+        <field name="amos_type">print</field>
+        <field name="client">net4_client</field>
+        <field name="amos_report_templates">
+            <![CDATA[
+
+{
+            "Version":"6.6.2.0",
+            "Font":{
+            "Name":"宋体",
+            "Size":105000,
+            "Weight":400,
+            "Charset":134
+            },
+            "Printer":{
+            },
+            "DetailGrid":{
+            "Recordset":{
+            "Field":[
+            {
+            "Name":"res_users_name"
+            },
+            {
+            "Name":"res_users_login"
+            },
+            {
+            "Name":"res_users_lang"
+            },
+            {
+            "Name":"res_users_email"
+            },
+            {
+            "Name":"res_users_tz"
+            }
+            ]
+            },
+            "Column":[
+            {
+            "Name":"Column1",
+            "Width":3.38667
+            },
+            {
+            "Name":"Column2",
+            "Width":3.57188
+            },
+            {
+            "Name":"Column3"
+            },
+            {
+            "Name":"Column4"
+            },
+            {
+            "Name":"Column5"
+            }
+            ],
+            "ColumnContent":{
+            "ColumnContentCell":[
+            {
+            "Column":"Column1",
+            "DataField":"res_users_name"
+            },
+            {
+            "Column":"Column2",
+            "DataField":"res_users_login"
+            },
+            {
+            "Column":"Column3",
+            "DataField":"res_users_tz"
+            },
+            {
+            "Column":"Column4",
+            "DataField":"res_users_lang"
+            },
+            {
+            "Column":"Column5",
+            "DataField":"res_users_email"
+            }
+            ]
+            },
+            "ColumnTitle":{
+            "Height":0.608542,
+            "ColumnTitleCell":[
+            {
+            "GroupTitle":false,
+            "Column":"Column1",
+            "TextAlign":"MiddleCenter",
+            "Text":"姓名"
+            },
+            {
+            "GroupTitle":false,
+            "Column":"Column2",
+            "TextAlign":"MiddleCenter",
+            "Text":"帐号"
+            },
+            {
+            "GroupTitle":false,
+            "Column":"Column3",
+            "TextAlign":"MiddleCenter",
+            "Text":"时区"
+            },
+            {
+            "GroupTitle":false,
+            "Column":"Column4",
+            "TextAlign":"MiddleCenter",
+            "Text":"语言"
+            },
+            {
+            "GroupTitle":false,
+            "Column":"Column5",
+            "TextAlign":"MiddleCenter",
+            "Text":"邮件"
+            }
+            ]
+            }
+            }
+            }
+
+]]>
+
+
+
+        </field>
+    </record>
+
+
+    <template id="Rubylong_report_res_users1">
+        {"Table":[
+        <t t-foreach="docs" t-as="a">
+            <t>
+                {"res_users_name":"<t t-raw="a.name"/>",
+                "res_users_login":"<t t-raw='a.login'/>",
+                "res_users_lang":"<t t-raw='a.lang'/>",
+                "res_users_email":"<t t-raw='a.email'/>",
+                "res_users_tz":"<t t-raw='a.tz'/>"
+                }
+                <t t-if="b_index == 0">,</t>
+            </t>
+        </t>
+        ]}
+
+    </template>
+
+</odoo>
+
+

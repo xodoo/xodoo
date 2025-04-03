@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <menuitem id="menu_xodoo_test" name="演示" sequence="1"/>
+        <menuitem id="menu_xodoo_test1" name="应用" sequence="1" parent="menu_xodoo_test"/>
+        <menuitem id="menu_xodoo_test2" name="Python包" sequence="1" parent="menu_xodoo_test"/>
+        <menuitem id="menu_xodoo_test3" name="工具" sequence="3" parent="menu_xodoo_test"/>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="odoo_res_company_form">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="priority">1</field>
+
+            <field name="arch" type="xml">
+                <form string="公司">
+                    <sheet>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <label for="rml_header1" class="oe_edit_only"/>
+                            <h3>
+                                <field name="rml_header1" placeholder="e.g. 公司口号"/>
+                            </h3>
+                        </div>
+
+                        <group string="基础参数">
+                            <field name="street" string="地址"/>
+                            <field name="phone"/>
+                            <field name="fax"/>
+                            <field name="zip" string="邮编"/>
+                            <field name="currency_id" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                        </group>
+
+                        <group>
+                            <group string="打印设置">
+                                <field name="preview"/>
+                                <field name="direct_printing"/>
+                                <field name="printername"/>
+                            </group>
+                        </group>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="odoo_res_company_tree">
+            <field name="name">res.company.tree</field>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <list string="公司" create="0">
+                    <field name="name"/>
+                    <field name="street"/>
+                    <field name="phone"/>
+                    <field name="fax"/>
+                    <field name="zip"/>
+                    <field name="currency_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="odoo_res_company_act" model="ir.actions.act_window">
+            <field name="name">公司</field>
+            <field name="res_model">res.company</field>
+            <field name="view_id" ref="odoo_res_company_tree"/>
+            <field name="limit">20</field>
+        </record>
+
+        <!--<menuitem action="odoo_res_company_act" id="menu_odoo_res_company_act" sequence="4"-->
+                  <!--parent="base.menu_users"/>-->
+
+
+    </data>
+</odoo>

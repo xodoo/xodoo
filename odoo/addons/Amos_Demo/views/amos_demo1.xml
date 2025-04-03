@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="form_amos_demo" model="ir.ui.view">
+        <record id="form_amos_demo_1" model="ir.ui.view">
             <field name="name">amos.demo.form</field>
             <field name="model">amos.demo</field>
             <field name="arch" type="xml">
@@ -9,9 +9,11 @@
                     <field name="id" invisible="1"/>
                     <header>
 
-                        <button type="object" name="toggle_active" string="归档单据" class="oe_highlight"  invisible="active == 0"/>
+                        <button type="object" name="toggle_active" string="归档单据" class="oe_highlight"
+                                invisible="active == 0"/>
                         <button type="object" name="toggle_active" string="恢复单据" invisible="active == 1"/>
 
+                        <button name='button_attachment' string='提交附件' type='object' class='oe_highlight'/>
 
 
                         <field name='state' widget='statusbar' statusbar_visible="新建,校对,审核,批准,已发布"/>
@@ -46,8 +48,8 @@
                                 <field name="line_up" options="{'horizontal': true}" widget="radio"
                                        class="xodoo_integer"/>
                                 <field name="sequence" widget="progressbar" class="xodoo_integer"/>
-                                <field name="color" options='{"type": "number", "step": 1}' />
-                                 <field name="a_note"/>
+                                <field name="color" options='{"type": "number", "step": 1}'/>
+                                <field name="a_note"/>
                             </group>
                             <group string="时间维度">
                                 <field name="year" class="xodoo_char"/>
@@ -57,34 +59,34 @@
                                 <field name="week" class="xodoo_char"/>
                                 <field name="create_date" readonly='0' class="xodoo_datetime"/>
                                 <field name="date" class="xodoo_date"/>
-                                <field name="top_time" class="xodoo_datetime" required="1" help="在XML视图上定义必填信息"/>
+                                <field name="top_time" class="xodoo_datetime" required="1"
+                                       help="在XML视图上定义必填信息"/>
                             </group>
                         </group>
 
 
                         <group col="12" string="不规则">
                             <group colspan="4">
-                                <field name="n_1"  class="xodoo_group_col"/>
+                                <field name="n_1" class="xodoo_group_col"/>
                             </group>
                             <group colspan="4">
-                                <field name="n_2"  class="xodoo_group_col"/>
+                                <field name="n_2" class="xodoo_group_col"/>
                             </group>
                             <group colspan="4">
-                                <field name="n_3"  class="xodoo_group_col"/>
+                                <field name="n_3" class="xodoo_group_col"/>
                             </group>
-                             <group colspan="4">
-                                <field name="n_4"  class="xodoo_group_col"/>
+                            <group colspan="4">
+                                <field name="n_4" class="xodoo_group_col"/>
                             </group>
-                             <group colspan="8">
-                                <field name="n_5"  class="xodoo_group_col"/>
+                            <group colspan="8">
+                                <field name="n_5" class="xodoo_group_col"/>
                             </group>
 
 
                         </group>
 
 
-
-                         <h2>船舶信息</h2>
+                        <h2>船舶信息</h2>
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
@@ -128,9 +130,9 @@
                             </group>
                         </group>
 
-                         <strong class="o_horizontal_separator o_row" colspan="2">
-                                 <span style="font-size: 18px;">小部件</span>
-                            </strong>
+                        <strong class="o_horizontal_separator o_row" colspan="2">
+                            <span style="font-size: 18px;">小部件</span>
+                        </strong>
 
 
                         <group col="12" string="四列" style="margin-top:15px;font-size: 16px;">
@@ -140,7 +142,6 @@
                                 <field name="w_boolean" widget="boolean_toggle"/>
                                 <field name="w_partner_ids" widget="many2many_tags_avatar"/>
                                 <field name="w_color1" widget="int_color"/>
-
 
 
                             </group>
@@ -164,7 +165,8 @@
                                 <field name="w_hour" widget="float_time"/>
                                 <field name="w_icon" widget="char_emojis"/>
                                 <field name="w_is_favorite" widget="boolean_favorite"/>
-                                <field name="w_user_ids" widget="many2many_avatar_user" options="{'no_quick_create': True}" placeholder="Assignees"/>
+                                <field name="w_user_ids" widget="many2many_avatar_user"
+                                       options="{'no_quick_create': True}" placeholder="Assignees"/>
 
 
                             </group>
@@ -172,19 +174,19 @@
                                 <field name="w_url" widget="url"/>
                                 <field name="w_priority" widget="priority"/>
                                 <field name="w_color" widget="color_picker"/>
-                                <field name="w_percentage" widget="percentage" />
+                                <field name="w_percentage" widget="percentage"/>
                             </group>
                         </group>
 
                         <group>
                             <group>
                                 <field name="w_note" widget="html" options="{'safe': True}"/>
-                                 <field name="id_object"  />
+                                <field name="id_object"/>
 
                             </group>
                             <group>
                                 <field name="w_demo" widget="domain"
-                                options="{'foldable': True, 'model': 'res.partner', 'in_dialog': True}"
+                                       options="{'foldable': True, 'model': 'res.partner', 'in_dialog': True}"
                                 />
                             </group>
                         </group>
@@ -203,7 +205,8 @@
                                 </field>
                             </page>
                             <page string="备注">
-                                <field name="note" widget="html" class="oe_description" default_focus="1" options="{'resizable': false, 'collaborative': true}" placeholder="备注..."/>
+                                <field name="note" widget="html" class="oe_description" default_focus="1"
+                                       options="{'resizable': false, 'collaborative': true}" placeholder="备注..."/>
                             </page>
 
                             <page string="审批记录">
@@ -220,6 +223,31 @@
 
 
                             </page>
+                            <page string="上传">
+                                <group>
+                                    <button name='button_rust_upload' string='不分类型上传' type='object'
+                                            class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='上传测试list'
+                                            context="{'mimetype':'.doc,.zip','view_mode':'list'}" type='object'
+                                            class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='上传测试form'
+                                            context="{'mimetype':'.doc,.zip','view_mode':'form'}" type='object'
+                                            class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='上传测试独立'
+                                            context="{'mimetype':'.doc,.zip','view_mode':'form','type':'indp'}"
+                                            type='object'
+                                            class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='上传图片字段'
+                                            context="{'res_field':'icon','mimetype':'.gif,.jpe,.png,.jpeg,.jpg,.svg,.webp','title':'图片上传'}"
+                                            type='object' class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='文档上传1'
+                                            context="{'res_model':'documents.document','folder_id':'1'}" type='object'
+                                            class='oe_highlight'/>
+                                    <button name='button_rust_upload' string='文档上传2'
+                                            context="{'res_model':'documents.document','folder_id':'2'}" type='object'
+                                            class='oe_highlight'/>
+                                </group>
+                            </page>
 
                         </notebook>
 
@@ -230,25 +258,26 @@
             </field>
         </record>
 
-        <record id="tree_amos_demo" model="ir.ui.view">
+        <record id="tree_amos_demo_1" model="ir.ui.view">
             <field name="name">amos.demo.list</field>
             <field name="model">amos.demo</field>
             <field name="priority">1</field>
             <field name="arch" type="xml">
                 <list string="列表" expand="true" multi_edit="1">
                     <field name="id"/>
-                    <field name="user_id"  column_invisible="True" />
+                    <field name="user_id" column_invisible="True"/>
                     <field name="name"/>
                     <field name="create_date" widget="remaining_days"/>
                     <field name="active"/>
                     <field name="state"/>
-<!--                    <groupby name="user_id">-->
-<!--                        <button name="edit" type="edit" icon="fa-edit" title="Edit"/>-->
-<!--                    </groupby>-->
+                    <!--                    <groupby name="user_id">-->
+                    <!--                        <button name="edit" type="edit" icon="fa-edit" title="Edit"/>-->
+                    <!--                    </groupby>-->
                 </list>
             </field>
         </record>
-        <record id="view_search_amos_demo" model="ir.ui.view">
+
+        <record id="view_search_amos_demo_1" model="ir.ui.view">
             <field name="name">amos.demo.search</field>
             <field name="model">amos.demo</field>
             <field name="arch" type="xml">
@@ -284,14 +313,12 @@
             </field>
         </record>
 
-        <record id="action_amos_demo" model="ir.actions.act_window">
+        <record id="action_amos_demo_1" model="ir.actions.act_window">
             <field name="name">开发教程-自定义1</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">amos.demo</field>
             <field name="view_mode">list,form</field>
-<!--                        <field name="context">{ 'group_by': ['user_id'] }</field>-->
-
-            <field name="search_view_id" ref="view_search_amos_demo"/>
+            <field name="search_view_id" ref="view_search_amos_demo_1"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     创建单据.
@@ -301,23 +328,23 @@
             </field>
         </record>
 
-        <menuitem id="menu_amos_demo" action="action_amos_demo"
-                  web_icon="Amos_Demo,static/description/icon.png" sequence="1"/>
+        <menuitem id="menu_amos_demo_1" action="action_amos_demo_1"
+                  parent="menu_xodoo_test1"
+                  sequence="1"/>
 
 
-
-        <record id="action_amos_demo_view1" model="ir.actions.act_window.view">
+        <record id="action_amos_view1_demo_1" model="ir.actions.act_window.view">
             <field eval="10" name="sequence"/>
             <field name="view_mode">list</field>
-            <field name="view_id" ref="tree_amos_demo"/>
-            <field name="act_window_id" ref="action_amos_demo"/>
+            <field name="view_id" ref="tree_amos_demo_1"/>
+            <field name="act_window_id" ref="action_amos_demo_1"/>
         </record>
 
-        <record id="action_amos_demo_view2" model="ir.actions.act_window.view">
+        <record id="action_amos_view2_demo_1" model="ir.actions.act_window.view">
             <field eval="20" name="sequence"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="form_amos_demo"/>
-            <field name="act_window_id" ref="action_amos_demo"/>
+            <field name="view_id" ref="form_amos_demo_1"/>
+            <field name="act_window_id" ref="action_amos_demo_1"/>
         </record>
 
 

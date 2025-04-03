@@ -1243,8 +1243,167 @@ export function makeActionManager(env, router = _router) {
     // ---------------------------------------------------------------------------
     // ir.actions.report
     // ---------------------------------------------------------------------------
+    function _getReportUrl(action, type) {
+        let url = `/report/${type}/${action.report_name}`;
+        const actionContext = action.context || {};
+        if (action.data && JSON.stringify(action.data) !== "{}") {
+            // build a query string with `action.data` (it's the place where reports
+            // using a wizard to customize the output traditionally put their options)
+            const options = encodeURIComponent(JSON.stringify(action.data));
+            const context = encodeURIComponent(JSON.stringify(actionContext));
+            url += `?options=${options}&context=${context}`;
+        } else {
+            if (actionContext.active_ids) {
+                url += `/${actionContext.active_ids.join(",")}`;
+            }
+            if (type === "html") {
+                const context = encodeURIComponent(JSON.stringify(action.context));
+                url += `?context=${context}`;
+            }
+        }
+        return url;
+    }
 
     function _executeReportClientAction(action, options) {
+        /**
+         * Amos TODO
+         * 添加打印
+         */
+        var report_url = _getReportUrl(action, "html")
+        //判断用户使用的是否自己开发的IDE 如果是就执行自己的打印系统
+        var browser_ie = "";
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        // "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:85.0) Gecko/20100101 Firefox/85.0"
+        if (userAgent.indexOf("AppleWebKit") > -1 && userAgent.indexOf("Chrome/80.0.3987.122") > -1) {
+            // if (userAgent.indexOf("AppleWebKit") > -1) {
+            var browser_ie = "mybrowser";
+        }
+        ///判断是否IE浏览器
+        try {
+            if (browser_ie === 'mybrowser') {
+                (async function () {
+
+                    await CefSharp.BindObjectAsync("boundAsync", "bound");
+                })();
+
+                (async () => {
+                    await CefSharp.BindObjectAsync("boundAsync", "bound");
+                })();
+
+            } else {
+
+            }
+        } catch (err) {
+            //在此处理错误
+        }
+        if (action.report_type === 'qweb-grf') {
+            // 第一步 打印服务器客户端地址 取当前系统地址
+            // var web_base_url = session['web.base.url'];
+            // var trusted_host = utils.get_host_from_url(web_base_url);
+            // var trusted_protocol = utils.get_protocol_from_url(web_base_url);
+            // self.trusted_origin = utils.build_origin(trusted_protocol, trusted_host);
+            // 第二步 报表提取地址 url 并请求数据
+            // var data_url = self.trusted_origin + urls.html
+            var this_data_url = report_url
+            // var ajax = require('web.ajax');
+            //数据库再取一次 未来可以直接生成单文件的数据不再查库
+            rpc('/xodoo/print', {
+                model: 'ir.actions.report',
+                report_id: action.id,
+                report_data: this_data_url,
+                context: action.context,
+                args: [],
+                kwargs: {},
+            }, {shadow: true})
+                .then(function (result) {
+                    var data = JSON.parse(result)
+                    if (data.client === 'rubylong') {
+                        var args = {
+                            report: self.trusted_origin + "/rubylong/report/" + action.report_name,
+                            data: this_data_url,
+                        };
+                        if (data.amos_type === 'print') {
+                            args["type"] = data.amos_type;
+                        }
+                        if (data.amos_type === 'xls') {
+                            args["type"] = data.amos_type;
+                        }
+                        webapp_urlprotocol_run(args);
+                    } else if (data.client === 'browser') {
+
+                        try {
+                            AsyncTest.do(self.trusted_origin + "/rubylong/report/" + action.report_name, data.amos_report_templates);
+                        } catch (err) {
+                            //在此处理错误
+                        }
+                    } else if (data.client === 'net4_client') {
+                        //取用户是否使用自定义打印接口
+                        var url = data.print_url;
+                        window.url = url;
+                        // 执行自己的打印系统
+                        if (browser_ie === 'mybrowser') {
+                            try {
+                                boundAsync.do(data.report_name, action.id, action.model, data.amos_type, data.report_data, data.amos_report_templates, this_data_url);
+                                return;
+                            } catch (err) {
+                                //在此处理错误
+                            }
+                        }
+                        //判断用户返回的类型，如果不是打印 就要返回对应的数据 返回二进制转码还是？
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                name: data.name,
+                                data_url: data.data_url,
+                                data_url_params: data.data_url_params,
+                                print_report_name: data.report_name,
+                                report_id: action.id,
+                                model: data.model,
+                                is_network_printing: data.is_network_printing, //是否网络打印
+                                file_name: data.file_name, //输出的文件格式
+                                report_type: data.amos_type,
+                                report_data: data.report_data,
+                                amos_report_templates: data.amos_report_templates
+                            },
+                            //返回数据的格式
+                            datatype: "html",//"xml", "html", "script", "json", "jsonp", "text".
+                            //在请求之前调用的函数
+                            beforeSend: function () {
+                                // $("#msg").html("logining");
+                            },
+                            //成功返回之后调用的函数
+                            success: function (data) {
+                                 var title = "success";
+                                 if (data.title == "失败")
+                                 {
+                                     title = "warning";
+                                 }
+
+                                env.services.notification.add(data.message + data.date, {
+                                    sticky: false,
+                                    type: title, //# 背景颜色  bg-success   bg-warning  bg-info
+                                });
+
+                                 if (data.url != "") {
+                                     browser.open(data.url, "_blank");
+                                 }
+                            },
+                            //调用执行后调用的函数
+                            complete: function (XMLHttpRequest, textStatus) {
+                                // alert(textStatus);
+                                //HideLoading();
+                            },
+                            //调用出错执行的函数
+                            error: function () {
+                                //请求出错处理
+                            }
+                        });
+                    }
+                });
+            return ''
+        }
+
         const props = Object.assign({}, options.props, {
             data: action.data,
             display_name: action.display_name,
@@ -1281,6 +1440,8 @@ export function makeActionManager(env, router = _router) {
             }
         }
         if (action.report_type === "qweb-html") {
+            return _executeReportClientAction(action, options);
+        }else if (action.report_type === "qweb-grf") {
             return _executeReportClientAction(action, options);
         } else if (action.report_type === "qweb-pdf" || action.report_type === "qweb-text") {
             const type = action.report_type.slice(5);

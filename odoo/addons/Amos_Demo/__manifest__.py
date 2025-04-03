@@ -23,9 +23,10 @@
         'data/amos_demo_tag_data.xml',
         'security/ir.model.access.csv',
         # 'data/amos_demo_data.xml',
+        'views/menuitem.xml',
         'views/amos_demo1.xml',
-        'views/amos_demo2.xml',
-        'views/amos_demo3.xml',
+        # 'views/amos_demo2.xml',
+        # 'views/amos_demo3.xml',
         # 'report/report.xml',
         'views/amos_one.xml',
 

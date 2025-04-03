@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoo_form_res_printer_view" model="ir.ui.view">
+            <field name="name">res.printer.form</field>
+            <field name="model">res.printer</field>
+            <field name="arch" type="xml">
+                <form string="表单">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="print_url" required='1'/>
+
+                            </group>
+                            <group>
+                                <field name="user_id" required='1'
+                                       options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="printer_type" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="odoo_tree_res_printer_view" model="ir.ui.view">
+            <field name="name">res.printer.tree</field>
+            <field name="model">res.printer</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="列表">
+                    <field name="name"/>
+                    <field name="print_url"/>
+                    <field name="user_id"/>
+                    <field name="printer_type"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="odoo_action_res_printer_view" model="ir.actions.act_window">
+            <field name="name">网络打印机</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.printer</field>
+            <field name="view_mode">list,form</field>
+            <field name="limit">20</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建单据.
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="odoo_action_res_printer_view" id="menu_res_printer_view"
+                  parent="base.menu_users" sequence="30"
+                  groups="base.group_no_one" />
+
+    </data>
+</odoo>

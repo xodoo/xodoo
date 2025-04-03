@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="amos_rubylong_category" model="ir.module.category">
+            <field name="name">锐浪报表</field>
+            <field name="sequence">150</field>
+            <field name="visible" eval="0"/>
+        </record>
+
+        <record id="amos_qweb_category" model="ir.module.category">
+            <field name="name">Qweb</field>
+            <field name="sequence">0</field>
+            <field name="visible" eval="0"/>
+        </record>
+
+         <record id="amos_html5_category" model="ir.module.category">
+            <field name="name">Html5</field>
+            <field name="sequence">0</field>
+            <field name="visible" eval="0"/>
+        </record>
+
+         <record id="amos_client_category" model="ir.module.category">
+            <field name="name">客户端打印</field>
+            <field name="sequence">99</field>
+            <field name="visible" eval="0"/>
+        </record>
+
+
+
+    </data>
+</odoo>

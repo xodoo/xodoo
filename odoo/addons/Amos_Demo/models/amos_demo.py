@@ -266,6 +266,230 @@ class amos_demo(models.Model):  # 一般与 _name 同名 点换成下划线
             'url': url,
         }
 
+    def button_attachment(self):
+        """
+        上传附件与图片
+        :return:
+        """
+
+        url = '/web/login'
+        open = {}
+        open['type'] = 2  # 可缺省 默认值为2  基本层类型：0（信息框，默认）1（页面层）2（iframe层，也就是解析content）3（加载层）4（tips层）
+        open['title'] = "登陆"  # 可缺省 默认值为 空 窗口标题
+        open['area'] = ['1000px', '680px']  # 窗口大小
+        open['btn'] = ['确认']  # 可缺省 按钮：按钮1的回调是yes（也可以是btn1），而从按钮2开始，则回调为btn2: function(){}，以此类推
+
+        return {
+            'name': '登陆',
+            'type': "ir.actions.act_url",
+            'url': url,
+            'target': 'open_iframe',
+            'open': open,
+        }
+
+        context = dict(self._context or {})
+
+        client_action = {'type': 'ir.actions.act_url',
+                         'name': "可视化部局设计器",
+                         'target': 'new',
+                         'url': '/layout/%s/%s' % (context.get('type'), self.id),
+                         }
+        return client_action
+
+    def button_rust_upload(self):
+        #::::判断并生成相关的xodoo_token
+        from dateutil.relativedelta import relativedelta
+        import random
+        # params = eval(self.env['ir.config_parameter'].sudo().get_param('go_upload', 'False'))
+        local_upload_go = "http://%s/saas/ir_attachment/index" % odoo.tools.config.get('local_upload_rust','127.0.0.1:8010')
+
+        context = dict(self._context or {})
+
+        xodoo_token = self.env['xodoo.token'].sudo().search(
+            [('user_id', '=', context.get('uid')), ('name', '=', 'Rust_Upload')], order="id desc", limit=1)
+        if not xodoo_token:
+
+            def _create_uuid():  # 生成唯一的图片的名称字符串，防止图片显示时的重名问题
+                nowTime = datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
+                randomNum = random.randint(0, 100)  # 生成的随机整数n，其中0<=n<=100
+                if randomNum <= 10:
+                    randomNum = str(0) + str(randomNum)
+                uniqueNum = str(nowTime) + str(randomNum)
+                return uniqueNum
+
+            appid = _create_uuid()
+            secret = uuid.uuid4().hex
+
+            access_token = self.token(self.env.user.login, appid, secret)
+            values = {
+                "name": 'Rust_Upload',
+                'user_id': context.get('uid'),
+                'appid': appid,
+                'secret': secret,
+                'access_token': access_token,
+                'token_date': fields.Datetime.now() + relativedelta(hours=+2),
+                'date_start': fields.Date.today(),
+                'date_end': fields.Date.today() + relativedelta(years=3),
+            }
+            self.env['xodoo.token'].sudo().create(values)
+        else:
+            if xodoo_token.token_date < fields.Datetime.now():
+                access_token = self.token(self.env.user.login, xodoo_token.appid, xodoo_token.secret)
+                values = {
+                    'access_token': access_token,
+                    'token_date': fields.Datetime.now() + relativedelta(hours=+10),
+                }
+                xodoo_token.sudo().write(values)
+            else:
+                access_token = xodoo_token.access_token
+
+
+        res_model = context.get('res_model', self._name)
+        mimetype = context.get('mimetype', '*')
+        res_id = context.get('res_id', self.id)
+        res_field = context.get('res_field', '')
+        company_id = context.get('company_id', 1)
+        create_uid = context.get('uid')
+        write_uid = context.get('uid')
+        title = context.get('title','文件上传')
+        view_mode = context.get('view_mode','form')
+        type = context.get('type','intg')
+        import urllib.parse
+        name = urllib.parse.quote('file')
+        print(context)
+        params_dict = {
+            'res_model': res_model,
+            'res_id': res_id,
+            'res_field': res_field,
+            'company_id': company_id,
+            'create_uid': create_uid,
+            'write_uid': write_uid,
+            'mimetype': mimetype,
+            'view_mode': view_mode,
+            'access_token': access_token,
+            'db_name': self.pool.db_name,
+            'name': urllib.parse.quote('file'),
+            'title': title,
+            'offset': 0,
+            'limit': 10,
+        }
+
+        if res_model == 'documents.document':
+            params_dict['res_id'] = context.get('res_id', '')
+            params_dict['folder_id'] = context.get('folder_id', 1)
+            params_dict['preview'] = 1
+
+        url = f"{local_upload_go}?{urllib.parse.urlencode(params_dict)}"
+
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+        }
+
+    def button_rust_image(self):
+        #::::判断并生成相关的xodoo_token
+        from dateutil.relativedelta import relativedelta
+        import random
+        # params = eval(self.env['ir.config_parameter'].sudo().get_param('go_upload', 'False'))
+        local_upload_go = "http://%s/index" % odoo.tools.config.get('local_upload_rust','127.0.0.1:9097')
+
+        context = dict(self._context or {})
+
+        xodoo_token = self.env['xodoo.token'].sudo().search(
+            [('user_id', '=', context.get('uid')), ('name', '=', 'Rust_Upload')], order="id desc", limit=1)
+        if not xodoo_token:
+
+            def _create_uuid():  # 生成唯一的图片的名称字符串，防止图片显示时的重名问题
+                nowTime = datetime.now().strftime("%Y%m%d%H%M%S");  # 生成当前时间
+                randomNum = random.randint(0, 100);  # 生成的随机整数n，其中0<=n<=100
+                if randomNum <= 10:
+                    randomNum = str(0) + str(randomNum);
+                uniqueNum = str(nowTime) + str(randomNum);
+                return uniqueNum
+
+            appid = _create_uuid()
+            secret = uuid.uuid4().hex
+
+            access_token = self.token(self.env.user.login, appid, secret)
+            values = {
+                "name": 'Rust_Upload',
+                'user_id': context.get('uid'),
+                'appid': appid,
+                'secret': secret,
+                'access_token': access_token,
+                'token_date': fields.Datetime.now() + relativedelta(hours=+2),
+                'date_start': fields.Date.today(),
+                'date_end': fields.Date.today() + relativedelta(years=3),
+            }
+            self.env['xodoo.token'].sudo().create(values)
+        else:
+            if xodoo_token.token_date < fields.Datetime.now():
+                access_token = self.token(self.env.user.login, xodoo_token.appid, xodoo_token.secret)
+                values = {
+                    'access_token': access_token,
+                    'token_date': fields.Datetime.now() + relativedelta(hours=+10),
+                }
+                xodoo_token.sudo().write(values)
+            else:
+                access_token = xodoo_token.access_token
+
+
+        res_model = context.get('res_model', self._name)
+        res_id = context.get('res_id', self.id)
+        res_field = context.get('res_field', '')
+        company_id = context.get('company_id', 1)
+        create_uid = context.get('uid')
+        write_uid = context.get('uid')
+        import urllib.parse
+
+        name = urllib.parse.quote('file')
+        # url = '%s?res_model=%s&res_id=%s&res_field=%s&company_id=%s&create_uid=%s&write_uid=%s&access_token=%s&name=%s&mimetype=.doc,.zip,.png&offset=10' % (params.get('url'),res_model,res_id,res_field,company_id,create_uid,write_uid,access_token,'上传文件')
+
+        # url = '%s?res_model=%s&res_id=%s&res_field=%s&company_id=%s&create_uid=%s&write_uid=%s&access_token=%s&name=%s&offset=10' % (params.get('url'),res_model,res_id,res_field,company_id,create_uid,write_uid,access_token,'上传文件')
+        print(context)
+        folder_id = context.get('folder_id', 1)
+        if res_model == 'documents.document':
+            res_id = context.get('res_id', '')
+            url = '%s?res_model=%s&res_id=%s&res_field=%s&company_id=%s&create_uid=%s&write_uid=%s&access_token=%s&name=%s&offset=10&folder_id=%s&preview=1' % (
+            local_upload_go, res_model, res_id, res_field, company_id, create_uid, write_uid, access_token, name,
+            folder_id)
+        else:
+            url = '%s?res_model=%s&res_id=%s&res_field=%s&company_id=%s&create_uid=%s&write_uid=%s&access_token=%s&name=%s&offset=10' % (
+                local_upload_go, res_model, res_id, res_field, company_id, create_uid, write_uid, access_token, name)
+
+
+
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+        }
+
+
+    def token(self, login, appid, secret):
+        """
+        token加密
+        :param login:
+        :param appid:
+        :param secret:
+        :return:
+        """
+        import hashlib
+        API_SECRET = "xodoo"  # 从接口对接负责人处拿到
+        # login = "xxxx"  # GET传递的项目编码，用户登陆帐号
+        # appid = "xxxx"  # GET传递的登录帐号，凭证
+        # time_stamp = str(t_stamp())  # int型的时间戳必须转化为str型，否则运行时会报错
+        today = fields.Date.today()
+        hl = hashlib.md5()  # 创建md5对象，由于MD5模块在python3中被移除，在python3中使用hashlib模块进行md5操作
+        strs = login + appid + secret + str(today) + API_SECRET  # 根据token加密规则，生成待加密信息
+        hl.update(
+            strs.encode("utf8"))  # 此处必须声明encode， 若为hl.update(str)  报错为： Unicode-objects must be encoded before hashing
+        token = hl.hexdigest()  # 获取十六进制数据字符串值
+        # print('MD5加密前为 ：', strs)
+        # print('MD5加密后为 ：', token)
+        return token
+
+
+
 
 class amos_demo_line(models.Model):
     _name = "amos.demo.line"

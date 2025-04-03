@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ir_actions_report_form_rubylong_inherit">
+            <field name="name">ir.actions.report.form.inherit</field>
+            <field name="model">ir.actions.report</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[@name='button_box']" position="inside">
+
+                    <button name="download_template" string="保存模板" type="object"
+                            icon="fa-code" class="oe_stat_button"/>
+
+                </xpath>
+
+                <xpath expr="//field[@name='report_type']" position="after">
+                    <field name="amos_type"/>
+                    <field name="client"/>
+                    <field name="attachment_id"/>
+                    <field name="data_url"/>
+                    <field name="data_url_params"/>
+                </xpath>
+
+                <xpath expr="//page[@name='security']" position="before">
+                    <page string="报表模板代码">
+                        <field name="amos_report_templates"/>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

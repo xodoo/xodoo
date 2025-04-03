@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="xodoo_ir_model_form_inherit">
+            <field name="name">ir.model.form.inherit</field>
+            <field name="model">ir.model</field>
+            <field name="inherit_id" ref="base.view_model_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='modules']" position="after">
+                    <field name="is_designer"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
